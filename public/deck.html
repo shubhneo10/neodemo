@@ -7,8 +7,6 @@
 <body>
 <x-dc>
 <helmet>
-<meta name="ext-resource-dependency" content="assets/logo-light-text.png" data-resource-id="logoLight">
-<meta name="ext-resource-dependency" content="assets/logo-dark-text.png" data-resource-id="logoDark">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -32,12 +30,10 @@
   @keyframes nsSpark { 0%,100%{opacity:.72;text-shadow:0 0 0 rgba(124,58,237,0)} 50%{opacity:1;text-shadow:0 0 26px currentColor} }
   @keyframes nsRing { 0%,100%{box-shadow:0 0 0 0 rgba(240,171,252,.35)} 50%{box-shadow:0 0 0 12px rgba(240,171,252,0)} }
   @keyframes nsWeaveFlow { from { stroke-dashoffset:236 } to { stroke-dashoffset:0 } }
-  @keyframes nsVoiceRing { 0%{transform:scale(.9);opacity:.85} 100%{transform:scale(1.5);opacity:0} }
   @keyframes nsFaceIn { from{opacity:.2;transform:perspective(1600px) rotateY(-82deg) scale(.94)} 60%{opacity:1} to{opacity:1;transform:perspective(1600px) rotateY(0) scale(1)} }
   @keyframes nsFaceOut { from{opacity:1;transform:perspective(1600px) rotateY(0) scale(1)} to{opacity:.15;transform:perspective(1600px) rotateY(82deg) scale(.94)} }
   @keyframes nsSlowSpin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
   @keyframes nsDraw { from{stroke-dashoffset:900} to{stroke-dashoffset:0} }
-  @keyframes nsVoiceGlow { 0%,100%{box-shadow:0 0 0 0 rgba(240,171,252,.45)} 50%{box-shadow:0 0 26px 6px rgba(192,38,211,.55)} }
   </style>
   
   
@@ -48,16 +44,6 @@
   @keyframes nsStreak { 0%{transform:scaleX(0);opacity:0} 30%{transform:scaleX(1);opacity:.9} 100%{transform:scaleX(1);opacity:0} }
   @keyframes nsGapPulse { 0%,100%{opacity:.55} 50%{opacity:1} }
 </style>
-<template id="__bundler_thumbnail" data-bg-color="#0A0520">
-  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
-    <rect width="1200" height="800" fill="#0A0520"/>
-    <circle cx="600" cy="360" r="150" fill="none" stroke="#A855F7" stroke-width="14"/>
-    <ellipse cx="600" cy="360" rx="230" ry="96" fill="none" stroke="#C4B5FD" stroke-width="10" opacity="0.7"/>
-    <ellipse cx="600" cy="360" rx="230" ry="96" fill="none" stroke="#7C3AED" stroke-width="10" opacity="0.7" transform="rotate(60 600 360)"/>
-    <circle cx="600" cy="360" r="54" fill="#A855F7"/>
-    <text x="600" y="620" fill="#F5F3FF" font-family="Poppins,sans-serif" font-weight="700" font-size="72" text-anchor="middle">NEOSAPIENTS</text>
-  </svg>
-</template>
 </helmet>
 
 <div data-pres="1" ref="{{ rootRef }}" style="font-family:'IBM Plex Sans',system-ui,sans-serif;background:#0A0520;">
@@ -75,9 +61,7 @@
         </div>
         <h1 data-r="1" style="opacity:0;transform:translateY(20px);font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(46px,6.6vw,104px);line-height:.98;letter-spacing:-.035em;margin:0;color:#fff;">Enterprise<br>Cognition<br><span style="background:linear-gradient(100deg,#A78BFA,#C026D3,#A78BFA);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:nsFlow 6s linear infinite;">Platform</span></h1>
         <div data-r="1" style="opacity:0;transform:translateY(20px);margin-top:44px;display:flex;align-items:center;gap:22px;font-family:'IBM Plex Mono',monospace;font-size:clamp(16px,1.1vw,20px);letter-spacing:.18em;text-transform:uppercase;color:#BAB2D8;">
-          <span>14 August 2026</span>
-          <span style="width:1px;height:16px;background:rgba(196,181,253,.3);"></span>
-          <span>Prepared for American Express</span>
+          <span>August 2026</span>
         </div>
         <div data-r="1" style="opacity:0;transform:translateY(20px);margin-top:64px;display:flex;align-items:center;gap:12px;font-family:'IBM Plex Mono',monospace;font-size:clamp(15px,1.05vw,19px);letter-spacing:.22em;text-transform:uppercase;color:#C8C1E2;">
           <span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#C026D3;animation:nsPulse 2.4s ease-in-out infinite;"></span>
@@ -134,17 +118,9 @@
           <span style="font-family:'IBM Plex Mono',monospace;font-size:clamp(16px,1.05vw,20px);color:#C026D3;letter-spacing:.1em;min-width:3ch;">02</span>
           <span style="font-family:Poppins,sans-serif;font-weight:600;font-size:clamp(22px,2.3vw,38px);color:#fff;letter-spacing:-.02em;">Why NeoSapients</span>
         </div>
-        <div data-r="1" data-idx="3" data-gap="190" style="opacity:0;transform:translateY(20px);display:flex;align-items:baseline;gap:clamp(20px,3vw,54px);padding:clamp(16px,1.9vh,26px) 0;border-top:1px solid rgba(196,181,253,.16);">
+        <div data-r="1" data-idx="3" data-gap="190" style="opacity:0;transform:translateY(20px);display:flex;align-items:baseline;gap:clamp(20px,3vw,54px);padding:clamp(16px,1.9vh,26px) 0;border-top:1px solid rgba(196,181,253,.16);border-bottom:1px solid rgba(196,181,253,.16);">
           <span style="font-family:'IBM Plex Mono',monospace;font-size:clamp(16px,1.05vw,20px);color:#0891B2;letter-spacing:.1em;min-width:3ch;">03</span>
           <span style="font-family:Poppins,sans-serif;font-weight:600;font-size:clamp(22px,2.3vw,38px);color:#fff;letter-spacing:-.02em;">NeoSapients Deep Dive: Platform &amp; Live Demo</span>
-        </div>
-        <div data-r="1" data-idx="4" data-gap="190" style="opacity:0;transform:translateY(20px);display:flex;align-items:baseline;gap:clamp(20px,3vw,54px);padding:clamp(16px,1.9vh,26px) 0;border-top:1px solid rgba(196,181,253,.16);">
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:clamp(16px,1.05vw,20px);color:#A78BFA;letter-spacing:.1em;min-width:3ch;">04</span>
-          <span style="font-family:Poppins,sans-serif;font-weight:600;font-size:clamp(22px,2.3vw,38px);color:#fff;letter-spacing:-.02em;">Enterprise Ecosystem Fit</span>
-        </div>
-        <div data-r="1" data-idx="5" data-gap="190" style="opacity:0;transform:translateY(20px);display:flex;align-items:baseline;gap:clamp(20px,3vw,54px);padding:clamp(16px,1.9vh,26px) 0;border-top:1px solid rgba(196,181,253,.16);border-bottom:1px solid rgba(196,181,253,.16);">
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:clamp(16px,1.05vw,20px);color:#C026D3;letter-spacing:.1em;min-width:3ch;">05</span>
-          <span style="font-family:Poppins,sans-serif;font-weight:600;font-size:clamp(22px,2.3vw,38px);color:#fff;letter-spacing:-.02em;">Q&amp;A, Next Steps</span>
         </div>
       </div>
     </section>
@@ -648,102 +624,7 @@
       <div data-goto="15" role="button" tabindex="0" title="Back to demo overview" style="align-self:flex-start;margin-top:clamp(16px,2.2vh,28px);display:inline-flex;align-items:center;gap:9px;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:clamp(14px,1vw,18px);letter-spacing:.14em;text-transform:uppercase;color:#C4B5FD;border:1px solid rgba(196,181,253,.28);border-radius:999px;padding:9px 17px;">‹ Back to demo overview</div>
     </section>
 
-    <section data-screen-label="19 Divider 04" data-theme="dark" style="min-height:100vh;box-sizing:border-box;scroll-snap-align:start;position:relative;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding:clamp(34px,4.8vh,78px) clamp(40px,6vw,120px);background:radial-gradient(1100px 760px at 12% 80%, rgba(192,38,211,.32), transparent 62%), radial-gradient(900px 700px at 80% 10%, rgba(109,40,217,.42), transparent 62%), #0A0520;color:#EDEAF7;">
-      <div data-anim="bigdrift" style="position:absolute;left:-2vw;top:50%;transform:translateY(-50%);font-family:Poppins,sans-serif;font-weight:700;font-size:min(46vh,34vw);line-height:.8;color:rgba(124,58,237,.22);letter-spacing:-.05em;pointer-events:none;">04</div>
-      <div style="position:relative;">
-        <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;align-items:center;gap:14px;margin-bottom:22px;">
-          <span style="display:block;width:46px;height:3px;background:#C026D3;"></span>
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:clamp(15px,1.1vw,20px);letter-spacing:.28em;text-transform:uppercase;color:#C4B5FD;">Where we fit</span>
-        </div>
-        <h2 data-r="1" style="opacity:0;transform:translateY(20px);font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(42px,6vw,92px);line-height:1;letter-spacing:-.035em;margin:0;color:#fff;">Enterprise Ecosystem Fit</h2>
-        <p data-r="1" style="opacity:0;transform:translateY(20px);font-family:Poppins,sans-serif;font-weight:400;font-size:clamp(18px,1.9vw,32px);line-height:1.3;color:#C8C1E2;margin:20px 0 0;max-width:34ch;">A future where enterprise AI is both trustworthy and accountable</p>
-      </div>
-    </section>
-
-    <section data-screen-label="20 Offering Comparison" data-theme="light" data-manual="1" style="min-height:100vh;box-sizing:border-box;scroll-snap-align:start;position:relative;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding:clamp(22px,3vh,46px) clamp(26px,3.4vw,66px);background:#F5F3FA;color:#2A2350;">
-      <div data-r="1" style="opacity:0;transform:translateY(20px);font-family:'IBM Plex Mono',monospace;font-size:clamp(15px,1.1vw,20px);letter-spacing:.28em;text-transform:uppercase;color:#3D1B85;margin-bottom:12px;">How the Solutions Complement</div>
-      <h2 data-r="1" style="opacity:0;transform:translateY(20px);font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(26px,3vw,46px);line-height:1.06;letter-spacing:-.028em;margin:0 0 clamp(14px,2vh,26px);color:#240453;">NeoSapients + Conversational AI — The Complete Stack</h2>
-
-      <div style="display:grid;grid-template-columns:1fr auto 1.25fr;gap:clamp(14px,1.9vw,32px);align-items:stretch;flex:1;">
-        <div data-r="1" data-step="1" style="opacity:0;transform:translateY(20px);background:#fff;border:1px solid #E6E2F2;border-radius:20px;padding:clamp(22px,2.2vw,36px);">
-          <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(17px,1.45vw,25px);letter-spacing:.12em;text-transform:uppercase;color:#1E2761;padding-bottom:12px;border-bottom:1px solid #EDE9F7;margin-bottom:16px;">Conversational AI</div>
-          <div style="display:flex;flex-direction:column;gap:clamp(10px,1.4vh,16px);font-size:clamp(18px,1.25vw,25px);line-height:1.5;color:#4A4368;">
-            <div style="display:flex;gap:11px;"><span style="width:6px;height:6px;border-radius:50%;background:#9A93B8;flex:none;margin-top:8px;"></span><span>AI customer experience / concierge</span></div>
-            <div style="display:flex;gap:11px;"><span style="width:6px;height:6px;border-radius:50%;background:#9A93B8;flex:none;margin-top:8px;"></span><span>Omnichannel Agents: voice, chat, email, SMS</span></div>
-            <div style="display:flex;gap:11px;"><span style="width:6px;height:6px;border-radius:50%;background:#9A93B8;flex:none;margin-top:8px;"></span><span>MCP/A2A — Multi-agent system</span></div>
-            <div style="display:flex;gap:11px;"><span style="width:6px;height:6px;border-radius:50%;background:#9A93B8;flex:none;margin-top:8px;"></span><span>Focus: conversation layer &amp; CX</span></div>
-          </div>
-        </div>
-
-        <div data-r="1" data-step="2" style="opacity:0;transform:translateY(20px);display:flex;align-items:center;justify-content:center;font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(22px,2.2vw,36px);color:#C026D3;">+</div>
-
-        <div data-r="1" data-step="2" style="opacity:0;transform:translateY(20px);background:linear-gradient(165deg,#2B1065,#4C1D95);border-radius:20px;padding:clamp(22px,2.2vw,36px);color:#EDEAF7;box-shadow:0 40px 80px -40px rgba(76,29,149,.7);">
-          <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(17px,1.45vw,25px);letter-spacing:.12em;text-transform:uppercase;color:#fff;padding-bottom:12px;border-bottom:1px solid rgba(196,181,253,.28);margin-bottom:16px;">NeoSapients</div>
-          <div style="display:flex;flex-direction:column;gap:clamp(10px,1.4vh,16px);font-size:clamp(18px,1.25vw,25px);line-height:1.5;color:#E4DFF6;">
-            <div style="display:flex;gap:11px;"><span style="width:6px;height:6px;border-radius:50%;background:#C4B5FD;flex:none;margin-top:8px;"></span><span>Enterprise Cognition Platform — A trust boundary for your enterprise</span></div>
-            <div style="display:flex;gap:11px;"><span style="width:6px;height:6px;border-radius:50%;background:#C4B5FD;flex:none;margin-top:8px;"></span><span>Knowledge Mesh — Shared Context and Institutional Memory. Hierarchical Knowledge graph.</span></div>
-            <div style="display:flex;gap:11px;"><span style="width:6px;height:6px;border-radius:50%;background:#C4B5FD;flex:none;margin-top:8px;"></span><span>Integrates Workflows, Skills, Tools, and structured and Unstructured data</span></div>
-            <div style="display:flex;gap:11px;"><span style="width:6px;height:6px;border-radius:50%;background:#C4B5FD;flex:none;margin-top:8px;"></span><span>Cortex Engine — Multi-step decision intelligence, compounds learning over time</span></div>
-            <div style="display:flex;gap:11px;"><span style="width:6px;height:6px;border-radius:50%;background:#C4B5FD;flex:none;margin-top:8px;"></span><span>Outcome Ledger — HITL, policy &amp; regulatory adherence, Evidence and Lineage</span></div>
-            <div style="display:flex;gap:11px;"><span style="width:6px;height:6px;border-radius:50%;background:#C4B5FD;flex:none;margin-top:8px;"></span><span>Evaluations — Offline and online evals with ablation testing, gating every release and run</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div data-r="1" data-step="3" style="opacity:0;transform:translateY(20px);margin-top:clamp(10px,1.4vh,18px);position:relative;border:3px solid transparent;background:linear-gradient(150deg,#2B1065,#4C1D95) padding-box, linear-gradient(90deg,#7C3AED,#C026D3,#22D3EE,#7C3AED) border-box;background-size:auto, 200% auto;animation:nsFlow 5s linear infinite;border-radius:20px;padding:clamp(12px,1.35vw,21px);box-shadow:0 40px 90px -40px rgba(76,29,149,.85);">
-        <div style="display:flex;align-items:center;gap:14px;margin-bottom:clamp(12px,1.6vh,18px);">
-          <span style="display:flex;align-items:center;justify-content:center;width:clamp(24px,1.9vw,32px);height:clamp(24px,1.9vw,32px);border-radius:50%;border:2px solid #F0ABFC;color:#F0ABFC;font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(15px,1.15vw,20px);line-height:1;flex:none;">+</span>
-          <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(17px,1.55vw,27px);letter-spacing:.14em;text-transform:uppercase;color:#fff;">Compounded Outcomes</div>
-        </div>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.4vw,22px);">
-          <div style="background:rgba(10,5,32,.5);border:1px solid rgba(167,139,250,.4);border-top:3px solid #A78BFA;border-radius:14px;padding:clamp(14px,1.4vw,22px);">
-            <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(17px,1.35vw,24px);line-height:1.2;color:#fff;margin-bottom:8px;">Expansion to High-stakes use cases</div>
-            <div style="font-size:clamp(17px,1.15vw,22px);line-height:1.45;color:#E2DCF4;">Fraud disputes, credit changes and account restrictions, etc.</div>
-          </div>
-          <div style="background:rgba(10,5,32,.5);border:1px solid rgba(240,171,252,.4);border-top:3px solid #F0ABFC;border-radius:14px;padding:clamp(14px,1.4vw,22px);">
-            <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(17px,1.35vw,24px);line-height:1.2;color:#fff;margin-bottom:8px;">Compounding accuracy</div>
-            <div style="font-size:clamp(17px,1.15vw,22px);line-height:1.45;color:#E2DCF4;">Each conversation feeds the memory layer, so grounding keeps improving instead of staying static.</div>
-          </div>
-          <div style="background:rgba(10,5,32,.5);border:1px solid rgba(103,232,249,.4);border-top:3px solid #67E8F9;border-radius:14px;padding:clamp(14px,1.4vw,22px);">
-            <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(17px,1.35vw,24px);line-height:1.2;color:#fff;margin-bottom:8px;">One audit trail</div>
-            <div style="font-size:clamp(17px,1.15vw,22px);line-height:1.45;color:#E2DCF4;">A single Outcome Ledger across every AI tool replaces per-vendor logs.</div>
-          </div>
-        </div>
-      </div>
-
-      <div data-r="1" data-step="4" style="opacity:0;transform:translateY(20px);margin:clamp(16px,2.2vh,28px) 0 0;position:relative;border:3px solid transparent;background:linear-gradient(150deg,#2B1065,#4C1D95) padding-box, linear-gradient(90deg,#7C3AED,#C026D3,#22D3EE,#7C3AED) border-box;background-size:auto, 200% auto;animation:nsFlow 5s linear infinite;border-radius:18px;padding:clamp(14px,1.6vw,24px) clamp(18px,2vw,32px);box-shadow:0 30px 80px -35px rgba(124,58,237,.75);">
-        <p style="margin:0;font-family:Poppins,sans-serif;font-weight:600;font-size:clamp(15px,1.3vw,23px);line-height:1.38;color:#fff;max-width:82ch;margin-left:auto;margin-right:auto;text-align:center;font-style:italic;text-wrap:pretty;">NeoSapients completes what conversational AI starts — connecting customer interactions to enterprise intelligence, digital workers, and end-to-end business outcomes.</p>
-      </div>
-    </section>
-
-    <section data-screen-label="21 What’s Next" data-theme="light" style="min-height:100vh;box-sizing:border-box;scroll-snap-align:start;position:relative;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding:clamp(34px,4.8vh,78px) clamp(40px,6vw,120px);background:#F5F3FA;color:#2A2350;">
-      <div data-r="1" style="opacity:0;transform:translateY(20px);font-family:'IBM Plex Mono',monospace;font-size:clamp(15px,1.1vw,20px);letter-spacing:.28em;text-transform:uppercase;color:#3D1B85;margin-bottom:18px;">What's Next</div>
-      <h2 data-r="1" style="opacity:0;transform:translateY(20px);font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(38px,5vw,80px);line-height:1.02;letter-spacing:-.032em;margin:0 0 clamp(40px,6vh,80px);color:#240453;">Align on Next Steps</h2>
-      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(18px,2.4vw,40px);max-width:76%;">
-        <div data-r="1" style="opacity:0;transform:translateY(20px);">
-         <div data-anim="race" style="position:relative;">
-          <div style="position:absolute;left:0;right:38%;top:clamp(20px,1.6vw,27px);height:2px;background:linear-gradient(90deg,#6D28D9,transparent);transform-origin:left center;animation:nsStreak 1.1s ease-out .1s both;pointer-events:none;"></div>
-          <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px;">
-            <span style="display:flex;align-items:center;justify-content:center;width:clamp(44px,3.4vw,58px);height:clamp(44px,3.4vw,58px);border-radius:50%;background:#6D28D9;color:#fff;font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(17px,1.4vw,23px);flex:none;">1</span>
-            <span data-anim="grow" style="flex:1;height:2px;background:linear-gradient(90deg,#6D28D9,rgba(109,40,217,.15));"></span>
-          </div>
-          <div style="font-family:Poppins,sans-serif;font-weight:600;font-size:clamp(20px,1.9vw,32px);line-height:1.2;color:#240453;letter-spacing:-.015em;">Understand Amex Landscape</div>
-         </div>
-        </div>
-        <div data-r="1" style="opacity:0;transform:translateY(20px);">
-         <div data-anim="race" style="position:relative;">
-          <div style="position:absolute;left:0;right:38%;top:clamp(20px,1.6vw,27px);height:2px;background:linear-gradient(90deg,#C026D3,transparent);transform-origin:left center;animation:nsStreak 1.1s ease-out .1s both;pointer-events:none;"></div>
-          <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px;">
-            <span style="display:flex;align-items:center;justify-content:center;width:clamp(44px,3.4vw,58px);height:clamp(44px,3.4vw,58px);border-radius:50%;background:#C026D3;color:#fff;font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(17px,1.4vw,23px);flex:none;">2</span>
-            <span data-anim="grow" style="flex:1;height:2px;background:linear-gradient(90deg,#C026D3,rgba(192,38,211,.15));"></span>
-          </div>
-          <div style="font-family:Poppins,sans-serif;font-weight:600;font-size:clamp(20px,1.9vw,32px);line-height:1.2;color:#240453;letter-spacing:-.015em;">Potential Areas for NeoSapients Involvement</div>
-         </div>
-        </div>
-      </div>
-    </section>
-
-    <section data-screen-label="22 Thank You" data-theme="dark" style="min-height:100vh;box-sizing:border-box;scroll-snap-align:start;position:relative;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding:clamp(34px,4.8vh,78px) clamp(40px,6vw,120px);background:radial-gradient(1100px 780px at 20% 85%, rgba(109,40,217,.5), transparent 62%), radial-gradient(900px 640px at 88% 12%, rgba(192,38,211,.3), transparent 62%), #0A0520;color:#EDEAF7;">
+    <section data-screen-label="19 Thank You" data-theme="dark" style="min-height:100vh;box-sizing:border-box;scroll-snap-align:start;position:relative;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding:clamp(34px,4.8vh,78px) clamp(40px,6vw,120px);background:radial-gradient(1100px 780px at 20% 85%, rgba(109,40,217,.5), transparent 62%), radial-gradient(900px 640px at 88% 12%, rgba(192,38,211,.3), transparent 62%), #0A0520;color:#EDEAF7;">
       <img loading="eager" decoding="async" src="assets/img6.png" alt="" style="position:absolute;right:clamp(20px,4vw,90px);bottom:clamp(20px,5vh,80px);width:clamp(160px,20vw,320px);opacity:.9;animation:nsFloat 8s ease-in-out infinite;filter:drop-shadow(0 30px 70px rgba(124,58,237,.5));">
       <div style="position:relative;">
         <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;align-items:center;gap:14px;margin-bottom:24px;">
@@ -784,23 +665,19 @@
   </div>
 
   <div style="position:fixed;right:clamp(20px,2.6vw,44px);bottom:clamp(22px,3vh,40px);z-index:60;display:flex;align-items:center;gap:10px;">
-  <button ref="{{ micRef }}" sc-camel-on-click="{{ toggleMic }}" title="Voice agent mode" style="position:relative;display:flex;align-items:center;justify-content:center;width:46px;height:46px;appearance:none;cursor:pointer;border:1px solid rgba(196,181,253,.34);border-radius:50%;background:rgba(12,6,40,.85);backdrop-filter:blur(10px);box-shadow:0 16px 40px -18px rgba(10,5,32,.9);">
-    <span ref="{{ ringRef }}" style="position:absolute;inset:-6px;border-radius:50%;border:2px solid rgba(240,171,252,.55);opacity:0;pointer-events:none;"></span>
-    <svg ref="{{ micIconRef }}" sc-camel-view-box="0 0 24 24" width="20" height="20" fill="none" stroke="#C4B5FD" stroke-width="2" stroke-linecap="round">
-      <path d="M4 10v4"></path>
-      <path d="M8.5 6.5v11"></path>
-      <path d="M13 3.5v17"></path>
-      <path d="M17.5 7.5v9"></path>
-      <path d="M21.5 11v2"></path>
-    </svg>
-  </button>
-  <button sc-camel-on-click="{{ toggleChat }}" style="display:flex;align-items:center;gap:11px;appearance:none;cursor:pointer;border:1px solid rgba(240,171,252,.45);border-radius:999px;padding:13px 22px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#fff;background:linear-gradient(100deg,#7C3AED,#C026D3,#7C3AED);background-size:200% auto;animation:nsFlow 6s linear infinite;box-shadow:0 18px 44px -18px rgba(192,38,211,.9);" style-hover="filter:brightness(1.12)">
-    <span style="width:8px;height:8px;border-radius:50%;background:#F0ABFC;animation:nsPulse 2.2s ease-in-out infinite;"></span>
-    <span>{{ chatBtnLabel }}</span>
+  <button sc-camel-on-click="{{ toggleChat }}" title="Ask Neo — live Q&amp;A on this deck" style="position:relative;display:flex;align-items:center;gap:14px;appearance:none;cursor:pointer;border:1px solid rgba(240,171,252,.55);border-radius:999px;padding:15px 28px 15px 22px;color:#fff;background:linear-gradient(100deg,#7C3AED,#C026D3,#7C3AED);background-size:200% auto;animation:nsFlow 6s linear infinite, nsRing 3.4s ease-in-out infinite;box-shadow:0 22px 54px -18px rgba(192,38,211,.95);transition:transform .25s;" style-hover="transform:translateY(-2px);filter:brightness(1.12)">
+    <span style="position:relative;display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.4);flex:none;">
+      <span style="position:absolute;inset:-5px;border-radius:50%;border:1px solid rgba(240,171,252,.5);animation:nsPulse 2.2s ease-in-out infinite;pointer-events:none;"></span>
+      <span style="font-family:Poppins,sans-serif;font-weight:700;font-size:13px;line-height:1;color:#fff;">N</span>
+    </span>
+    <span style="display:flex;flex-direction:column;align-items:flex-start;gap:3px;">
+      <span style="font-family:Poppins,sans-serif;font-weight:700;font-size:15px;line-height:1;letter-spacing:.01em;">{{ chatBtnLabel }}</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;line-height:1;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.82);">Live Q&amp;A</span>
+    </span>
   </button>
   </div>
 
-  <div ref="{{ chatRef }}" style="position:fixed;right:clamp(16px,2vw,34px);bottom:clamp(84px,11vh,108px);z-index:61;width:min(420px,calc(100vw - 32px));max-height:min(72vh,660px);display:none;flex-direction:column;overflow:hidden;border:1px solid rgba(167,139,250,.4);border-radius:20px;background:rgba(12,6,40,.92);backdrop-filter:blur(18px);box-shadow:0 50px 110px -40px rgba(10,5,32,.95);color:#EDEAF7;">
+  <div ref="{{ chatRef }}" style="position:fixed;right:clamp(16px,2vw,34px);bottom:clamp(100px,12.5vh,126px);z-index:61;width:min(420px,calc(100vw - 32px));max-height:min(72vh,660px);display:none;flex-direction:column;overflow:hidden;border:1px solid rgba(167,139,250,.4);border-radius:20px;background:rgba(12,6,40,.92);backdrop-filter:blur(18px);box-shadow:0 50px 110px -40px rgba(10,5,32,.95);color:#EDEAF7;">
     <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;border-bottom:1px solid rgba(167,139,250,.22);background:linear-gradient(100deg,rgba(124,58,237,.34),rgba(192,38,211,.22));">
       <div style="display:flex;flex-direction:column;gap:4px;">
         <span style="font-family:Poppins,sans-serif;font-weight:700;font-size:15px;letter-spacing:.02em;color:#fff;">Live Q&amp;A Assistant</span>
@@ -821,31 +698,10 @@
         </sc-raw-select>
       </div>
       <div style="display:flex;flex-direction:column;gap:7px;">
-        <label style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#C4B5FD;">OpenAI model</label>
+        <label style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#C4B5FD;">OpenAI API key</label>
+        <input ref="{{ oaKeyRef }}" sc-camel-on-change="{{ saveCfg }}" type="password" placeholder="sk-…" style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(196,181,253,.24);border-radius:10px;padding:9px 11px;outline:none;">
         <input ref="{{ oaModelRef }}" sc-camel-on-change="{{ saveCfg }}" placeholder="gpt-4o-mini" style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(196,181,253,.24);border-radius:10px;padding:9px 11px;outline:none;">
-        <div style="font-size:10.5px;line-height:1.4;color:#8F86B8;">The key is read from OPENAI_API_KEY on the server (.env) — nothing to paste here.</div>
       </div>
-      <div style="display:flex;flex-direction:column;gap:7px;">
-        <label style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#C4B5FD;">Deepgram API key — voice</label>
-        <input ref="{{ dgKeyRef }}" sc-camel-on-change="{{ saveCfg }}" type="password" placeholder="Deepgram key" style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(196,181,253,.24);border-radius:10px;padding:9px 11px;outline:none;">
-        <div style="display:flex;gap:8px;">
-          <input ref="{{ dgSttRef }}" sc-camel-on-change="{{ saveCfg }}" placeholder="flux-general-multi" title="Listen model" style="flex:1;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(196,181,253,.24);border-radius:10px;padding:9px 11px;outline:none;">
-          <input ref="{{ dgTtsRef }}" sc-camel-on-change="{{ saveCfg }}" placeholder="ElevenLabs voice id" title="Speak voice" style="flex:1;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(196,181,253,.24);border-radius:10px;padding:9px 11px;outline:none;">
-        </div>
-        <div style="display:flex;gap:8px;">
-          <sc-raw-select ref="{{ thinkProvRef }}" sc-camel-on-change="{{ saveCfg }}" title="Reasoning provider" style="flex:1;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(196,181,253,.24);border-radius:10px;padding:9px 11px;outline:none;">
-            <option value="google">google</option>
-            <option value="open_ai">open_ai</option>
-            <option value="anthropic">anthropic</option>
-          </sc-raw-select>
-          <input ref="{{ thinkModelRef }}" sc-camel-on-change="{{ saveCfg }}" placeholder="gemini-3.1-flash-lite" title="Reasoning model" style="flex:1;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(196,181,253,.24);border-radius:10px;padding:9px 11px;outline:none;">
-        </div>
-        <label style="display:flex;align-items:center;gap:9px;font-size:12.5px;color:#DDD5F2;cursor:pointer;">
-          <input ref="{{ speakRef }}" sc-camel-on-change="{{ saveCfg }}" type="checkbox" style="width:15px;height:15px;accent-color:#C026D3;">
-          Agent opens with a spoken greeting
-        </label>
-      </div>
-      <div style="font-size:11.5px;line-height:1.5;color:#BAB2D8;text-wrap:pretty;">The mic runs Deepgram's Voice Agent — it listens, reasons over this deck and speaks back on one connection. Keys stay in this browser. Needs mic permission on an https page.</div>
     </div>
 
     <div ref="{{ logRef }}" style="flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:14px;font-size:14px;line-height:1.55;"></div>
@@ -854,7 +710,6 @@
       <button sc-camel-on-click="{{ askSuggested }}" data-q="What exactly is the Cognition Layer, in one minute?" style="appearance:none;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:#DDD5F2;background:rgba(255,255,255,.06);border:1px solid rgba(196,181,253,.22);border-radius:999px;padding:7px 12px;">What is the Cognition Layer?</button>
       <button sc-camel-on-click="{{ askSuggested }}" data-q="How does NeoSapients complement our existing agent platforms and vendors rather than replace them?" style="appearance:none;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:#DDD5F2;background:rgba(255,255,255,.06);border:1px solid rgba(196,181,253,.22);border-radius:999px;padding:7px 12px;">Why not our existing stack?</button>
       <button sc-camel-on-click="{{ askSuggested }}" data-q="How is data security, IP and compliance handled when this runs in our environment?" style="appearance:none;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:#DDD5F2;background:rgba(255,255,255,.06);border:1px solid rgba(196,181,253,.22);border-radius:999px;padding:7px 12px;">Security &amp; IP?</button>
-      <button sc-camel-on-click="{{ askSuggested }}" data-q="What are the next steps and what would the first engagement look like?" style="appearance:none;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:#DDD5F2;background:rgba(255,255,255,.06);border:1px solid rgba(196,181,253,.22);border-radius:999px;padding:7px 12px;">Next steps?</button>
     </div>
 
     <div style="display:flex;align-items:flex-end;gap:10px;padding:14px 18px 18px;border-top:1px solid rgba(167,139,250,.22);">
@@ -891,20 +746,9 @@ class Component extends DCLogic {
     this.busy = false;
     this.setRef = React.createRef();
     this.provRef = React.createRef();
+    this.oaKeyRef = React.createRef();
     this.oaModelRef = React.createRef();
-    this.dgKeyRef = React.createRef();
-    this.dgSttRef = React.createRef();
-    this.dgTtsRef = React.createRef();
-    this.speakRef = React.createRef();
-    this.micRef = React.createRef();
-    this.ringRef = React.createRef();
-    this.micIconRef = React.createRef();
-    this.thinkProvRef = React.createRef();
-    this.thinkModelRef = React.createRef();
-    this.cfg = { provider: 'builtin', oaModel: 'gpt-4o-mini', dgKey: '',
-      dgStt: 'flux-general-multi', dgTts: 'UgBBYS2sOqTuMpoF3BR0',
-      thinkProv: 'google', thinkModel: 'gemini-3.1-flash-lite', speak: true };
-    this.listening = false;
+    this.cfg = { provider: 'builtin', oaKey: '', oaModel: 'gpt-4o-mini' };
   }
 
   loadCfg() {
@@ -912,20 +756,10 @@ class Component extends DCLogic {
       const raw = localStorage.getItem('ns_qna_cfg_v2') || localStorage.getItem('ns_qna_cfg');
       if (raw) Object.assign(this.cfg, JSON.parse(raw));
     } catch (e) {}
-    // legacy STT/TTS values are meaningless to the Voice Agent — drop them
-    if (!/flux/.test(this.cfg.dgStt || '')) this.cfg.dgStt = 'flux-general-multi';
-    if (!this.cfg.dgTts || /^aura/i.test(this.cfg.dgTts)) this.cfg.dgTts = 'UgBBYS2sOqTuMpoF3BR0';
-    if (!this.cfg.thinkProv) this.cfg.thinkProv = 'google';
-    if (!this.cfg.thinkModel) this.cfg.thinkModel = 'gemini-3.1-flash-lite';
     const c = this.cfg;
     if (this.provRef.current) this.provRef.current.value = c.provider;
+    if (this.oaKeyRef.current) this.oaKeyRef.current.value = c.oaKey;
     if (this.oaModelRef.current) this.oaModelRef.current.value = c.oaModel;
-    if (this.dgKeyRef.current) this.dgKeyRef.current.value = c.dgKey;
-    if (this.dgSttRef.current) this.dgSttRef.current.value = c.dgStt;
-    if (this.dgTtsRef.current) this.dgTtsRef.current.value = c.dgTts;
-    if (this.thinkProvRef.current) this.thinkProvRef.current.value = c.thinkProv;
-    if (this.thinkModelRef.current) this.thinkModelRef.current.value = c.thinkModel;
-    if (this.speakRef.current) this.speakRef.current.checked = !!c.speak;
     this.saveCfg();
     if (!(window.claude && window.claude.complete)) {
       const sel = this.provRef.current;
@@ -941,30 +775,26 @@ class Component extends DCLogic {
     const v = (r, d) => (r.current && r.current.value.trim()) || d;
     this.cfg = {
       provider: v(this.provRef, 'builtin'),
-      oaModel: v(this.oaModelRef, 'gpt-4o-mini'),
-      dgKey: v(this.dgKeyRef, ''),
-      dgStt: v(this.dgSttRef, 'flux-general-multi'),
-      dgTts: v(this.dgTtsRef, 'UgBBYS2sOqTuMpoF3BR0'),
-      thinkProv: v(this.thinkProvRef, 'google'),
-      thinkModel: v(this.thinkModelRef, 'gemini-3.1-flash-lite'),
-      speak: !!(this.speakRef.current && this.speakRef.current.checked)
+      oaKey: v(this.oaKeyRef, ''),
+      oaModel: v(this.oaModelRef, 'gpt-4o-mini')
     };
     try { localStorage.setItem('ns_qna_cfg_v2', JSON.stringify(this.cfg)); } catch (e) {}
   }
 
   async ask(system, messages) {
     if (this.cfg.provider === 'openai') {
-      const r = await fetch('/api/chat', {
+      if (!this.cfg.oaKey) throw new Error('Add your OpenAI key in ⚙ settings.');
+      const r = await fetch('https://api.openai.com/v1/chat/completions', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + this.cfg.oaKey },
         body: JSON.stringify({
           model: this.cfg.oaModel || 'gpt-4o-mini',
-          system,
-          messages
+          max_tokens: 700,
+          messages: [{ role: 'system', content: system }].concat(messages)
         })
       });
+      if (!r.ok) throw new Error('OpenAI error ' + r.status);
       const j = await r.json();
-      if (!r.ok) throw new Error((j && j.error && (j.error.message || j.error)) || 'OpenAI error ' + r.status);
       return (j.choices && j.choices[0] && j.choices[0].message.content) || '';
     }
     if (!(window.claude && window.claude.complete)) {
@@ -984,161 +814,6 @@ class Component extends DCLogic {
     log.scrollTop = log.scrollHeight;
   }
 
-  micState(on) {
-    this.listening = on;
-    const b = this.micRef.current;
-    const ring = this.ringRef.current;
-    const icon = this.micIconRef.current;
-    if (b) {
-      b.style.background = on
-        ? 'linear-gradient(100deg,#7C3AED,#C026D3,#7C3AED)' : 'rgba(12,6,40,.85)';
-      b.style.backgroundSize = '200% auto';
-      b.style.borderColor = on ? 'rgba(240,171,252,.75)' : 'rgba(196,181,253,.34)';
-      b.style.animation = on ? 'nsFlow 5s linear infinite, nsVoiceGlow 2.4s ease-in-out infinite' : 'none';
-      b.title = on ? 'Voice agent live — click to stop' : 'Voice agent mode';
-    }
-    if (ring) {
-      ring.style.opacity = on ? '1' : '0';
-      ring.style.animation = on ? 'nsVoiceRing 1.9s ease-out infinite' : 'none';
-    }
-    if (icon) icon.style.stroke = on ? '#fff' : '#C4B5FD';
-  }
-
-  agentSettings() {
-    const label = this.sections && this.sections[this.active]
-      ? this.sections[this.active].getAttribute('data-screen-label') : '';
-    const prompt =
-      'You are a NeoSapients solutions lead on a live video call with American Express, answering questions about the ' +
-      'presentation being shown.\n\n#Style\n- Speak conversationally; your words are spoken aloud.\n' +
-      '- 1-3 sentences, under 300 characters, unless asked for depth.\n- No markdown, no lists unless asked.\n' +
-      '- Answer only from the deck below plus obvious inference. If it is not covered, say so briefly and offer a follow-up.\n' +
-      '- Name the relevant slide when it helps. The presenter is currently on: ' + label + '.\n' +
-      '- Ask a short clarifying question if the request is ambiguous. Never interrupt.\n\n#Scope\n' +
-      '- ONLY answer the question asked. Never present, narrate, summarise or walk through the deck.\n' +
-      '- Do not describe what is on screen or offer a tour; the human presenter does that.\n' +
-      '- No unsolicited pitching or follow-on topics — answer, then stop.\n\n=== DECK (reference only) ===\n' + this.deckContext();
-    return {
-      type: 'Settings',
-      audio: {
-        input: { encoding: 'linear16', sample_rate: 16000 },
-        output: { encoding: 'linear16', sample_rate: 24000, container: 'none' }
-      },
-      agent: {
-        listen: { provider: { type: 'deepgram', version: 'v2', model: this.cfg.dgStt || 'flux-general-multi', eager_eot_threshold: 0.6, eot_threshold: 0.7, eot_timeout_ms: 3000 } },
-        think: { provider: { type: this.cfg.thinkProv || 'google', model: this.cfg.thinkModel || 'gemini-3.1-flash-lite' }, prompt: prompt },
-        speak: { provider: { type: 'eleven_labs', model_id: 'eleven_flash_v2_5', voice_id: this.cfg.dgTts || 'UgBBYS2sOqTuMpoF3BR0' } },
-        greeting: this.cfg.speak ? 'Neo here — ask me anything about what you are seeing.' : ''
-      }
-    };
-  }
-
-  playPcm(buf) {
-    const ctx = this.outCtx;
-    if (!ctx) return;
-    const pcm = new Int16Array(buf);
-    if (!pcm.length) return;
-    const ab = ctx.createBuffer(1, pcm.length, 24000);
-    const ch = ab.getChannelData(0);
-    for (let i = 0; i < pcm.length; i++) ch[i] = pcm[i] / 32768;
-    const src = ctx.createBufferSource();
-    src.buffer = ab;
-    src.connect(ctx.destination);
-    const now = ctx.currentTime;
-    this.playHead = Math.max(this.playHead || 0, now + 0.02);
-    src.start(this.playHead);
-    this.playHead += ab.duration;
-    (this.playing = this.playing || []).push(src);
-    src.onended = () => { this.playing = (this.playing || []).filter(s => s !== src); };
-  }
-
-  flushAudio() {
-    (this.playing || []).forEach(s => { try { s.stop(); } catch (e) {} });
-    this.playing = [];
-    this.playHead = 0;
-  }
-
-  async toggleMic() {
-    if (this.listening) { this.stopMic(false); return; }
-    if (!this.cfg.dgKey) {
-      this.addMsg('bot', 'Add your Deepgram key in ⚙ settings to use the voice agent.');
-      return;
-    }
-    try {
-      const stream = await navigator.mediaDevices.getUserMedia({
-        audio: { channelCount: 1, echoCancellation: true, noiseSuppression: true }
-      });
-      const ws = new WebSocket('wss://agent.deepgram.com/v1/agent/converse', ['token', this.cfg.dgKey]);
-      ws.binaryType = 'arraybuffer';
-      this.ws = ws; this.stream = stream;
-      this.outCtx = new (window.AudioContext || window.webkitAudioContext)({ sampleRate: 24000 });
-      this.playHead = 0;
-
-      ws.onopen = () => {
-        try {
-          ws.send(JSON.stringify(this.agentSettings()));
-          const ctx = new (window.AudioContext || window.webkitAudioContext)({ sampleRate: 16000 });
-          this.inCtx = ctx;
-          const src = ctx.createMediaStreamSource(stream);
-          const node = ctx.createScriptProcessor(2048, 1, 1);
-          node.onaudioprocess = (e) => {
-            if (ws.readyState !== 1) return;
-            const f = e.inputBuffer.getChannelData(0);
-            const pcm = new Int16Array(f.length);
-            for (let i = 0; i < f.length; i++) {
-              const s = Math.max(-1, Math.min(1, f[i]));
-              pcm[i] = s < 0 ? s * 0x8000 : s * 0x7FFF;
-            }
-            ws.send(pcm.buffer);
-          };
-          src.connect(node);
-          node.connect(ctx.destination);
-          this.inNode = node;
-          this.micState(true);
-          this.note('Voice agent live — speak naturally, click ■ to stop');
-        } catch (err) {
-          this.addMsg('bot', 'This browser cannot stream audio (' + (err.message || err.name) + '). Try Chrome or Edge.');
-          this.stopMic(false);
-        }
-      };
-
-      ws.onmessage = (ev) => {
-        if (typeof ev.data !== 'string') { this.playPcm(ev.data); return; }
-        let d; try { d = JSON.parse(ev.data); } catch (e) { return; }
-        if (d.type === 'ConversationText') {
-          if (d.role === 'user') this.addMsg('user', d.content);
-          else if (d.content) this.addMsg('bot', d.content);
-        } else if (d.type === 'UserStartedSpeaking') {
-          this.flushAudio();
-        } else if (d.type === 'Error' || d.type === 'Warning') {
-          this.note('Deepgram: ' + (d.description || d.message || d.type));
-        }
-      };
-      ws.onerror = () => { this.addMsg('bot', 'Voice agent connection failed — check the Deepgram key and that your account has Voice Agent access.'); this.stopMic(false); };
-      ws.onclose = () => this.micState(false);
-    } catch (e) {
-      const framed = window.self !== window.top;
-      if (framed) {
-        this.addMsg('bot', 'Voice needs the deck running as its own page — browsers block the mic inside this preview frame. Use the standalone copy of this deck (the downloadable HTML file) and open it from a local web server or your laptop browser; the mic will prompt there. Typing works everywhere, including here.');
-      } else if (e.name === 'NotAllowedError') {
-        this.addMsg('bot', 'Mic permission was denied. Allow microphone for this page in your browser\'s address-bar icon, then click the mic again.');
-      } else {
-        this.addMsg('bot', 'Microphone unavailable: ' + (e.message || e.name) + '.');
-      }
-      this.micState(false);
-    }
-  }
-
-  stopMic() {
-    this.flushAudio();
-    try { if (this.inNode) { this.inNode.disconnect(); this.inNode.onaudioprocess = null; } } catch (e) {}
-    try { if (this.inCtx) this.inCtx.close(); } catch (e) {}
-    try { if (this.outCtx) this.outCtx.close(); } catch (e) {}
-    this.inNode = this.inCtx = this.outCtx = null;
-    try { if (this.stream) this.stream.getTracks().forEach(t => t.stop()); } catch (e) {}
-    try { if (this.ws && this.ws.readyState <= 1) this.ws.close(); } catch (e) {}
-    this.micState(false);
-  }
-
   renderVals() {
     return {
       s7Key: (e) => {
@@ -1153,18 +828,13 @@ class Component extends DCLogic {
       railRef: this.railRef, hudRef: this.hudRef, countRef: this.countRef,
       stepRef: this.stepRef, barRef: this.barRef,
       chatRef: this.chatRef, logRef: this.logRef, inputRef: this.inputRef,
-      thinkProvRef: this.thinkProvRef, thinkModelRef: this.thinkModelRef,
-      setRef: this.setRef, provRef: this.provRef, oaModelRef: this.oaModelRef,
-      dgKeyRef: this.dgKeyRef, dgSttRef: this.dgSttRef, dgTtsRef: this.dgTtsRef,
-      speakRef: this.speakRef, micRef: this.micRef,
-      ringRef: this.ringRef, micIconRef: this.micIconRef,
+      setRef: this.setRef, provRef: this.provRef, oaKeyRef: this.oaKeyRef, oaModelRef: this.oaModelRef,
       chatBtnLabel: 'Ask Neo',
       toggleSettings: () => {
         const el = this.setRef.current;
         if (el) el.style.display = el.style.display === 'flex' ? 'none' : 'flex';
       },
       saveCfg: () => this.saveCfg(),
-      toggleMic: () => this.toggleMic(),
       toggleChat: () => this.toggleChat(),
       sendChat: () => this.sendChat(),
       askSuggested: (e) => {
@@ -1186,7 +856,7 @@ class Component extends DCLogic {
     el.style.display = this.chatOpen ? 'flex' : 'none';
     if (this.chatOpen) {
       if (!this.history.length) {
-        this.addMsg('bot', 'Ask me anything that comes up on the call — I answer from this deck: the cognition gap, the knowledge / memory / governance layers, how we fit alongside your existing agent stack, security posture, and next steps.');
+        this.addMsg('bot', 'Ask me any questions as you go through this presentation — I answer from this deck: the cognition gap, the knowledge / memory / governance layers, how we fit alongside your existing agent stack, security posture, and next steps.');
       }
       const t = this.inputRef.current;
       if (t) setTimeout(() => t.focus(), 60);
@@ -1228,8 +898,8 @@ class Component extends DCLogic {
       'Online evaluation: gated launch of agents to production targeting 100% accuracy; real-time gated evals with alerts to a human — warns or stops the process when the outcome is not accurate; gated thresholds set per agent; drift detection against anchored ground truth; provenance footer on every response (databases used, tables selected, data last-update info); evaluation telemetry storage and harvest of corrections; scores evolve on human positive/negative feedback.',
       '## Evaluation Deep Dive — Probabilistic scoring vs LLM-as-judge',
       'Chart from an evaluation run on both methods for a Data Analyst Agent: LLM-as-judge, though widely accepted, fails to discriminate bad queries from good; probabilistic query scoring discriminates the predicted query significantly. Thresholds are set based on the impact of the outcome.',
-      '## Use Cases Researched — relevant to credit card companies',
-      'UC1 Transaction dispute + provisional credit: agent processes dispute claims, validates against Amex policy, issues provisional credit within compliance parameters, regulatory-grade evidence logging at every decision step. Features: DB read/write, guardrails, query log eval, regulatory adherence, HITL.',
+      '## Use Cases Researched — relevant to card and payments businesses',
+      'UC1 Transaction dispute + provisional credit: agent processes dispute claims, validates against issuer policy, issues provisional credit within compliance parameters, regulatory-grade evidence logging at every decision step. Features: DB read/write, guardrails, query log eval, regulatory adherence, HITL.',
       'UC2 Customer service: agent handles cardholder inquiries end-to-end with policy guardrails, HITL escalation thresholds and full audit trail. Features: guardrails, HITL, workflow, policy adherence, audit log.',
       'UC3 Credit limit increase + affordability check: agent executes affordability assessment, checks eligibility rules, surfaces to a human reviewer only when needed, full decision trace for regulatory audit and appeals. Features: Knowledge Mesh, HITL, governance, eval metrics dashboard.',
       'UC4 Default recovery / collections: agent manages outreach and negotiation under strict regulatory scripts, with escalation logic and compliance-grade documentation of every interaction step. Features: policy adherence, workflow, read/write logs, governance dashboard.',
@@ -1307,7 +977,7 @@ class Component extends DCLogic {
     this.history.push({ role: 'user', content: q });
     try {
       const res = await this.ask(
-        'You are a NeoSapients solutions lead answering live Q&A during a client presentation to American Express. ' +
+        'You are a NeoSapients solutions lead answering live Q&A during a client presentation. ' +
           'Answer ONLY from the deck content below, plus obvious inference. Be direct and conversational — 2-5 sentences, ' +
           'or up to 4 short bullets for lists. No preamble, no restating the question. Write PLAIN TEXT only — ' +
           'never use markdown: no asterisks, underscores, backticks, headers or numbered "1." lists. ' +
@@ -1491,7 +1161,6 @@ class Component extends DCLogic {
     window.removeEventListener('keydown', this.onKey);
     window.removeEventListener('resize', this.onResize);
     if (this.sc) this.sc.removeEventListener('scroll', this.onScroll);
-    this.stopMic(false);
     if (this.audio) this.audio.pause();
   }
 
@@ -1714,8 +1383,8 @@ class Component extends DCLogic {
     const light = s.getAttribute('data-theme') === 'light';
     const R = window.__resources || {};
     if (this.markRef.current) this.markRef.current.src = light
-      ? (R.logoDark || 'assets/logo-dark-text.png')
-      : (R.logoLight || 'assets/logo-light-text.png');
+      ? 'assets/logo-dark-text.png'
+      : 'assets/logo-light-text.png';
     if (this.dots) this.dots.forEach((d, k) => {
       const on = k === i;
       d.style.background = on ? (light ? '#6D28D9' : '#C4B5FD') : (light ? 'rgba(36,4,83,.22)' : 'rgba(196,181,253,.3)');
