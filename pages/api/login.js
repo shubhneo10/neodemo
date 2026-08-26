@@ -22,7 +22,7 @@ export default async function handler(req, res) {
   const token = await sha256Hex(`${user}:${pass}:${secret}`);
   const isProd = process.env.NODE_ENV === 'production';
   res.setHeader('Set-Cookie', [
-    `ns_auth=${token}; Path=/; HttpOnly; SameSite=Lax; Max-Age=${60 * 60 * 24 * 7}${isProd ? '; Secure' : ''}`,
+    `ns_auth=${token}; Path=/; HttpOnly; SameSite=Lax; Max-Age=${60 * 60 * 5}${isProd ? '; Secure' : ''}`,
   ]);
   return res.status(200).json({ ok: true });
 }
