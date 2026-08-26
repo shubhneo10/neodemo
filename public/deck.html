@@ -1,0 +1,1790 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="ext-resource-dependency" content="assets/logo-light-text.png" data-resource-id="logoLight">
+<meta name="ext-resource-dependency" content="assets/logo-dark-text.png" data-resource-id="logoDark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  html, body { margin:0; padding:0; background:#0A0520; }
+  body { -webkit-font-smoothing:antialiased; }
+  a { color:#C4B5FD; text-decoration:none; }
+  a:hover { color:#E9D5FF; }
+  ::selection { background:#7C3AED; color:#fff; }
+  @keyframes nsFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
+  @keyframes nsPulse { 0%,100%{opacity:.35;transform:scale(1)} 50%{opacity:.7;transform:scale(1.06)} }
+  @keyframes nsFlow { 0%{background-position:0% 50%} 100%{background-position:200% 50%} }
+  @keyframes nsDash { to { stroke-dashoffset:-24; } }
+  @keyframes nsNudge { 0%,100%{transform:translateX(0);opacity:.75} 50%{transform:translateX(7px);opacity:1} }
+  @keyframes nsGlow { 0%,100%{box-shadow:0 30px 70px -30px rgba(124,58,237,.55)} 50%{box-shadow:0 30px 90px -25px rgba(192,38,211,.85)} }
+  @keyframes nsBreathe { 0%,100%{opacity:.5} 50%{opacity:1} }
+  @keyframes nsDrift { 0%,100%{transform:translate3d(0,0,0) scale(1)} 33%{transform:translate3d(4vw,-3vh,0) scale(1.09)} 66%{transform:translate3d(-3vw,3vh,0) scale(.94)} }
+  @keyframes nsDrift2 { 0%,100%{transform:translate3d(0,0,0) scale(1)} 40%{transform:translate3d(-3.5vw,4vh,0) scale(1.12)} 75%{transform:translate3d(3vw,-2vh,0) scale(.96)} }
+  @keyframes nsBigDrift { 0%,100%{transform:translateY(-50%) translateX(0);opacity:.85} 50%{transform:translateY(-52%) translateX(1.4vw);opacity:1} }
+  @keyframes nsGrow { from{transform:scaleX(0)} to{transform:scaleX(1)} }
+  @keyframes nsSpark { 0%,100%{opacity:.72;text-shadow:0 0 0 rgba(124,58,237,0)} 50%{opacity:1;text-shadow:0 0 26px currentColor} }
+  @keyframes nsRing { 0%,100%{box-shadow:0 0 0 0 rgba(240,171,252,.35)} 50%{box-shadow:0 0 0 12px rgba(240,171,252,0)} }
+  @keyframes nsWeaveFlow { from { stroke-dashoffset:236 } to { stroke-dashoffset:0 } }
+  @keyframes nsVoiceRing { 0%{transform:scale(.9);opacity:.85} 100%{transform:scale(1.5);opacity:0} }
+  @keyframes nsFaceIn { from{opacity:.2;transform:perspective(1600px) rotateY(-82deg) scale(.94)} 60%{opacity:1} to{opacity:1;transform:perspective(1600px) rotateY(0) scale(1)} }
+  @keyframes nsFaceOut { from{opacity:1;transform:perspective(1600px) rotateY(0) scale(1)} to{opacity:.15;transform:perspective(1600px) rotateY(82deg) scale(.94)} }
+  @keyframes nsSlowSpin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+  @keyframes nsDraw { from{stroke-dashoffset:900} to{stroke-dashoffset:0} }
+  @keyframes nsVoiceGlow { 0%,100%{box-shadow:0 0 0 0 rgba(240,171,252,.45)} 50%{box-shadow:0 0 26px 6px rgba(192,38,211,.55)} }
+  </style>
+  
+  
+  
+  <style>
+  @keyframes nsSweep { 0%{transform:translateX(-120%)} 100%{transform:translateX(120%)} }
+  @keyframes nsRace { 0%{transform:translateX(-70px) skewX(-11deg);opacity:0} 58%{transform:translateX(9px) skewX(3deg);opacity:1} 100%{transform:translateX(0) skewX(0);opacity:1} }
+  @keyframes nsStreak { 0%{transform:scaleX(0);opacity:0} 30%{transform:scaleX(1);opacity:.9} 100%{transform:scaleX(1);opacity:0} }
+  @keyframes nsGapPulse { 0%,100%{opacity:.55} 50%{opacity:1} }
+</style>
+<template id="__bundler_thumbnail" data-bg-color="#0A0520">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#0A0520"/>
+    <circle cx="600" cy="360" r="150" fill="none" stroke="#A855F7" stroke-width="14"/>
+    <ellipse cx="600" cy="360" rx="230" ry="96" fill="none" stroke="#C4B5FD" stroke-width="10" opacity="0.7"/>
+    <ellipse cx="600" cy="360" rx="230" ry="96" fill="none" stroke="#7C3AED" stroke-width="10" opacity="0.7" transform="rotate(60 600 360)"/>
+    <circle cx="600" cy="360" r="54" fill="#A855F7"/>
+    <text x="600" y="620" fill="#F5F3FF" font-family="Poppins,sans-serif" font-weight="700" font-size="72" text-anchor="middle">NEOSAPIENTS</text>
+  </svg>
+</template>
+</helmet>
+
+<div data-pres="1" ref="{{ rootRef }}" style="font-family:'IBM Plex Sans',system-ui,sans-serif;background:#0A0520;">
+
+  <div data-scroll="1" ref="{{ scrollRef }}" style="height:100vh;overflow-y:auto;overflow-x:hidden;scroll-snap-type:y proximity;">
+
+    <!-- 01 TITLE -->
+    <section data-screen-label="01 Title" data-theme="dark" style="min-height:100vh;box-sizing:border-box;scroll-snap-align:start;position:relative;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding:clamp(34px,4.8vh,78px) clamp(40px,6vw,120px);background:radial-gradient(1100px 720px at 8% 88%, rgba(109,40,217,.55), transparent 62%), radial-gradient(900px 620px at 92% 6%, rgba(192,38,211,.28), transparent 62%), #0A0520;color:#EDEAF7;">
+      <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(196,181,253,.055) 1px, transparent 1px),linear-gradient(90deg, rgba(196,181,253,.055) 1px, transparent 1px);background-size:88px 88px;mask-image:radial-gradient(900px 600px at 30% 60%, #000, transparent 75%);"></div>
+      <img loading="eager" decoding="async" src="assets/img6.png" alt="" style="position:absolute;right:clamp(24px,5vw,110px);top:50%;width:clamp(220px,26vw,420px);transform:translateY(-50%);animation:nsFloat 7s ease-in-out infinite;filter:drop-shadow(0 40px 80px rgba(124,58,237,.45));">
+      <div style="position:relative;max-width:60vw;">
+        <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;align-items:center;gap:14px;margin-bottom:34px;">
+          <span style="display:block;width:46px;height:3px;background:#C026D3;"></span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:clamp(15px,1.1vw,20px);letter-spacing:.28em;text-transform:uppercase;color:#C4B5FD;">Neosapients Introduction / 2026</span>
+        </div>
+        <h1 data-r="1" style="opacity:0;transform:translateY(20px);font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(46px,6.6vw,104px);line-height:.98;letter-spacing:-.035em;margin:0;color:#fff;">Enterprise<br>Cognition<br><span style="background:linear-gradient(100deg,#A78BFA,#C026D3,#A78BFA);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:nsFlow 6s linear infinite;">Platform</span></h1>
+        <div data-r="1" style="opacity:0;transform:translateY(20px);margin-top:44px;display:flex;align-items:center;gap:22px;font-family:'IBM Plex Mono',monospace;font-size:clamp(16px,1.1vw,20px);letter-spacing:.18em;text-transform:uppercase;color:#BAB2D8;">
+          <span>14 August 2026</span>
+          <span style="width:1px;height:16px;background:rgba(196,181,253,.3);"></span>
+          <span>Prepared for American Express</span>
+        </div>
+        <div data-r="1" style="opacity:0;transform:translateY(20px);margin-top:64px;display:flex;align-items:center;gap:12px;font-family:'IBM Plex Mono',monospace;font-size:clamp(15px,1.05vw,19px);letter-spacing:.22em;text-transform:uppercase;color:#C8C1E2;">
+          <span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#C026D3;animation:nsPulse 2.4s ease-in-out infinite;"></span>
+          Scroll or press → to begin
+        </div>
+      </div>
+    </section>
+
+    <section data-screen-label="02 Recap" data-theme="light" style="min-height:100vh;box-sizing:border-box;scroll-snap-align:start;position:relative;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding:clamp(30px,4.4vh,66px) clamp(36px,5vw,100px);background:#F5F3FA;color:#2A2350;">
+      <div data-r="1" style="opacity:0;transform:translateY(20px);font-family:'IBM Plex Mono',monospace;font-size:clamp(15px,1.1vw,20px);letter-spacing:.28em;text-transform:uppercase;color:#3D1B85;margin-bottom:16px;">Recap</div>
+      <h2 data-r="1" style="opacity:0;transform:translateY(20px);font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(30px,3.7vw,56px);line-height:1.04;letter-spacing:-.025em;margin:0 0 clamp(20px,3vh,40px);color:#240453;">Our Understanding of current state across enterprises</h2>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,1.8vw,28px);align-items:stretch;">
+        <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;flex-direction:column;background:#fff;border:1px solid #E6E2F2;border-radius:20px;padding:clamp(22px,2.1vw,34px);border-top:4px solid #6D28D9;">
+          <div data-anim="spark" style="font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(36px,3.2vw,50px);line-height:1;color:#6D28D9;letter-spacing:-.03em;">01</div>
+          <div style="font-family:Poppins,sans-serif;font-weight:600;font-size:clamp(19px,1.5vw,25px);line-height:1.25;color:#240453;margin:18px 0 14px;">Messy, ungoverned data across multiple systems</div>
+          <ul style="margin:0 0 auto;padding-left:18px;font-size:clamp(18px,1.12vw,22px);line-height:1.55;color:#3A3A48;">
+            <li style="margin-bottom:7px;">Siloed data, rarely certified or enriched</li>
+            <li style="margin-bottom:7px;">Data systems in practice are not always well structured and spread across multiple legacy systems</li>
+            <li>Lack of process guardrails blocks scaling</li>
+          </ul>
+          <div style="margin-top:clamp(14px,1.8vh,22px);padding-top:clamp(11px,1.4vh,16px);border-top:1px dashed #6D28D966;font-size:clamp(17px,1.06vw,21px);line-height:1.45;color:#3A3360;text-wrap:pretty;"><strong style="color:#6D28D9;">Impact:</strong> Agents miss the full picture of data and connections</div>
+        </div>
+        <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;flex-direction:column;background:#fff;border:1px solid #E6E2F2;border-radius:20px;padding:clamp(22px,2.1vw,34px);border-top:4px solid #0891B2;">
+          <div data-anim="spark" style="font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(36px,3.2vw,50px);line-height:1;color:#0891B2;letter-spacing:-.03em;">02</div>
+          <div style="font-family:Poppins,sans-serif;font-weight:600;font-size:clamp(19px,1.5vw,25px);line-height:1.25;color:#240453;margin:18px 0 14px;">Business Processes are complex and dynamic</div>
+          <ul style="margin:0 0 auto;padding-left:18px;font-size:clamp(18px,1.12vw,22px);line-height:1.55;color:#3A3A48;">
+            <li style="margin-bottom:7px;">A single consistent process rarely holds across teams in reality</li>
+            <li style="margin-bottom:7px;">Hard to keep pace as processes shift and evolve</li>
+            <li>Documented process often differs from the process followed in practice</li>
+          </ul>
+          <div style="margin-top:clamp(14px,1.8vh,22px);padding-top:clamp(11px,1.4vh,16px);border-top:1px dashed #0891B266;font-size:clamp(17px,1.06vw,21px);line-height:1.45;color:#3A3360;text-wrap:pretty;"><strong style="color:#0891B2;">Impact:</strong> Non-deterministic agent behavior breaks process stability</div>
+        </div>
+        <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;flex-direction:column;background:#fff;border:1px solid #E6E2F2;border-radius:20px;padding:clamp(22px,2.1vw,34px);border-top:4px solid #C026D3;">
+          <div data-anim="spark" style="font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(36px,3.2vw,50px);line-height:1;color:#C026D3;letter-spacing:-.03em;">03</div>
+          <div style="font-family:Poppins,sans-serif;font-weight:600;font-size:clamp(19px,1.5vw,25px);line-height:1.25;color:#240453;margin:18px 0 14px;">The last 10% of accuracy is the hard part</div>
+          <ul style="margin:0 0 auto;padding-left:18px;font-size:clamp(18px,1.12vw,22px);line-height:1.55;color:#3A3A48;">
+            <li style="margin-bottom:7px;">90% is achievable; production needs ~100% with no clean data to learn from</li>
+            <li style="margin-bottom:7px;">Grounding and quality issues slip through</li>
+            <li>Auditability of actions</li>
+          </ul>
+          <div style="margin-top:clamp(14px,1.8vh,22px);padding-top:clamp(11px,1.4vh,16px);border-top:1px dashed #C026D366;font-size:clamp(17px,1.06vw,21px);line-height:1.45;color:#3A3360;text-wrap:pretty;"><strong style="color:#C026D3;">Impact:</strong> Errors carry direct financial and audit exposure</div>
+        </div>
+      </div>
+    </section>
+    <section data-screen-label="03 Contents" data-theme="dark" style="min-height:100vh;box-sizing:border-box;scroll-snap-align:start;position:relative;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding:clamp(34px,4.8vh,78px) clamp(40px,6vw,120px);background:radial-gradient(1000px 700px at 85% 20%, rgba(109,40,217,.4), transparent 62%), #0A0520;color:#EDEAF7;">
+      <div data-r="1" style="opacity:0;transform:translateY(20px);font-family:'IBM Plex Mono',monospace;font-size:clamp(15px,1.1vw,20px);letter-spacing:.28em;text-transform:uppercase;color:#C4B5FD;margin-bottom:18px;">Index</div>
+      <h2 data-r="1" style="opacity:0;transform:translateY(20px);font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(34px,4.2vw,62px);line-height:1.04;letter-spacing:-.025em;margin:0 0 clamp(30px,4vh,52px);color:#fff;">List of Contents</h2>
+      <div style="display:flex;flex-direction:column;">
+        <div data-r="1" data-idx="1" data-gap="190" style="opacity:0;transform:translateY(20px);display:flex;align-items:baseline;gap:clamp(20px,3vw,54px);padding:clamp(16px,1.9vh,26px) 0;border-top:1px solid rgba(196,181,253,.16);">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:clamp(16px,1.05vw,20px);color:#7C3AED;letter-spacing:.1em;min-width:3ch;">01</span>
+          <span style="font-family:Poppins,sans-serif;font-weight:600;font-size:clamp(22px,2.3vw,38px);color:#fff;letter-spacing:-.02em;">Enterprise AI has a Missing Layer</span>
+        </div>
+        <div data-r="1" data-idx="2" data-gap="190" style="opacity:0;transform:translateY(20px);display:flex;align-items:baseline;gap:clamp(20px,3vw,54px);padding:clamp(16px,1.9vh,26px) 0;border-top:1px solid rgba(196,181,253,.16);">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:clamp(16px,1.05vw,20px);color:#C026D3;letter-spacing:.1em;min-width:3ch;">02</span>
+          <span style="font-family:Poppins,sans-serif;font-weight:600;font-size:clamp(22px,2.3vw,38px);color:#fff;letter-spacing:-.02em;">Why NeoSapients</span>
+        </div>
+        <div data-r="1" data-idx="3" data-gap="190" style="opacity:0;transform:translateY(20px);display:flex;align-items:baseline;gap:clamp(20px,3vw,54px);padding:clamp(16px,1.9vh,26px) 0;border-top:1px solid rgba(196,181,253,.16);">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:clamp(16px,1.05vw,20px);color:#0891B2;letter-spacing:.1em;min-width:3ch;">03</span>
+          <span style="font-family:Poppins,sans-serif;font-weight:600;font-size:clamp(22px,2.3vw,38px);color:#fff;letter-spacing:-.02em;">NeoSapients Deep Dive: Platform &amp; Live Demo</span>
+        </div>
+        <div data-r="1" data-idx="4" data-gap="190" style="opacity:0;transform:translateY(20px);display:flex;align-items:baseline;gap:clamp(20px,3vw,54px);padding:clamp(16px,1.9vh,26px) 0;border-top:1px solid rgba(196,181,253,.16);">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:clamp(16px,1.05vw,20px);color:#A78BFA;letter-spacing:.1em;min-width:3ch;">04</span>
+          <span style="font-family:Poppins,sans-serif;font-weight:600;font-size:clamp(22px,2.3vw,38px);color:#fff;letter-spacing:-.02em;">Enterprise Ecosystem Fit</span>
+        </div>
+        <div data-r="1" data-idx="5" data-gap="190" style="opacity:0;transform:translateY(20px);display:flex;align-items:baseline;gap:clamp(20px,3vw,54px);padding:clamp(16px,1.9vh,26px) 0;border-top:1px solid rgba(196,181,253,.16);border-bottom:1px solid rgba(196,181,253,.16);">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:clamp(16px,1.05vw,20px);color:#C026D3;letter-spacing:.1em;min-width:3ch;">05</span>
+          <span style="font-family:Poppins,sans-serif;font-weight:600;font-size:clamp(22px,2.3vw,38px);color:#fff;letter-spacing:-.02em;">Q&amp;A, Next Steps</span>
+        </div>
+      </div>
+    </section>
+
+    <section data-screen-label="04 Divider 01" data-theme="dark" style="min-height:100vh;box-sizing:border-box;scroll-snap-align:start;position:relative;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding:clamp(34px,4.8vh,78px) clamp(40px,6vw,120px);background:radial-gradient(1100px 760px at 12% 80%, rgba(109,40,217,.5), transparent 62%), #0A0520;color:#EDEAF7;">
+      <div data-anim="bigdrift" style="position:absolute;left:-2vw;top:50%;transform:translateY(-50%);font-family:Poppins,sans-serif;font-weight:700;font-size:min(46vh,34vw);line-height:.8;color:rgba(124,58,237,.22);letter-spacing:-.05em;pointer-events:none;">01</div>
+      <div style="position:relative;">
+        <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;align-items:center;gap:14px;margin-bottom:22px;">
+          <span style="display:block;width:46px;height:3px;background:#C026D3;"></span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:clamp(15px,1.1vw,20px);letter-spacing:.28em;text-transform:uppercase;color:#C4B5FD;">Unmet Need</span>
+        </div>
+        <h2 data-r="1" style="opacity:0;transform:translateY(20px);font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(42px,6vw,92px);line-height:1;letter-spacing:-.035em;margin:0;color:#fff;max-width:16ch;">Enterprise AI has a missing layer</h2>
+      </div>
+    </section>
+
+    <section data-screen-label="05 The AI Cognition Gap" data-theme="dark" data-manual="1" style="min-height:100vh;box-sizing:border-box;scroll-snap-align:start;position:relative;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding:clamp(28px,4vh,62px) clamp(32px,4.5vw,90px);background:radial-gradient(1200px 800px at 50% 120%, rgba(192,38,211,.3), transparent 60%), radial-gradient(900px 700px at 5% 0%, rgba(109,40,217,.4), transparent 60%), #0A0520;color:#EDEAF7;">
+      <div data-r="1" style="opacity:0;transform:translateY(20px);font-family:'IBM Plex Mono',monospace;font-size:clamp(15px,1.1vw,20px);letter-spacing:.28em;text-transform:uppercase;color:#C4B5FD;margin-bottom:14px;">The State of Enterprise AI</div>
+      <h2 data-r="1" style="opacity:0;transform:translateY(20px);font-family:Poppins,sans-serif;font-weight:600;font-size:clamp(22px,2.35vw,38px);line-height:1.24;letter-spacing:-.02em;margin:0 0 clamp(26px,3.6vh,48px);color:#fff;max-width:46ch;">Every AI initiative today solves a piece of the problem — what's missing is the layer that makes AI accountable</h2>
+
+      <div style="display:grid;grid-template-columns:1.12fr .08fr .92fr .08fr 1.2fr;grid-template-rows:auto minmax(0,auto);column-gap:clamp(10px,1.2vw,22px);row-gap:16px;align-items:stretch;">
+        <div data-r="1" data-step="1" style="opacity:0;transform:translateY(20px);grid-row:1;display:flex;align-items:center;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:clamp(14px,1.15vw,19px);letter-spacing:.16em;text-transform:uppercase;color:#CFC7E6;">Today — Assistive AI Tools</div>
+        <div style="grid-row:1;"></div>
+        <div data-r="1" data-step="3" style="opacity:0;transform:translateY(20px);grid-row:1;display:flex;align-items:center;gap:clamp(8px,.8vw,12px);font-family:'IBM Plex Mono',monospace;font-size:clamp(14px,1.15vw,19px);letter-spacing:.16em;text-transform:uppercase;color:#F0ABFC;"><span style="white-space:nowrap;">The AI Cognition Gap</span><span style="flex:1;min-width:18px;display:flex;align-items:center;gap:5px;"><span style="flex:1;height:2px;background:#F0ABFC;"></span><span style="flex:1.1;height:2px;background:repeating-linear-gradient(90deg,rgba(240,171,252,.75) 0 7px,transparent 7px 14px);animation:nsGapPulse 2.4s ease-in-out infinite;"></span><span style="flex:1;height:2px;background:#F0ABFC;"></span></span></div>
+        <div style="grid-row:1;"></div>
+        <div data-r="1" data-step="2" style="opacity:0;transform:translateY(20px);grid-row:1;display:flex;align-items:center;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:clamp(14px,1.15vw,19px);letter-spacing:.16em;text-transform:uppercase;color:#fff;"><span style="width:8px;height:8px;border-radius:50%;background:#22D3EE;box-shadow:0 0 14px #22D3EE;flex:none;"></span>The Next Era</div>
+
+        <div style="grid-row:2;display:grid;grid-template-columns:1fr 1fr;gap:clamp(10px,1vw,16px);">
+          <div data-r="1" data-step="1" style="opacity:0;transform:translateY(20px);background:rgba(255,255,255,.05);border:1px solid rgba(196,181,253,.14);border-radius:14px;padding:clamp(14px,1.3vw,22px);">
+            <div style="font-family:Poppins,sans-serif;font-weight:600;font-size:clamp(16px,1vw,19px);letter-spacing:.06em;text-transform:uppercase;color:#fff;margin-bottom:8px;">Data / Platform Agents</div>
+            <div style="font-size:clamp(17px,1.08vw,21px);line-height:1.45;color:#C8C1E2;">Moves data, not outcomes</div>
+          </div>
+          <div data-r="1" data-step="1" style="opacity:0;transform:translateY(20px);background:rgba(255,255,255,.05);border:1px solid rgba(196,181,253,.14);border-radius:14px;padding:clamp(14px,1.3vw,22px);">
+            <div style="font-family:Poppins,sans-serif;font-weight:600;font-size:clamp(16px,1vw,19px);letter-spacing:.06em;text-transform:uppercase;color:#fff;margin-bottom:8px;">Personal Copilots</div>
+            <div style="font-size:clamp(17px,1.08vw,21px);line-height:1.45;color:#C8C1E2;">Waits to be prompted</div>
+          </div>
+          <div data-r="1" data-step="1" style="opacity:0;transform:translateY(20px);background:rgba(255,255,255,.05);border:1px solid rgba(196,181,253,.14);border-radius:14px;padding:clamp(14px,1.3vw,22px);">
+            <div style="font-family:Poppins,sans-serif;font-weight:600;font-size:clamp(16px,1vw,19px);letter-spacing:.06em;text-transform:uppercase;color:#fff;margin-bottom:8px;">Task-Specific Agents</div>
+            <div style="font-size:clamp(17px,1.08vw,21px);line-height:1.45;color:#C8C1E2;">One step / multi-step, not the whole process</div>
+          </div>
+          <div data-r="1" data-step="1" style="opacity:0;transform:translateY(20px);background:rgba(255,255,255,.05);border:1px solid rgba(196,181,253,.14);border-radius:14px;padding:clamp(14px,1.3vw,22px);">
+            <div style="font-family:Poppins,sans-serif;font-weight:600;font-size:clamp(16px,1vw,19px);letter-spacing:.06em;text-transform:uppercase;color:#fff;margin-bottom:8px;">BI with AI</div>
+            <div style="font-size:clamp(17px,1.08vw,21px);line-height:1.45;color:#C8C1E2;">Explains, doesn't decide</div>
+          </div>
+        </div>
+
+        <div data-r="1" data-step="3" style="opacity:0;transform:translateY(20px);grid-row:2;display:flex;align-items:center;justify-content:center;font-size:clamp(20px,2vw,32px);color:#7C3AED;"><span style="display:block;animation:nsNudge 2.2s ease-in-out infinite;">→</span></div>
+
+        <div data-r="1" data-step="3" style="opacity:0;transform:translateY(20px);grid-row:2;display:flex;flex-direction:column;background:linear-gradient(165deg, rgba(192,38,211,.16), rgba(109,40,217,.07));border:1px dashed rgba(240,171,252,.55);border-radius:18px;padding:clamp(18px,1.8vw,30px);">
+          <div style="flex:1;display:flex;align-items:center;gap:clamp(10px,1vw,14px);padding:clamp(9px,1.2vh,15px) 0;">
+            <span style="flex:none;width:clamp(14px,1.1vw,18px);height:2px;background:#F0ABFC;"></span>
+            <span style="font-family:Poppins,sans-serif;font-weight:600;font-size:clamp(18px,1.2vw,24px);line-height:1.3;letter-spacing:.01em;color:#fff;">Missing enterprise-wide central, multi-tiered context</span>
+          </div>
+          <div style="flex:1;display:flex;align-items:center;gap:clamp(10px,1vw,14px);padding:clamp(9px,1.2vh,15px) 0;border-top:1px dashed rgba(240,171,252,.3);">
+            <span style="flex:none;width:clamp(14px,1.1vw,18px);height:2px;background:#F0ABFC;"></span>
+            <span style="font-family:Poppins,sans-serif;font-weight:600;font-size:clamp(18px,1.2vw,24px);line-height:1.3;letter-spacing:.01em;color:#fff;">Remembers, but doesn't learn</span>
+          </div>
+          <div style="flex:1;display:flex;align-items:center;gap:clamp(10px,1vw,14px);padding:clamp(9px,1.2vh,15px) 0;border-top:1px dashed rgba(240,171,252,.3);">
+            <span style="flex:none;width:clamp(14px,1.1vw,18px);height:2px;background:#F0ABFC;"></span>
+            <span style="font-family:Poppins,sans-serif;font-weight:600;font-size:clamp(18px,1.2vw,24px);line-height:1.3;letter-spacing:.01em;color:#fff;">Compliance bolted on, not built in</span>
+          </div>
+        </div>
+
+        <div data-r="1" data-step="3" style="opacity:0;transform:translateY(20px);grid-row:2;display:flex;align-items:center;justify-content:center;font-size:clamp(20px,2vw,32px);color:#C026D3;"><span style="display:block;animation:nsNudge 2.2s ease-in-out .4s infinite;">→</span></div>
+
+        <div data-r="1" data-step="2" style="opacity:0;transform:translateY(20px);grid-row:2;position:relative;display:flex;border-radius:21px;padding:3px;background:linear-gradient(100deg,#7C3AED,#C026D3,#22D3EE,#7C3AED);background-size:200% auto;animation:nsFlow 4s linear infinite;">
+          <div style="position:absolute;inset:-12px;border-radius:30px;background:linear-gradient(100deg,#7C3AED,#C026D3,#22D3EE,#7C3AED);background-size:200% auto;animation:nsFlow 4s linear infinite;filter:blur(26px);opacity:.66;pointer-events:none;"></div>
+          <div style="position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center;overflow:hidden;background:linear-gradient(165deg, rgba(124,58,237,.5), rgba(12,6,40,.96) 70%);border-radius:18px;padding:clamp(20px,2vw,34px);">
+            <div style="position:absolute;top:-30px;right:-30px;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,rgba(34,211,238,.35),transparent 70%);pointer-events:none;"></div>
+            <div style="position:relative;font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(20px,2vw,34px);line-height:1.12;letter-spacing:-.02em;color:#fff;margin-bottom:clamp(16px,2.2vh,28px);">Accountable Digital Workers</div>
+            <div style="position:relative;display:flex;flex-direction:column;gap:clamp(11px,1.4vh,17px);">
+                <div style="display:flex;align-items:center;gap:12px;font-size:clamp(18px,1.2vw,24px);color:#fff;"><span style="display:flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:rgba(196,181,253,.22);border:1px solid rgba(196,181,253,.6);color:#E9D5FF;font-size:13px;flex:none;">✓</span>Owns the Outcome</div>
+                <div style="display:flex;align-items:center;gap:12px;font-size:clamp(18px,1.2vw,24px);color:#fff;"><span style="display:flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:rgba(196,181,253,.22);border:1px solid rgba(196,181,253,.6);color:#E9D5FF;font-size:13px;flex:none;">✓</span>Measured on Business KPIs</div>
+                <div style="display:flex;align-items:center;gap:12px;font-size:clamp(18px,1.2vw,24px);color:#fff;"><span style="display:flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:rgba(196,181,253,.22);border:1px solid rgba(196,181,253,.6);color:#E9D5FF;font-size:13px;flex:none;">✓</span>Auditable Decisions</div>
+                <div style="display:flex;align-items:center;gap:12px;font-size:clamp(18px,1.2vw,24px);color:#fff;"><span style="display:flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:rgba(196,181,253,.22);border:1px solid rgba(196,181,253,.6);color:#E9D5FF;font-size:13px;flex:none;">✓</span>IP stays within Enterprise trust boundary</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section data-screen-label="06 The Experiment Setup" data-theme="light" style="min-height:100vh;box-sizing:border-box;scroll-snap-align:start;position:relative;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding:clamp(30px,4.4vh,68px) clamp(36px,5vw,100px);background:#F5F3FA;color:#2A2350;">
+      <div data-r="1" style="opacity:0;transform:translateY(20px);font-family:'IBM Plex Mono',monospace;font-size:clamp(15px,1.1vw,20px);letter-spacing:.28em;text-transform:uppercase;color:#3D1B85;margin-bottom:14px;">An experiment with Claude</div>
+      <h2 data-r="1" style="opacity:0;transform:translateY(20px);font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(32px,3.4vw,54px);line-height:1.08;letter-spacing:-.028em;margin:0 0 12px;color:#240453;">What the model was given</h2>
+      <p data-r="1" style="opacity:0;transform:translateY(20px);font-size:clamp(19px,1.35vw,26px);line-height:1.5;color:#4A4368;margin:0 0 clamp(20px,2.8vh,36px);max-width:70ch;text-wrap:pretty;">Full access to the same enterprise data and the same instructions. Nothing withheld, the test is fair.</p>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,1.8vw,28px);">
+        <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;flex-direction:column;background:#fff;border:1px solid #E6E2F2;border-top:4px solid #6D28D9;border-radius:20px;padding:clamp(18px,1.7vw,26px);">
+          <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(19px,1.35vw,25px);letter-spacing:.1em;text-transform:uppercase;color:#1E2761;margin-bottom:8px;">Data Access</div>
+          <div style="font-size:clamp(18px,1.15vw,23px);line-height:1.5;color:#4A4368;margin-bottom:20px;">Enterprise sources connected to the model</div>
+          <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:auto;">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:clamp(16px,1vw,19px);color:#fff;background:#6D28D9;border-radius:999px;padding:9px 15px;">18 Tables</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:clamp(16px,1vw,19px);color:#3D1B85;background:#F1EBFE;border-radius:999px;padding:9px 15px;">Customer Information</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:clamp(16px,1vw,19px);color:#3D1B85;background:#F1EBFE;border-radius:999px;padding:9px 15px;">Credit Card Details</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:clamp(16px,1vw,19px);color:#3D1B85;background:#F1EBFE;border-radius:999px;padding:9px 15px;">Reimbursement Details</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:clamp(16px,1vw,19px);color:#3D1B85;background:#F1EBFE;border-radius:999px;padding:9px 15px;">Transaction Details</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:clamp(16px,1vw,19px);color:#3D1B85;background:#F1EBFE;border-radius:999px;padding:9px 15px;">Account Details</span>
+          </div>
+        </div>
+        <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;flex-direction:column;background:#fff;border:1px solid #E6E2F2;border-top:4px solid #C026D3;border-radius:20px;padding:clamp(18px,1.7vw,26px);">
+          <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(19px,1.35vw,25px);letter-spacing:.1em;text-transform:uppercase;color:#1E2761;margin-bottom:8px;">Tools</div>
+          <div style="font-size:clamp(18px,1.15vw,23px);line-height:1.5;color:#4A4368;margin-bottom:20px;">Actions the model could call</div>
+          <div style="display:flex;flex-direction:column;gap:10px;margin-top:auto;">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:clamp(17px,1.05vw,21px);color:#701A75;background:#FDF0FE;border-radius:10px;padding:11px 15px;">get_database_tables</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:clamp(17px,1.05vw,21px);color:#701A75;background:#FDF0FE;border-radius:10px;padding:11px 15px;">describe_table_schema</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:clamp(17px,1.05vw,21px);color:#701A75;background:#FDF0FE;border-radius:10px;padding:11px 15px;">run_sql</span>
+          </div>
+        </div>
+        <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;flex-direction:column;background:#fff;border:1px solid #E6E2F2;border-top:4px solid #0891B2;border-radius:20px;padding:clamp(18px,1.7vw,26px);">
+          <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(19px,1.35vw,25px);letter-spacing:.1em;text-transform:uppercase;color:#1E2761;margin-bottom:8px;">Skill / Instructions</div>
+          <div style="font-size:clamp(18px,1.15vw,23px);line-height:1.5;color:#4A4368;margin-bottom:16px;">Guidance given on how to answer</div>
+          <p style="margin:0;font-size:clamp(16px,1.02vw,20px);line-height:1.45;color:#3A3360;font-style:italic;text-wrap:pretty;">If the question turns on an internal policy, a cap, a threshold, an eligibility rule, look for it in table comments, config tables, views and stored procedures. If it is not recorded anywhere you can query, say so plainly rather than guessing.</p>
+        </div>
+      </div>
+
+      <div data-r="1" style="opacity:0;transform:translateY(20px);margin-top:clamp(16px,2.2vh,28px);margin-right:clamp(0px,13vw,230px);display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(14px,1.6vw,26px);align-items:stretch;">
+        <div style="background:linear-gradient(150deg,#2B1065,#4C1D95);border-radius:18px;padding:clamp(18px,1.8vw,28px);color:#EDEAF7;">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:clamp(15px,1vw,19px);letter-spacing:.2em;text-transform:uppercase;color:#C4B5FD;margin-bottom:12px;">The question</div>
+          <p style="margin:0;font-family:Poppins,sans-serif;font-weight:600;font-size:clamp(19px,1.35vw,26px);line-height:1.4;color:#fff;text-wrap:pretty;">“Brandon Mitchell is asking about the ATM fees charged on his accounts. How much money is he owed back?”</p>
+        </div>
+        <div style="display:flex;align-items:center;background:#fff;border:1px solid #E6E2F2;border-left:6px solid #C026D3;border-radius:18px;padding:clamp(18px,1.8vw,28px);">
+          <p style="margin:0;font-size:clamp(18px,1.2vw,24px);line-height:1.45;color:#3A3360;text-wrap:pretty;">Same data, same tools, same instructions in both runs. The only thing that changes next is the <strong>platform underneath</strong>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section data-screen-label="07 Run One — Model Alone" data-theme="dark" style="min-height:100vh;box-sizing:border-box;scroll-snap-align:start;position:relative;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding:clamp(26px,3.6vh,56px) clamp(36px,5vw,100px);background:radial-gradient(1000px 700px at 15% 10%, rgba(109,40,217,.4), transparent 62%), #0A0520;color:#EDEAF7;">
+      <div data-r="1" style="opacity:0;transform:translateY(20px);font-family:'IBM Plex Mono',monospace;font-size:clamp(15px,1.1vw,20px);letter-spacing:.28em;text-transform:uppercase;color:#C4B5FD;margin-bottom:14px;">An experiment with Claude</div>
+      <h2 data-r="1" style="opacity:0;transform:translateY(20px);font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(28px,2.9vw,46px);line-height:1.14;letter-spacing:-.025em;margin:0 0 clamp(16px,2.2vh,28px);color:#fff;max-width:44ch;">Best models with access to the right data fail to delivery outcomes the enterprises need</h2>
+
+      <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;justify-content:center;align-items:center;gap:clamp(12px,1.4vw,22px);margin:0 0 clamp(10px,1.4vh,18px);">
+        <div style="display:flex;align-items:center;gap:clamp(14px,1.4vw,22px);background:rgba(255,255,255,.06);border:1px solid rgba(110,231,183,.5);border-radius:16px;padding:clamp(9px,.9vw,14px) clamp(18px,1.7vw,28px);">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:clamp(15px,1.02vw,19px);letter-spacing:.2em;text-transform:uppercase;color:#6EE7B7;">Verified Answer</span>
+          <span style="width:1px;height:26px;background:rgba(110,231,183,.5);"></span>
+          <span style="font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(24px,2.1vw,36px);line-height:1;letter-spacing:-.02em;color:#fff;">$25</span>
+        </div>
+        <div data-fs="1" role="button" tabindex="0" title="Play the video full screen" style="display:none;align-items:center;gap:10px;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:clamp(14px,1vw,18px);letter-spacing:.16em;text-transform:uppercase;color:#EDEAF7;background:rgba(196,181,253,.14);border:1px solid rgba(196,181,253,.42);border-radius:16px;padding:clamp(10px,1vw,15px) clamp(16px,1.5vw,24px);" style-hover="background:rgba(196,181,253,.26);border-color:#C4B5FD;"><span style="font-size:1.15em;line-height:1;">⤢</span>Full screen</div>
+      </div>
+      <div data-r="1" style="opacity:0;transform:translateY(20px);position:relative;width:100%;max-width:min(1560px,93vw);margin:0 auto;border-radius:22px;overflow:hidden;border:1px solid rgba(196,181,253,.28);box-shadow:0 40px 90px -50px rgba(124,58,237,.9);background:#0C0628;">
+        <div style="position:relative;width:100%;aspect-ratio:16/9;background:#0C0628;">
+          <iframe data-vid="1" src="https://player.vimeo.com/video/1217241452?h=11da006f90&amp;badge=0&amp;byline=0&amp;title=0&amp;portrait=0&amp;dnt=1&amp;fullscreen=1" title="NeoSapients demo video" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="" style="position:absolute;inset:0;width:100%;height:100%;border:0;display:block;"></iframe>
+        </div>
+      </div>
+
+      <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;justify-content:center;gap:clamp(12px,1.4vw,22px);margin-top:clamp(16px,2.2vh,28px);flex-wrap:wrap;">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:clamp(15px,1.02vw,19px);letter-spacing:.14em;text-transform:uppercase;color:#FDA4B4;border:1px solid rgba(244,63,94,.4);border-radius:999px;padding:10px 18px;">Accuracy collapses on multi-step work</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:clamp(15px,1.02vw,19px);letter-spacing:.14em;text-transform:uppercase;color:#FDA4B4;border:1px solid rgba(244,63,94,.4);border-radius:999px;padding:10px 18px;">Different answer every run</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:clamp(15px,1.02vw,19px);letter-spacing:.14em;text-transform:uppercase;color:#FDA4B4;border:1px solid rgba(244,63,94,.4);border-radius:999px;padding:10px 18px;">No record of why, or who's accountable</span>
+      </div>
+    </section>
+
+    <section data-screen-label="08 The Missing Layer" data-theme="light" style="min-height:100vh;box-sizing:border-box;scroll-snap-align:start;position:relative;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding:clamp(34px,4.8vh,78px) clamp(40px,6vw,120px);background:#F5F3FA;color:#2A2350;">
+      <div data-r="1" style="opacity:0;transform:translateY(20px);font-family:'IBM Plex Mono',monospace;font-size:clamp(15px,1.1vw,20px);letter-spacing:.28em;text-transform:uppercase;color:#3D1B85;margin-bottom:18px;">The Missing Layer</div>
+      <div style="display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(30px,4vw,80px);align-items:center;">
+        <div>
+          <h2 data-r="1" style="opacity:0;transform:translateY(20px);font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(34px,4vw,60px);line-height:1.04;letter-spacing:-.03em;margin:0;color:#240453;">Enterprise Cognition.<br><span style="color:#6D28D9;">The missing layer.</span></h2>
+          <p data-r="1" style="opacity:0;transform:translateY(20px);font-size:clamp(16px,1.2vw,21px);line-height:1.55;color:#4A4368;margin:clamp(20px,3vh,34px) 0 0;max-width:46ch;text-wrap:pretty;">A unified cognitive layer that gives AI agents the knowledge, memory and governance to operate as accountable digital workers — not isolated tools running in silos.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:clamp(12px,1.6vh,20px);">
+          <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;gap:clamp(16px,1.6vw,26px);background:#fff;border:1px solid #E6E2F2;border-left:4px solid #6D28D9;border-radius:16px;padding:clamp(20px,2vw,30px);">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:clamp(16px,1vw,19px);color:#6D28D9;letter-spacing:.1em;padding-top:3px;">01</div>
+            <div>
+              <div style="font-family:Poppins,sans-serif;font-weight:600;font-size:clamp(15px,1.15vw,19px);letter-spacing:.08em;text-transform:uppercase;color:#1E2761;margin-bottom:8px;">Multi-Tier Knowledge Layer</div>
+              <div style="font-size:clamp(18px,1.12vw,22px);line-height:1.55;color:#4A4368;text-wrap:pretty;">Connects every enterprise system into a living knowledge graph — mapping data, processes, tools, decisions and relationships that generic AI misses.</div>
+            </div>
+          </div>
+          <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;gap:clamp(16px,1.6vw,26px);background:#fff;border:1px solid #E6E2F2;border-left:4px solid #C026D3;border-radius:16px;padding:clamp(20px,2vw,30px);">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:clamp(16px,1vw,19px);color:#C026D3;letter-spacing:.1em;padding-top:3px;">02</div>
+            <div>
+              <div style="font-family:Poppins,sans-serif;font-weight:600;font-size:clamp(15px,1.15vw,19px);letter-spacing:.08em;text-transform:uppercase;color:#1E2761;margin-bottom:8px;">Memory Layer</div>
+              <div style="font-size:clamp(18px,1.12vw,22px);line-height:1.55;color:#4A4368;text-wrap:pretty;">Grounds every agent action in true intent. Compounds institutional knowledge with every decision, getting smarter with each deployment.<br><span style="display:inline-block;margin-top:8px;">Balances Deterministic vs. Probabilistic approach</span></div>
+            </div>
+          </div>
+          <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;gap:clamp(16px,1.6vw,26px);background:#fff;border:1px solid #E6E2F2;border-left:4px solid #0891B2;border-radius:16px;padding:clamp(20px,2vw,30px);">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:clamp(16px,1vw,19px);color:#0891B2;letter-spacing:.1em;padding-top:3px;">03</div>
+            <div>
+              <div style="font-family:Poppins,sans-serif;font-weight:600;font-size:clamp(15px,1.15vw,19px);letter-spacing:.08em;text-transform:uppercase;color:#1E2761;margin-bottom:8px;">Governance Layer</div>
+              <div style="font-size:clamp(18px,1.12vw,22px);line-height:1.55;color:#4A4368;text-wrap:pretty;">Enforces compliance at execution, not after the fact. Produces regulator-ready evidence proving what AI did and why.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section data-screen-label="09 Run Two — With NeoSapients" data-theme="dark" style="min-height:100vh;box-sizing:border-box;scroll-snap-align:start;position:relative;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding:clamp(26px,3.6vh,56px) clamp(36px,5vw,100px);background:radial-gradient(1000px 700px at 85% 12%, rgba(192,38,211,.34), transparent 62%), radial-gradient(900px 700px at 10% 90%, rgba(109,40,217,.42), transparent 62%), #0A0520;color:#EDEAF7;">
+      <h2 data-r="1" style="opacity:0;transform:translateY(20px);font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(28px,2.9vw,46px);line-height:1.14;letter-spacing:-.025em;margin:0 0 10px;color:#fff;">Same model. <span style="color:#C4B5FD;">Grounded results.</span></h2>
+      <div data-r="1" style="opacity:0;transform:translateY(20px);font-family:'IBM Plex Mono',monospace;font-size:clamp(15px,1.1vw,20px);letter-spacing:.28em;text-transform:uppercase;color:#C4B5FD;margin-bottom:clamp(12px,1.6vh,20px);">Integrates AI Reasoning with Deterministic Workflows</div>
+
+      <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;justify-content:center;align-items:center;gap:clamp(12px,1.4vw,22px);margin:0 0 clamp(10px,1.4vh,18px);">
+        <div style="display:flex;align-items:center;gap:clamp(14px,1.4vw,22px);background:rgba(255,255,255,.06);border:1px solid rgba(110,231,183,.5);border-radius:16px;padding:clamp(9px,.9vw,14px) clamp(18px,1.7vw,28px);">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:clamp(15px,1.02vw,19px);letter-spacing:.2em;text-transform:uppercase;color:#6EE7B7;">Verified Answer</span>
+          <span style="width:1px;height:26px;background:rgba(110,231,183,.5);"></span>
+          <span style="font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(24px,2.1vw,36px);line-height:1;letter-spacing:-.02em;color:#fff;">$25</span>
+        </div>
+        <div data-fs="1" role="button" tabindex="0" title="Play the video full screen" style="display:none;align-items:center;gap:10px;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:clamp(14px,1vw,18px);letter-spacing:.16em;text-transform:uppercase;color:#EDEAF7;background:rgba(196,181,253,.14);border:1px solid rgba(196,181,253,.42);border-radius:16px;padding:clamp(10px,1vw,15px) clamp(16px,1.5vw,24px);" style-hover="background:rgba(196,181,253,.26);border-color:#C4B5FD;"><span style="font-size:1.15em;line-height:1;">⤢</span>Full screen</div>
+      </div>
+      <div data-r="1" style="opacity:0;transform:translateY(20px);position:relative;width:100%;max-width:min(1560px,93vw);margin:0 auto;border-radius:22px;overflow:hidden;border:1px solid rgba(240,171,252,.34);box-shadow:0 40px 90px -50px rgba(192,38,211,.9);background:#0C0628;">
+        <div style="position:relative;width:100%;aspect-ratio:16/9;background:#0C0628;">
+          <iframe data-vid="2" src="https://player.vimeo.com/video/1217241451?h=d465930a3e&amp;badge=0&amp;byline=0&amp;title=0&amp;portrait=0&amp;dnt=1&amp;fullscreen=1" title="NeoSapients demo video" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="" style="position:absolute;inset:0;width:100%;height:100%;border:0;display:block;"></iframe>
+        </div>
+      </div>
+
+      <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;justify-content:center;gap:clamp(12px,1.4vw,22px);margin-top:clamp(16px,2.2vh,28px);flex-wrap:wrap;">
+        <span style="align-self:center;font-family:'IBM Plex Mono',monospace;font-size:clamp(15px,1.02vw,19px);letter-spacing:.2em;text-transform:uppercase;color:#C4B5FD;">With NeoSapients:</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:clamp(15px,1.02vw,19px);letter-spacing:.14em;text-transform:uppercase;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(167,139,250,.55);border-radius:999px;padding:10px 18px;">+ Multi-tier Knowledge Layer</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:clamp(15px,1.02vw,19px);letter-spacing:.14em;text-transform:uppercase;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(240,171,252,.55);border-radius:999px;padding:10px 18px;">+ Memory Layer</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:clamp(15px,1.02vw,19px);letter-spacing:.14em;text-transform:uppercase;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(103,232,249,.5);border-radius:999px;padding:10px 18px;">+ Governance Layer</span>
+      </div>
+    </section>
+
+    <section data-screen-label="10 Divider 02" data-theme="dark" style="min-height:100vh;box-sizing:border-box;scroll-snap-align:start;position:relative;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding:clamp(34px,4.8vh,78px) clamp(40px,6vw,120px);background:radial-gradient(1100px 760px at 12% 80%, rgba(192,38,211,.34), transparent 62%), radial-gradient(900px 700px at 80% 10%, rgba(109,40,217,.42), transparent 62%), #0A0520;color:#EDEAF7;">
+      <div data-anim="bigdrift" style="position:absolute;left:-2vw;top:50%;transform:translateY(-50%);font-family:Poppins,sans-serif;font-weight:700;font-size:min(46vh,34vw);line-height:.8;color:rgba(124,58,237,.22);letter-spacing:-.05em;pointer-events:none;">02</div>
+      <div style="position:relative;">
+        <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;align-items:center;gap:14px;margin-bottom:22px;">
+          <span style="display:block;width:46px;height:3px;background:#C026D3;"></span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:clamp(15px,1.1vw,20px);letter-spacing:.28em;text-transform:uppercase;color:#C4B5FD;">The Enterprise Cognition Platform</span>
+        </div>
+        <h2 data-r="1" style="opacity:0;transform:translateY(20px);font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(42px,6vw,92px);line-height:1;letter-spacing:-.035em;margin:0;color:#fff;">Why NeoSapients</h2>
+        <p data-r="1" style="opacity:0;transform:translateY(20px);font-family:Poppins,sans-serif;font-weight:400;font-size:clamp(18px,1.9vw,32px);line-height:1.3;color:#C8C1E2;margin:20px 0 0;">The Enterprise AI's missing layer</p>
+      </div>
+    </section>
+
+    <section data-screen-label="11 Why NeoSapients" data-theme="light" style="min-height:100vh;box-sizing:border-box;scroll-snap-align:start;position:relative;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding:clamp(28px,4vh,58px) clamp(32px,4.4vw,88px);background:#F5F3FA;color:#2A2350;">
+      <div data-r="1" style="opacity:0;transform:translateY(20px);font-family:'IBM Plex Mono',monospace;font-size:clamp(15px,1.1vw,20px);letter-spacing:.28em;text-transform:uppercase;color:#3D1B85;margin-bottom:14px;">Why NeoSapients</div>
+      <h2 data-r="1" style="opacity:0;transform:translateY(20px);font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(30px,3.6vw,54px);line-height:1.05;letter-spacing:-.028em;margin:0 0 clamp(20px,3vh,40px);color:#240453;">Six things that set NeoSapients apart</h2>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.6vw,26px);align-items:stretch;">
+        <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;flex-direction:column;background:#fff;border:1px solid #E6E2F2;border-radius:18px;padding:clamp(16px,1.6vw,26px);">
+          <div style="display:flex;align-items:center;gap:clamp(10px,1vw,16px);min-height:calc(2 * 1.35em);margin-bottom:clamp(10px,1.3vh,16px);">
+            <img loading="eager" decoding="async" src="assets/s13-i1.png" alt="" style="width:clamp(34px,2.7vw,46px);height:auto;display:block;flex:none;">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:clamp(14px,.98vw,18px);letter-spacing:.18em;text-transform:uppercase;color:#6D28D9;">Trust Boundary +</span>
+          </div>
+          <div style="font-family:Poppins,sans-serif;font-weight:600;font-size:clamp(19px,1.45vw,25px);line-height:1.2;color:#1E2761;margin-bottom:10px;">You Own Your IP</div>
+          <div style="font-size:clamp(17px,1.1vw,22px);line-height:1.5;color:#475569;text-wrap:pretty;">Context, business logic, decisions and audit logs stay inside your trust boundary — LLM only process parts of it never the whole</div>
+        </div>
+        <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;flex-direction:column;background:#fff;border:1px solid #E6E2F2;border-radius:18px;padding:clamp(16px,1.6vw,26px);">
+          <div style="display:flex;align-items:center;gap:clamp(10px,1vw,16px);min-height:calc(2 * 1.35em);margin-bottom:clamp(10px,1.3vh,16px);">
+            <img loading="eager" decoding="async" src="assets/s13-i2.png" alt="" style="width:clamp(34px,2.7vw,46px);height:auto;display:block;flex:none;">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:clamp(14px,.98vw,18px);letter-spacing:.18em;text-transform:uppercase;color:#C026D3;">Cost ↓</span>
+          </div>
+          <div style="font-family:Poppins,sans-serif;font-weight:600;font-size:clamp(19px,1.45vw,25px);line-height:1.2;color:#1E2761;margin-bottom:10px;">Model-Agnostic</div>
+          <div style="font-size:clamp(17px,1.1vw,22px);line-height:1.5;color:#475569;text-wrap:pretty;">Own the knowledge, swap models freely. No lock-in if a provider changes, fails, or is outgrown.</div>
+        </div>
+        <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;flex-direction:column;background:#fff;border:1px solid #E6E2F2;border-radius:18px;padding:clamp(16px,1.6vw,26px);">
+          <div style="display:flex;align-items:center;gap:clamp(10px,1vw,16px);min-height:calc(2 * 1.35em);margin-bottom:clamp(10px,1.3vh,16px);">
+            <img loading="eager" decoding="async" src="assets/s13-i3.svg" alt="" style="width:clamp(34px,2.7vw,46px);height:auto;display:block;flex:none;">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:clamp(14px,.98vw,18px);letter-spacing:.18em;line-height:1.35;text-transform:uppercase;color:#3D1B85;">Cost &amp; Time ↓<br>Accuracy ↑</span>
+          </div>
+          <div style="font-family:Poppins,sans-serif;font-weight:600;font-size:clamp(19px,1.45vw,25px);line-height:1.2;color:#1E2761;margin-bottom:10px;">Deterministic + Probabilistic approach</div>
+          <div style="font-size:clamp(17px,1.1vw,22px);line-height:1.5;color:#475569;text-wrap:pretty;">Facts stay deterministic; reasoning goes probabilistic. And making it accountable through NeoSapients Cognition Score.</div>
+        </div>
+        <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;flex-direction:column;background:#fff;border:1px solid #E6E2F2;border-radius:18px;padding:clamp(16px,1.6vw,26px);">
+          <div style="display:flex;align-items:center;gap:clamp(10px,1vw,16px);min-height:calc(2 * 1.35em);margin-bottom:clamp(10px,1.3vh,16px);">
+            <img loading="eager" decoding="async" src="assets/s13-i4.png" alt="" style="width:clamp(34px,2.7vw,46px);height:auto;display:block;flex:none;">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:clamp(14px,.98vw,18px);letter-spacing:.18em;text-transform:uppercase;color:#0891B2;">Consistency ↑</span>
+          </div>
+          <div style="font-family:Poppins,sans-serif;font-weight:600;font-size:clamp(19px,1.45vw,25px);line-height:1.2;color:#1E2761;margin-bottom:10px;">Institutional Knowledge</div>
+          <div style="font-size:clamp(17px,1.1vw,22px);line-height:1.5;color:#475569;text-wrap:pretty;">Multi-Tier Meta knowledge Mesh. Structure data, unstructured documents, workflows, SOPs/AOPs, Connections, tools, MCPs are all codified into a multi-tiered knowledge mesh</div>
+        </div>
+        <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;flex-direction:column;background:#fff;border:1px solid #E6E2F2;border-radius:18px;padding:clamp(16px,1.6vw,26px);">
+          <div style="display:flex;align-items:center;gap:clamp(10px,1vw,16px);min-height:calc(2 * 1.35em);margin-bottom:clamp(10px,1.3vh,16px);">
+            <img loading="eager" decoding="async" src="assets/s13-i5.png" alt="" style="width:clamp(34px,2.7vw,46px);height:auto;display:block;flex:none;">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:clamp(14px,.98vw,18px);letter-spacing:.18em;text-transform:uppercase;color:#6D28D9;">Time to Deploy ↓</span>
+          </div>
+          <div style="font-family:Poppins,sans-serif;font-weight:600;font-size:clamp(19px,1.45vw,25px);line-height:1.2;color:#1E2761;margin-bottom:10px;">Not a Rip &amp; Replace</div>
+          <div style="font-size:clamp(17px,1.1vw,22px);line-height:1.5;color:#475569;text-wrap:pretty;">Exposes your enterprise estate as a graph to the agents and orchestration you already run.</div>
+        </div>
+        <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;flex-direction:column;background:#fff;border:1px solid #E6E2F2;border-radius:18px;padding:clamp(16px,1.6vw,26px);">
+          <div style="display:flex;align-items:center;gap:clamp(10px,1vw,16px);min-height:calc(2 * 1.35em);margin-bottom:clamp(10px,1.3vh,16px);">
+            <img loading="eager" decoding="async" src="assets/s13-i6.png" alt="" style="width:clamp(34px,2.7vw,46px);height:auto;display:block;flex:none;">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:clamp(14px,.98vw,18px);letter-spacing:.18em;text-transform:uppercase;color:#C026D3;">Accuracy ↑</span>
+          </div>
+          <div style="font-family:Poppins,sans-serif;font-weight:600;font-size:clamp(19px,1.45vw,25px);line-height:1.2;color:#1E2761;margin-bottom:10px;">Gets Smarter With Use</div>
+          <div style="font-size:clamp(17px,1.1vw,22px);line-height:1.5;color:#475569;text-wrap:pretty;">Learns from winning approach, not the answer. Online + offline evals show where it fails.</div>
+        </div>
+      </div>
+    </section>
+
+    <section data-screen-label="12 Divider 03" data-theme="dark" style="min-height:100vh;box-sizing:border-box;scroll-snap-align:start;position:relative;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding:clamp(34px,4.8vh,78px) clamp(40px,6vw,120px);background:radial-gradient(1100px 760px at 12% 80%, rgba(109,40,217,.5), transparent 62%), #0A0520;color:#EDEAF7;">
+      <div data-anim="bigdrift" style="position:absolute;left:-2vw;top:50%;transform:translateY(-50%);font-family:Poppins,sans-serif;font-weight:700;font-size:min(46vh,34vw);line-height:.8;color:rgba(124,58,237,.22);letter-spacing:-.05em;pointer-events:none;">03</div>
+      <div style="position:relative;">
+        <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;align-items:center;gap:14px;margin-bottom:22px;">
+          <span style="display:block;width:46px;height:3px;background:#C026D3;"></span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:clamp(15px,1.1vw,20px);letter-spacing:.28em;text-transform:uppercase;color:#C4B5FD;">The Enterprise Cognition Platform</span>
+        </div>
+        <h2 data-r="1" style="opacity:0;transform:translateY(20px);font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(34px,4.6vw,72px);line-height:1.04;letter-spacing:-.035em;margin:0;color:#fff;max-width:18ch;">NeoSapients Deep Dive: Platform &amp; Live Demo</h2>
+        <p data-r="1" style="opacity:0;transform:translateY(20px);font-family:Poppins,sans-serif;font-weight:400;font-size:clamp(18px,1.9vw,32px);line-height:1.3;color:#C8C1E2;margin:20px 0 0;max-width:34ch;">“The Enterprise AI’s missing layer”</p>
+      </div>
+    </section>
+
+    <section data-screen-label="13 Not Another Agent" data-theme="light" style="min-height:100vh;box-sizing:border-box;scroll-snap-align:start;position:relative;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding:clamp(24px,3.4vh,54px) clamp(30px,4.2vw,84px);background:#F5F3FA;color:#2A2350;">
+      <div data-r="1" style="opacity:0;transform:translateY(20px);font-family:'IBM Plex Mono',monospace;font-size:clamp(15px,1.1vw,20px);letter-spacing:.28em;text-transform:uppercase;color:#3D1B85;margin-bottom:10px;">NeoSapients Solution</div>
+      <h2 data-r="1" style="opacity:0;transform:translateY(20px);font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(24px,2.7vw,42px);line-height:1.08;letter-spacing:-.028em;margin:0 0 clamp(14px,2vh,26px);color:#240453;max-width:40ch;text-wrap:balance;">The enterprise AI stack has a missing layer. <span style="background:linear-gradient(100deg,#6D28D9,#C026D3,#6D28D9);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:nsFlow 6s linear infinite;">NeoSapients just built it!</span></h2>
+
+      <div style="display:grid;grid-template-columns:2.1fr 1fr;gap:clamp(18px,2.2vw,38px);align-items:center;">
+        <div data-r="1" style="opacity:0;transform:translateY(20px);position:relative;width:100%;aspect-ratio:1392/768;max-width:calc(62vh * 1.8125);margin-inline:auto;">
+          <img loading="eager" decoding="async" src="assets/s15-estate.jpeg" alt="Digital workers and models sitting on the NeoSapients Enterprise Cognition Platform — Knowledge, Memory, Governance — above the enterprise estate" style="display:block;width:100%;height:100%;object-fit:contain;">
+          <img loading="eager" decoding="async" src="assets/s15-strip.png" alt="Systems, Data, Tools, Workflows, Skills" style="position:absolute;left:28.7%;top:80.2%;width:58.1%;height:auto;display:block;">
+        </div>
+        <div style="display:flex;flex-direction:column;gap:clamp(10px,1.3vh,18px);">
+        <div data-r="1" style="opacity:0;transform:translateY(20px);background:#fff;border:1px solid #E6E2F2;border-radius:18px;padding:clamp(15px,1.5vw,24px);">
+          <div style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:clamp(15px,1vw,18px);letter-spacing:.16em;text-transform:uppercase;color:#6D28D9;background:#F1EBFE;border-radius:999px;padding:6px 12px;margin-bottom:11px;">Not Another Agent</div>
+          <div style="font-size:clamp(17px,1.06vw,21px);line-height:1.48;color:#3A3360;text-wrap:pretty;">The Enterprise Cognition platform is built on the Enterprise Estate encompassing Systems, Processes, Data and Tools to enable accountable digital workers</div>
+        </div>
+        <div data-r="1" style="opacity:0;transform:translateY(20px);background:#fff;border:1px solid #E6E2F2;border-radius:18px;padding:clamp(15px,1.5vw,24px);">
+          <div style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:clamp(15px,1vw,18px);letter-spacing:.16em;text-transform:uppercase;color:#C026D3;background:#FDF0FE;border-radius:999px;padding:6px 12px;margin-bottom:11px;">Not Just Context Engineering</div>
+          <div style="font-size:clamp(17px,1.06vw,21px);line-height:1.48;color:#3A3360;text-wrap:pretty;">The platform creates a meta knowledge mesh of all the data, documents, tools, skills and workflows specific to your enterprise</div>
+        </div>
+        <div data-r="1" style="opacity:0;transform:translateY(20px);background:#fff;border:1px solid #E6E2F2;border-radius:18px;padding:clamp(15px,1.5vw,24px);">
+          <div style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:clamp(15px,1vw,18px);letter-spacing:.16em;text-transform:uppercase;color:#0891B2;background:#E7F6FA;border-radius:999px;padding:6px 12px;margin-bottom:11px;">Not A Rip &amp; Replace</div>
+          <div style="font-size:clamp(17px,1.06vw,21px);line-height:1.48;color:#3A3360;text-wrap:pretty;">NeoSapients seamlessly fits into existing AI investments, be it Infrastructure, Choice of LLMs, Agentic Frameworks or Enterprise Tech Stack</div>
+        </div>
+        </div>
+      </div>
+
+      <div data-r="1" style="opacity:0;transform:translateY(20px);margin:clamp(12px,1.8vh,24px) 0 0;position:relative;border:3px solid transparent;background:linear-gradient(150deg,#2B1065,#4C1D95) padding-box, linear-gradient(90deg,#7C3AED,#C026D3,#22D3EE,#7C3AED) border-box;background-size:auto, 200% auto;animation:nsFlow 5s linear infinite;border-radius:16px;padding:clamp(12px,1.3vw,20px) clamp(18px,2vw,32px);box-shadow:0 30px 80px -35px rgba(124,58,237,.75);">
+        <p style="margin:0;font-family:Poppins,sans-serif;font-weight:600;font-size:clamp(16px,1.3vw,23px);line-height:1.35;color:#fff;max-width:82ch;margin-left:auto;margin-right:auto;text-align:center;font-style:italic;text-wrap:pretty;">NeoSapients is all three pillars, engineered to work as one — which makes it something else entirely.</p>
+      </div>
+    </section>
+
+    <section data-screen-label="14 Recap Addressed" data-theme="light" style="min-height:100vh;box-sizing:border-box;scroll-snap-align:start;position:relative;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding:clamp(30px,4.4vh,66px) clamp(36px,5vw,100px);background:#F5F3FA;color:#2A2350;">
+      <div data-r="1" style="opacity:0;transform:translateY(20px);font-family:'IBM Plex Mono',monospace;font-size:clamp(15px,1.1vw,20px);letter-spacing:.28em;text-transform:uppercase;color:#3D1B85;margin-bottom:14px;">Recap</div>
+      <h2 data-r="1" style="opacity:0;transform:translateY(20px);font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(28px,3.4vw,52px);line-height:1.04;letter-spacing:-.025em;margin:0 0 clamp(18px,2.6vh,34px);color:#240453;">Our Understanding of current state across enterprises</h2>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,1.8vw,28px);">
+        <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;flex-direction:column;background:#fff;border:1px solid #E6E2F2;border-radius:20px;padding:clamp(20px,2vw,32px);border-top:4px solid #6D28D9;">
+          <div data-anim="spark" style="font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(32px,2.9vw,46px);line-height:1;color:#6D28D9;letter-spacing:-.03em;">01</div>
+          <div style="font-family:Poppins,sans-serif;font-weight:600;font-size:clamp(19px,1.45vw,24px);line-height:1.25;color:#240453;margin:16px 0 14px;">Messy, ungoverned data across multiple systems</div>
+          <ul style="margin:0 0 auto;padding-left:18px;font-size:clamp(17px,1.1vw,22px);line-height:1.55;color:#3A3A48;">
+            <li style="margin-bottom:7px;">Siloed data, rarely certified or enriched</li>
+            <li style="margin-bottom:7px;">Data systems in practice are not always well documented</li>
+            <li>Lack of process guardrails blocks scaling</li>
+          </ul>
+        </div>
+        <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;flex-direction:column;background:#fff;border:1px solid #E6E2F2;border-radius:20px;padding:clamp(20px,2vw,32px);border-top:4px solid #0891B2;">
+          <div data-anim="spark" style="font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(32px,2.9vw,46px);line-height:1;color:#0891B2;letter-spacing:-.03em;">02</div>
+          <div style="font-family:Poppins,sans-serif;font-weight:600;font-size:clamp(19px,1.45vw,24px);line-height:1.25;color:#240453;margin:16px 0 14px;">Business Processes are complex and dynamic</div>
+          <ul style="margin:0 0 auto;padding-left:18px;font-size:clamp(17px,1.1vw,22px);line-height:1.55;color:#3A3A48;">
+            <li style="margin-bottom:7px;">A single consistent process rarely holds across teams in reality</li>
+            <li style="margin-bottom:7px;">Hard to keep pace as processes shift and evolve</li>
+            <li>Documented process often differs from the process followed in practice</li>
+          </ul>
+        </div>
+        <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;flex-direction:column;background:#fff;border:1px solid #E6E2F2;border-radius:20px;padding:clamp(20px,2vw,32px);border-top:4px solid #C026D3;">
+          <div data-anim="spark" style="font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(32px,2.9vw,46px);line-height:1;color:#C026D3;letter-spacing:-.03em;">03</div>
+          <div style="font-family:Poppins,sans-serif;font-weight:600;font-size:clamp(19px,1.45vw,24px);line-height:1.25;color:#240453;margin:16px 0 14px;">The last 10% of accuracy is the hard part</div>
+          <ul style="margin:0 0 auto;padding-left:18px;font-size:clamp(17px,1.1vw,22px);line-height:1.55;color:#3A3A48;">
+            <li style="margin-bottom:7px;">90% is achievable; production needs ~100% with no clean data to learn from</li>
+            <li style="margin-bottom:7px;">Grounding and quality issues slip through</li>
+            <li>Auditability of actions</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,1.8vw,28px);margin-top:clamp(10px,1.4vh,18px);">
+        <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;justify-content:center;color:#6D28D9;font-size:clamp(18px,1.5vw,26px);line-height:1;">↓</div>
+        <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;justify-content:center;color:#0891B2;font-size:clamp(18px,1.5vw,26px);line-height:1;">↓</div>
+        <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;justify-content:center;color:#C026D3;font-size:clamp(18px,1.5vw,26px);line-height:1;">↓</div>
+      </div>
+
+      <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;align-items:center;gap:14px;margin:clamp(4px,.8vh,10px) 0 clamp(12px,1.6vh,20px);">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:clamp(15px,1.05vw,19px);letter-spacing:.2em;text-transform:uppercase;color:#3D1B85;">How we address each — in the demos that follow</span>
+        <span style="flex:1;height:1px;background:linear-gradient(90deg,#CFC7E6,transparent);"></span>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,1.8vw,28px);align-items:stretch;">
+        <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;gap:12px;align-items:flex-start;background:#F3EEFE;border:1px solid #6D28D955;border-left:5px solid #6D28D9;border-radius:16px;padding:clamp(14px,1.4vw,22px);">
+          <span style="display:flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:#6D28D9;color:#fff;font-size:13px;font-weight:700;flex:none;">✓</span>
+          <div style="font-size:clamp(17px,1.1vw,22px);line-height:1.45;color:#20304A;text-wrap:pretty;">Knowledge Mesh creates the <strong style="font-weight:700;color:#6D28D9;">Semantic Intelligence</strong> to handle disambiguation</div>
+        </div>
+        <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;gap:12px;align-items:flex-start;background:#E7F6FA;border:1px solid #0891B255;border-left:5px solid #0891B2;border-radius:16px;padding:clamp(14px,1.4vw,22px);">
+          <span style="display:flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:#0891B2;color:#fff;font-size:13px;font-weight:700;flex:none;">✓</span>
+          <div style="font-size:clamp(17px,1.1vw,22px);line-height:1.45;color:#20304A;text-wrap:pretty;">Knowledge Mesh enables <strong style="font-weight:700;color:#0891B2;">Workflows</strong> that can adopt to complex processes with multi-agentic turn events</div>
+        </div>
+        <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;gap:12px;align-items:flex-start;background:#FDF0FE;border:1px solid #C026D355;border-left:5px solid #C026D3;border-radius:16px;padding:clamp(14px,1.4vw,22px);">
+          <span style="display:flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:#C026D3;color:#fff;font-size:13px;font-weight:700;flex:none;">✓</span>
+          <div style="font-size:clamp(17px,1.1vw,22px);line-height:1.45;color:#20304A;text-wrap:pretty;">Pragmatic <strong style="font-weight:700;color:#C026D3;">Offline + Online Evaluations</strong> with Ablation testing</div>
+        </div>
+      </div>
+    </section>
+
+    <section data-screen-label="15 Live Platform Demo" data-theme="dark" style="min-height:100vh;box-sizing:border-box;scroll-snap-align:start;position:relative;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding:clamp(28px,4vh,60px) clamp(32px,4.6vw,92px);background:radial-gradient(1100px 780px at 50% 0%, rgba(109,40,217,.44), transparent 62%), #0A0520;color:#EDEAF7;">
+      <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;align-items:center;gap:14px;margin-bottom:12px;">
+        <span style="display:inline-block;width:11px;height:11px;border-radius:50%;background:#F43F5E;animation:nsPulse 1.6s ease-in-out infinite;"></span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:clamp(15px,1.1vw,20px);letter-spacing:.3em;text-transform:uppercase;color:#C4B5FD;">Live platform demo</span>
+      </div>
+      <h2 data-r="1" style="opacity:0;transform:translateY(20px);font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(32px,3.6vw,58px);line-height:1.06;letter-spacing:-.03em;margin:0 0 clamp(16px,2.2vh,28px);color:#fff;">Three things to watch</h2>
+
+      <div style="display:grid;grid-template-columns:.92fr 1.24fr;gap:clamp(20px,2.6vw,46px);align-items:center;">
+        <div data-r="1" style="opacity:0;transform:translateY(20px);position:relative;padding:clamp(26px,2.6vh,38px) 0 clamp(30px,3vh,44px);">
+          <img loading="eager" decoding="async" src="assets/s17-visual.png" alt="Knowledge Mesh feeding the Cortex Engine, measured by the evaluation console" style="display:block;width:100%;max-height:52vh;height:auto;object-fit:contain;">
+        <div style="position:absolute;left:5%;top:0;font-family:Poppins,sans-serif;font-weight:600;font-size:clamp(16px,1.15vw,22px);letter-spacing:.05em;color:#C4B5FD;text-shadow:0 2px 14px rgba(10,5,32,.95);white-space:nowrap;">Knowledge Mesh</div>
+        <div style="position:absolute;right:1%;top:0;font-family:Poppins,sans-serif;font-weight:600;font-size:clamp(16px,1.15vw,22px);letter-spacing:.05em;color:#F0ABFC;text-shadow:0 2px 14px rgba(10,5,32,.95);white-space:nowrap;">Cortex Engine</div>
+        <div style="position:absolute;left:50%;bottom:0;transform:translateX(-50%);font-family:Poppins,sans-serif;font-weight:600;font-size:clamp(16px,1.15vw,22px);letter-spacing:.05em;color:#67E8F9;text-shadow:0 2px 14px rgba(10,5,32,.95);white-space:nowrap;">Evaluations</div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:clamp(12px,1.6vh,22px);">
+          <div data-r="1" data-goto="16" role="button" tabindex="0" title="Knowledge Mesh" style="opacity:0;transform:translateY(20px);cursor:pointer;display:flex;align-items:flex-start;gap:clamp(14px,1.4vw,22px);background:rgba(255,255,255,.055);border:1px solid rgba(196,181,253,.18);border-left:4px solid #A78BFA;border-radius:18px;padding:clamp(16px,1.5vw,26px);transition:transform .3s,border-color .3s,box-shadow .3s;" style-hover="transform:translateX(6px);border-color:#A78BFA;box-shadow:0 30px 70px -40px #A78BFA;">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:clamp(16px,1.15vw,21px);color:#A78BFA;letter-spacing:.14em;flex:none;padding-top:4px;">01</div>
+            <div style="flex:1;">
+              <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(21px,1.6vw,30px);line-height:1.14;color:#fff;letter-spacing:-.02em;margin-bottom:8px;">Knowledge Mesh</div>
+              <div style="font-size:clamp(17px,1.1vw,22px);line-height:1.45;color:#C8C1E2;text-wrap:pretty;">The tiered hierarchical knowledge graph that maps your data, documents, tools, skills &amp; processes</div>
+            </div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:clamp(13px,.92vw,17px);letter-spacing:.2em;text-transform:uppercase;color:#A78BFA;flex:none;padding-top:6px;">Knowledge</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:clamp(18px,1.4vw,24px);color:#A78BFA;flex:none;padding-top:2px;">›</div>
+          </div>
+          <div data-r="1" data-goto="17" role="button" tabindex="0" title="Cortex Engine" style="opacity:0;transform:translateY(20px);cursor:pointer;display:flex;align-items:flex-start;gap:clamp(14px,1.4vw,22px);background:rgba(255,255,255,.055);border:1px solid rgba(240,171,252,.2);border-left:4px solid #F0ABFC;border-radius:18px;padding:clamp(16px,1.5vw,26px);transition:transform .3s,border-color .3s,box-shadow .3s;" style-hover="transform:translateX(6px);border-color:#F0ABFC;box-shadow:0 30px 70px -40px #F0ABFC;">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:clamp(16px,1.15vw,21px);color:#F0ABFC;letter-spacing:.14em;flex:none;padding-top:4px;">02</div>
+            <div style="flex:1;">
+              <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(21px,1.6vw,30px);line-height:1.14;color:#fff;letter-spacing:-.02em;margin-bottom:8px;">Cortex Engine</div>
+              <div style="font-size:clamp(17px,1.1vw,22px);line-height:1.45;color:#C8C1E2;text-wrap:pretty;">Reasons over the Mesh, assembles context and runs the workflow that fits</div>
+            </div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:clamp(13px,.92vw,17px);letter-spacing:.2em;text-transform:uppercase;color:#F0ABFC;flex:none;padding-top:6px;">Memory</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:clamp(18px,1.4vw,24px);color:#F0ABFC;flex:none;padding-top:2px;">›</div>
+          </div>
+          <div data-r="1" data-goto="18" role="button" tabindex="0" title="Evaluations" style="opacity:0;transform:translateY(20px);cursor:pointer;display:flex;align-items:flex-start;gap:clamp(14px,1.4vw,22px);background:rgba(255,255,255,.055);border:1px solid rgba(103,232,249,.24);border-left:4px solid #67E8F9;border-radius:18px;padding:clamp(16px,1.5vw,26px);transition:transform .3s,border-color .3s,box-shadow .3s;" style-hover="transform:translateX(6px);border-color:#67E8F9;box-shadow:0 30px 70px -40px #67E8F9;">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:clamp(16px,1.15vw,21px);color:#67E8F9;letter-spacing:.14em;flex:none;padding-top:4px;">03</div>
+            <div style="flex:1;">
+              <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(21px,1.6vw,30px);line-height:1.14;color:#fff;letter-spacing:-.02em;margin-bottom:8px;">Evaluations</div>
+              <div style="font-size:clamp(17px,1.1vw,22px);line-height:1.45;color:#C8C1E2;text-wrap:pretty;">How the platform is measured, layer by layer</div>
+            </div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:clamp(13px,.92vw,17px);letter-spacing:.2em;text-transform:uppercase;color:#67E8F9;flex:none;padding-top:6px;">Governance</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:clamp(18px,1.4vw,24px);color:#67E8F9;flex:none;padding-top:2px;">›</div>
+          </div>
+        </div>
+      </div>
+
+      <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;align-items:center;gap:clamp(22px,2.6vw,44px);flex-wrap:wrap;margin-top:clamp(14px,2.2vh,28px);padding-top:clamp(14px,2vh,24px);border-top:1px solid rgba(196,181,253,.2);">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:clamp(14px,1vw,18px);letter-spacing:.22em;text-transform:uppercase;color:#C4B5FD;">Academic Partners:</span>
+        <div style="display:flex;align-items:center;gap:clamp(9px,.9vw,14px);">
+          <img loading="eager" decoding="async" src="assets/s17-iit.png" alt="Indian Institute of Technology Kanpur" style="height:clamp(34px,3.2vw,48px);width:auto;display:block;background:#fff;border-radius:50%;padding:3px;">
+          <span style="font-family:Poppins,sans-serif;font-weight:600;font-size:clamp(16px,1.1vw,21px);color:#EDEAF7;white-space:nowrap;">IIT Kanpur</span>
+        </div>
+        <img loading="eager" decoding="async" src="assets/s17-cmu.png" alt="Carnegie Mellon University" style="height:clamp(28px,2.6vw,40px);width:auto;display:block;background:#fff;border-radius:8px;padding:5px 9px;">
+      </div>
+    </section>
+
+    <section data-screen-label="16 Knowledge Mesh" data-theme="dark" style="min-height:100vh;box-sizing:border-box;scroll-snap-align:start;position:relative;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding:clamp(26px,3.6vh,56px) clamp(36px,5vw,100px);background:radial-gradient(900px 700px at 8% 12%, rgba(109,40,217,.42), transparent 62%), #0A0520;color:#EDEAF7;">
+      <div data-r="1" style="opacity:0;transform:translateY(20px);font-family:'IBM Plex Mono',monospace;font-size:clamp(15px,1.1vw,20px);letter-spacing:.28em;text-transform:uppercase;color:#C4B5FD;margin-bottom:12px;">Platform demo · 01</div>
+      <div style="display:grid;grid-template-columns:1fr 1.35fr;gap:clamp(24px,3vw,56px);align-items:center;">
+        <div>
+          <h2 data-r="1" style="opacity:0;transform:translateY(20px);font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(34px,3.6vw,58px);line-height:1.06;letter-spacing:-.03em;margin:0 0 14px;color:#fff;">Knowledge Mesh</h2>
+          <p data-r="1" style="opacity:0;transform:translateY(20px);font-size:clamp(19px,1.3vw,26px);line-height:1.5;color:#C8C1E2;margin:0 0 clamp(20px,2.8vh,34px);max-width:40ch;text-wrap:pretty;">The tiered knowledge graph that maps what your enterprise knows, can do, and how it works.</p>
+          <div style="display:flex;flex-direction:column;gap:clamp(10px,1.3vh,16px);">
+            <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;gap:13px;font-size:clamp(18px,1.15vw,23px);line-height:1.4;color:#EDEAF7;"><span style="width:8px;height:8px;border-radius:50%;background:#A78BFA;flex:none;margin-top:9px;"></span>Tiered, hierarchical knowledge graph</div>
+            <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;gap:13px;font-size:clamp(18px,1.15vw,23px);line-height:1.4;color:#EDEAF7;"><span style="width:8px;height:8px;border-radius:50%;background:#A78BFA;flex:none;margin-top:9px;"></span>Federated Semantic layer</div>
+            <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;gap:13px;font-size:clamp(18px,1.15vw,23px);line-height:1.4;color:#EDEAF7;"><span style="width:8px;height:8px;border-radius:50%;background:#A78BFA;flex:none;margin-top:9px;"></span>Workflows as first-class knowledge</div>
+            <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;gap:13px;font-size:clamp(18px,1.15vw,23px);line-height:1.4;color:#EDEAF7;"><span style="width:8px;height:8px;border-radius:50%;background:#A78BFA;flex:none;margin-top:9px;"></span>Metadata, not content</div>
+            <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;gap:13px;font-size:clamp(18px,1.15vw,23px);line-height:1.4;color:#EDEAF7;"><span style="width:8px;height:8px;border-radius:50%;background:#A78BFA;flex:none;margin-top:9px;"></span>Governed at the source</div>
+            <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;gap:13px;font-size:clamp(18px,1.15vw,23px);line-height:1.4;color:#EDEAF7;"><span style="width:8px;height:8px;border-radius:50%;background:#A78BFA;flex:none;margin-top:9px;"></span>On-prem, deployable solution</div>
+          </div>
+        </div>
+        <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;flex-direction:column;gap:clamp(12px,1.5vh,20px);">
+          <img loading="eager" decoding="async" src="assets/s18-a-sm.png" alt="Knowledge Mesh — intelligence readiness hub" style="display:block;width:100%;height:auto;max-height:38vh;object-fit:contain;object-position:top;border-radius:16px;border:1px solid rgba(196,181,253,.2);background:#fff;">
+          <img loading="eager" decoding="async" src="assets/s18-b-sm.png" alt="Knowledge Mesh — knowledge tiers and primitives" style="display:block;width:100%;height:auto;max-height:32vh;object-fit:contain;object-position:top;border-radius:16px;border:1px solid rgba(196,181,253,.2);background:#fff;">
+        </div>
+      </div>
+      <div data-goto="15" role="button" tabindex="0" title="Back to demo overview" style="align-self:flex-start;margin-top:clamp(16px,2.2vh,28px);display:inline-flex;align-items:center;gap:9px;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:clamp(14px,1vw,18px);letter-spacing:.14em;text-transform:uppercase;color:#C4B5FD;border:1px solid rgba(196,181,253,.28);border-radius:999px;padding:9px 17px;">‹ Back to demo overview</div>
+    </section>
+
+    <section data-screen-label="17 Cortex Engine" data-theme="dark" style="min-height:100vh;box-sizing:border-box;scroll-snap-align:start;position:relative;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding:clamp(26px,3.6vh,56px) clamp(36px,5vw,100px);background:radial-gradient(900px 700px at 92% 12%, rgba(192,38,211,.34), transparent 62%), #0A0520;color:#EDEAF7;">
+      <div data-r="1" style="opacity:0;transform:translateY(20px);font-family:'IBM Plex Mono',monospace;font-size:clamp(15px,1.1vw,20px);letter-spacing:.28em;text-transform:uppercase;color:#C4B5FD;margin-bottom:12px;">Platform demo · 02</div>
+      <div style="display:grid;grid-template-columns:1fr 1.35fr;gap:clamp(24px,3vw,56px);align-items:center;">
+        <div>
+          <h2 data-r="1" style="opacity:0;transform:translateY(20px);font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(34px,3.6vw,58px);line-height:1.06;letter-spacing:-.03em;margin:0 0 14px;color:#fff;">Cortex Engine</h2>
+          <p data-r="1" style="opacity:0;transform:translateY(20px);font-size:clamp(19px,1.3vw,26px);line-height:1.5;color:#C8C1E2;margin:0 0 clamp(20px,2.8vh,34px);max-width:40ch;text-wrap:pretty;">Reasons over the Mesh, assembles the right context and runs the workflow that fits.</p>
+          <div style="display:flex;flex-direction:column;gap:clamp(10px,1.3vh,16px);">
+            <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;gap:13px;font-size:clamp(18px,1.15vw,23px);line-height:1.4;color:#EDEAF7;"><span style="width:8px;height:8px;border-radius:50%;background:#F0ABFC;flex:none;margin-top:9px;"></span>Reasons &amp; assembles right context</div>
+            <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;gap:13px;font-size:clamp(18px,1.15vw,23px);line-height:1.4;color:#EDEAF7;"><span style="width:8px;height:8px;border-radius:50%;background:#F0ABFC;flex:none;margin-top:9px;"></span>Human-in-the-Loop, where it matters</div>
+            <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;gap:13px;font-size:clamp(18px,1.15vw,23px);line-height:1.4;color:#EDEAF7;"><span style="width:8px;height:8px;border-radius:50%;background:#F0ABFC;flex:none;margin-top:9px;"></span>Executes regulated agentic workflows</div>
+            <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;gap:13px;font-size:clamp(18px,1.15vw,23px);line-height:1.4;color:#EDEAF7;"><span style="width:8px;height:8px;border-radius:50%;background:#F0ABFC;flex:none;margin-top:9px;"></span>Consistent results - same answer, every run</div>
+            <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;gap:13px;font-size:clamp(18px,1.15vw,23px);line-height:1.4;color:#EDEAF7;"><span style="width:8px;height:8px;border-radius:50%;background:#F0ABFC;flex:none;margin-top:9px;"></span>Observed Plan Cache</div>
+            <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;gap:13px;font-size:clamp(18px,1.15vw,23px);line-height:1.4;color:#EDEAF7;"><span style="width:8px;height:8px;border-radius:50%;background:#F0ABFC;flex:none;margin-top:9px;"></span>Auditability &amp; Observability</div>
+          </div>
+        </div>
+        <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;flex-direction:column;gap:clamp(12px,1.5vh,20px);">
+          <img loading="eager" decoding="async" src="assets/s19-a-sm.png" alt="Cortex Engine — reasoning and context assembly" style="display:block;width:100%;height:auto;max-height:38vh;object-fit:contain;object-position:top;border-radius:16px;border:1px solid rgba(196,181,253,.2);background:#fff;">
+          <img loading="eager" decoding="async" src="assets/s19-b-sm.png" alt="Cortex Engine — workflow execution and audit" style="display:block;width:100%;height:auto;max-height:32vh;object-fit:contain;object-position:top;border-radius:16px;border:1px solid rgba(196,181,253,.2);background:#fff;">
+        </div>
+      </div>
+      <div data-goto="15" role="button" tabindex="0" title="Back to demo overview" style="align-self:flex-start;margin-top:clamp(16px,2.2vh,28px);display:inline-flex;align-items:center;gap:9px;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:clamp(14px,1vw,18px);letter-spacing:.14em;text-transform:uppercase;color:#C4B5FD;border:1px solid rgba(196,181,253,.28);border-radius:999px;padding:9px 17px;">‹ Back to demo overview</div>
+    </section>
+
+    <section data-screen-label="18 Evaluations" data-theme="dark" style="min-height:100vh;box-sizing:border-box;scroll-snap-align:start;position:relative;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding:clamp(26px,3.6vh,56px) clamp(36px,5vw,100px);background:radial-gradient(900px 700px at 8% 88%, rgba(34,211,238,.2), transparent 62%), radial-gradient(900px 700px at 88% 10%, rgba(109,40,217,.4), transparent 62%), #0A0520;color:#EDEAF7;">
+      <div data-r="1" style="opacity:0;transform:translateY(20px);font-family:'IBM Plex Mono',monospace;font-size:clamp(15px,1.1vw,20px);letter-spacing:.28em;text-transform:uppercase;color:#C4B5FD;margin-bottom:12px;">Platform demo · 03</div>
+      <div style="display:grid;grid-template-columns:1fr 1.35fr;gap:clamp(24px,3vw,56px);align-items:center;">
+        <div>
+          <h2 data-r="1" style="opacity:0;transform:translateY(20px);font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(34px,3.6vw,58px);line-height:1.06;letter-spacing:-.03em;margin:0 0 14px;color:#fff;">Evaluations</h2>
+          <p data-r="1" style="opacity:0;transform:translateY(20px);font-size:clamp(19px,1.3vw,26px);line-height:1.5;color:#C8C1E2;margin:0 0 clamp(20px,2.8vh,34px);max-width:40ch;text-wrap:pretty;">How the platform is measured, layer by layer.</p>
+          <div style="display:flex;flex-direction:column;gap:clamp(10px,1.3vh,16px);">
+            <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;gap:13px;font-size:clamp(18px,1.15vw,23px);line-height:1.4;color:#EDEAF7;"><span style="width:8px;height:8px;border-radius:50%;background:#67E8F9;flex:none;margin-top:9px;"></span>Offline Evals - Gated Launch of Agents to Production</div>
+            <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;gap:13px;font-size:clamp(18px,1.15vw,23px);line-height:1.4;color:#EDEAF7;"><span style="width:8px;height:8px;border-radius:50%;background:#67E8F9;flex:none;margin-top:9px;"></span>Drift Detection against Anchored ground truth</div>
+            <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;gap:13px;font-size:clamp(18px,1.15vw,23px);line-height:1.4;color:#EDEAF7;"><span style="width:8px;height:8px;border-radius:50%;background:#67E8F9;flex:none;margin-top:9px;"></span>Ablation Testing – Versioning &amp; Experimentation</div>
+            <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;gap:13px;font-size:clamp(18px,1.15vw,23px);line-height:1.4;color:#EDEAF7;"><span style="width:8px;height:8px;border-radius:50%;background:#67E8F9;flex:none;margin-top:9px;"></span>Online - Evals for Real time confidence scoring</div>
+            <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;gap:13px;font-size:clamp(18px,1.15vw,23px);line-height:1.4;color:#EDEAF7;"><span style="width:8px;height:8px;border-radius:50%;background:#67E8F9;flex:none;margin-top:9px;"></span>Query Probability Score</div>
+          </div>
+        </div>
+        <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;flex-direction:column;gap:clamp(12px,1.5vh,20px);">
+          <img loading="eager" decoding="async" src="assets/s20-a-sm.png" alt="Evaluations — offline evaluation dashboard" style="display:block;width:100%;height:auto;max-height:38vh;object-fit:contain;object-position:top;border-radius:16px;border:1px solid rgba(196,181,253,.2);background:#fff;">
+          <img loading="eager" decoding="async" src="assets/s20-b-sm.png" alt="Evaluations — online confidence scoring" style="display:block;width:100%;height:auto;max-height:32vh;object-fit:contain;object-position:top;border-radius:16px;border:1px solid rgba(196,181,253,.2);background:#fff;">
+        </div>
+      </div>
+      <div data-goto="15" role="button" tabindex="0" title="Back to demo overview" style="align-self:flex-start;margin-top:clamp(16px,2.2vh,28px);display:inline-flex;align-items:center;gap:9px;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:clamp(14px,1vw,18px);letter-spacing:.14em;text-transform:uppercase;color:#C4B5FD;border:1px solid rgba(196,181,253,.28);border-radius:999px;padding:9px 17px;">‹ Back to demo overview</div>
+    </section>
+
+    <section data-screen-label="19 Divider 04" data-theme="dark" style="min-height:100vh;box-sizing:border-box;scroll-snap-align:start;position:relative;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding:clamp(34px,4.8vh,78px) clamp(40px,6vw,120px);background:radial-gradient(1100px 760px at 12% 80%, rgba(192,38,211,.32), transparent 62%), radial-gradient(900px 700px at 80% 10%, rgba(109,40,217,.42), transparent 62%), #0A0520;color:#EDEAF7;">
+      <div data-anim="bigdrift" style="position:absolute;left:-2vw;top:50%;transform:translateY(-50%);font-family:Poppins,sans-serif;font-weight:700;font-size:min(46vh,34vw);line-height:.8;color:rgba(124,58,237,.22);letter-spacing:-.05em;pointer-events:none;">04</div>
+      <div style="position:relative;">
+        <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;align-items:center;gap:14px;margin-bottom:22px;">
+          <span style="display:block;width:46px;height:3px;background:#C026D3;"></span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:clamp(15px,1.1vw,20px);letter-spacing:.28em;text-transform:uppercase;color:#C4B5FD;">Where we fit</span>
+        </div>
+        <h2 data-r="1" style="opacity:0;transform:translateY(20px);font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(42px,6vw,92px);line-height:1;letter-spacing:-.035em;margin:0;color:#fff;">Enterprise Ecosystem Fit</h2>
+        <p data-r="1" style="opacity:0;transform:translateY(20px);font-family:Poppins,sans-serif;font-weight:400;font-size:clamp(18px,1.9vw,32px);line-height:1.3;color:#C8C1E2;margin:20px 0 0;max-width:34ch;">A future where enterprise AI is both trustworthy and accountable</p>
+      </div>
+    </section>
+
+    <section data-screen-label="20 Offering Comparison" data-theme="light" data-manual="1" style="min-height:100vh;box-sizing:border-box;scroll-snap-align:start;position:relative;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding:clamp(22px,3vh,46px) clamp(26px,3.4vw,66px);background:#F5F3FA;color:#2A2350;">
+      <div data-r="1" style="opacity:0;transform:translateY(20px);font-family:'IBM Plex Mono',monospace;font-size:clamp(15px,1.1vw,20px);letter-spacing:.28em;text-transform:uppercase;color:#3D1B85;margin-bottom:12px;">How the Solutions Complement</div>
+      <h2 data-r="1" style="opacity:0;transform:translateY(20px);font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(26px,3vw,46px);line-height:1.06;letter-spacing:-.028em;margin:0 0 clamp(14px,2vh,26px);color:#240453;">NeoSapients + Conversational AI — The Complete Stack</h2>
+
+      <div style="display:grid;grid-template-columns:1fr auto 1.25fr;gap:clamp(14px,1.9vw,32px);align-items:stretch;flex:1;">
+        <div data-r="1" data-step="1" style="opacity:0;transform:translateY(20px);background:#fff;border:1px solid #E6E2F2;border-radius:20px;padding:clamp(22px,2.2vw,36px);">
+          <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(17px,1.45vw,25px);letter-spacing:.12em;text-transform:uppercase;color:#1E2761;padding-bottom:12px;border-bottom:1px solid #EDE9F7;margin-bottom:16px;">Conversational AI</div>
+          <div style="display:flex;flex-direction:column;gap:clamp(10px,1.4vh,16px);font-size:clamp(18px,1.25vw,25px);line-height:1.5;color:#4A4368;">
+            <div style="display:flex;gap:11px;"><span style="width:6px;height:6px;border-radius:50%;background:#9A93B8;flex:none;margin-top:8px;"></span><span>AI customer experience / concierge</span></div>
+            <div style="display:flex;gap:11px;"><span style="width:6px;height:6px;border-radius:50%;background:#9A93B8;flex:none;margin-top:8px;"></span><span>Omnichannel Agents: voice, chat, email, SMS</span></div>
+            <div style="display:flex;gap:11px;"><span style="width:6px;height:6px;border-radius:50%;background:#9A93B8;flex:none;margin-top:8px;"></span><span>MCP/A2A — Multi-agent system</span></div>
+            <div style="display:flex;gap:11px;"><span style="width:6px;height:6px;border-radius:50%;background:#9A93B8;flex:none;margin-top:8px;"></span><span>Focus: conversation layer &amp; CX</span></div>
+          </div>
+        </div>
+
+        <div data-r="1" data-step="2" style="opacity:0;transform:translateY(20px);display:flex;align-items:center;justify-content:center;font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(22px,2.2vw,36px);color:#C026D3;">+</div>
+
+        <div data-r="1" data-step="2" style="opacity:0;transform:translateY(20px);background:linear-gradient(165deg,#2B1065,#4C1D95);border-radius:20px;padding:clamp(22px,2.2vw,36px);color:#EDEAF7;box-shadow:0 40px 80px -40px rgba(76,29,149,.7);">
+          <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(17px,1.45vw,25px);letter-spacing:.12em;text-transform:uppercase;color:#fff;padding-bottom:12px;border-bottom:1px solid rgba(196,181,253,.28);margin-bottom:16px;">NeoSapients</div>
+          <div style="display:flex;flex-direction:column;gap:clamp(10px,1.4vh,16px);font-size:clamp(18px,1.25vw,25px);line-height:1.5;color:#E4DFF6;">
+            <div style="display:flex;gap:11px;"><span style="width:6px;height:6px;border-radius:50%;background:#C4B5FD;flex:none;margin-top:8px;"></span><span>Enterprise Cognition Platform — A trust boundary for your enterprise</span></div>
+            <div style="display:flex;gap:11px;"><span style="width:6px;height:6px;border-radius:50%;background:#C4B5FD;flex:none;margin-top:8px;"></span><span>Knowledge Mesh — Shared Context and Institutional Memory. Hierarchical Knowledge graph.</span></div>
+            <div style="display:flex;gap:11px;"><span style="width:6px;height:6px;border-radius:50%;background:#C4B5FD;flex:none;margin-top:8px;"></span><span>Integrates Workflows, Skills, Tools, and structured and Unstructured data</span></div>
+            <div style="display:flex;gap:11px;"><span style="width:6px;height:6px;border-radius:50%;background:#C4B5FD;flex:none;margin-top:8px;"></span><span>Cortex Engine — Multi-step decision intelligence, compounds learning over time</span></div>
+            <div style="display:flex;gap:11px;"><span style="width:6px;height:6px;border-radius:50%;background:#C4B5FD;flex:none;margin-top:8px;"></span><span>Outcome Ledger — HITL, policy &amp; regulatory adherence, Evidence and Lineage</span></div>
+            <div style="display:flex;gap:11px;"><span style="width:6px;height:6px;border-radius:50%;background:#C4B5FD;flex:none;margin-top:8px;"></span><span>Evaluations — Offline and online evals with ablation testing, gating every release and run</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div data-r="1" data-step="3" style="opacity:0;transform:translateY(20px);margin-top:clamp(10px,1.4vh,18px);position:relative;border:3px solid transparent;background:linear-gradient(150deg,#2B1065,#4C1D95) padding-box, linear-gradient(90deg,#7C3AED,#C026D3,#22D3EE,#7C3AED) border-box;background-size:auto, 200% auto;animation:nsFlow 5s linear infinite;border-radius:20px;padding:clamp(12px,1.35vw,21px);box-shadow:0 40px 90px -40px rgba(76,29,149,.85);">
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:clamp(12px,1.6vh,18px);">
+          <span style="display:flex;align-items:center;justify-content:center;width:clamp(24px,1.9vw,32px);height:clamp(24px,1.9vw,32px);border-radius:50%;border:2px solid #F0ABFC;color:#F0ABFC;font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(15px,1.15vw,20px);line-height:1;flex:none;">+</span>
+          <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(17px,1.55vw,27px);letter-spacing:.14em;text-transform:uppercase;color:#fff;">Compounded Outcomes</div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.4vw,22px);">
+          <div style="background:rgba(10,5,32,.5);border:1px solid rgba(167,139,250,.4);border-top:3px solid #A78BFA;border-radius:14px;padding:clamp(14px,1.4vw,22px);">
+            <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(17px,1.35vw,24px);line-height:1.2;color:#fff;margin-bottom:8px;">Expansion to High-stakes use cases</div>
+            <div style="font-size:clamp(17px,1.15vw,22px);line-height:1.45;color:#E2DCF4;">Fraud disputes, credit changes and account restrictions, etc.</div>
+          </div>
+          <div style="background:rgba(10,5,32,.5);border:1px solid rgba(240,171,252,.4);border-top:3px solid #F0ABFC;border-radius:14px;padding:clamp(14px,1.4vw,22px);">
+            <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(17px,1.35vw,24px);line-height:1.2;color:#fff;margin-bottom:8px;">Compounding accuracy</div>
+            <div style="font-size:clamp(17px,1.15vw,22px);line-height:1.45;color:#E2DCF4;">Each conversation feeds the memory layer, so grounding keeps improving instead of staying static.</div>
+          </div>
+          <div style="background:rgba(10,5,32,.5);border:1px solid rgba(103,232,249,.4);border-top:3px solid #67E8F9;border-radius:14px;padding:clamp(14px,1.4vw,22px);">
+            <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(17px,1.35vw,24px);line-height:1.2;color:#fff;margin-bottom:8px;">One audit trail</div>
+            <div style="font-size:clamp(17px,1.15vw,22px);line-height:1.45;color:#E2DCF4;">A single Outcome Ledger across every AI tool replaces per-vendor logs.</div>
+          </div>
+        </div>
+      </div>
+
+      <div data-r="1" data-step="4" style="opacity:0;transform:translateY(20px);margin:clamp(16px,2.2vh,28px) 0 0;position:relative;border:3px solid transparent;background:linear-gradient(150deg,#2B1065,#4C1D95) padding-box, linear-gradient(90deg,#7C3AED,#C026D3,#22D3EE,#7C3AED) border-box;background-size:auto, 200% auto;animation:nsFlow 5s linear infinite;border-radius:18px;padding:clamp(14px,1.6vw,24px) clamp(18px,2vw,32px);box-shadow:0 30px 80px -35px rgba(124,58,237,.75);">
+        <p style="margin:0;font-family:Poppins,sans-serif;font-weight:600;font-size:clamp(15px,1.3vw,23px);line-height:1.38;color:#fff;max-width:82ch;margin-left:auto;margin-right:auto;text-align:center;font-style:italic;text-wrap:pretty;">NeoSapients completes what conversational AI starts — connecting customer interactions to enterprise intelligence, digital workers, and end-to-end business outcomes.</p>
+      </div>
+    </section>
+
+    <section data-screen-label="21 What’s Next" data-theme="light" style="min-height:100vh;box-sizing:border-box;scroll-snap-align:start;position:relative;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding:clamp(34px,4.8vh,78px) clamp(40px,6vw,120px);background:#F5F3FA;color:#2A2350;">
+      <div data-r="1" style="opacity:0;transform:translateY(20px);font-family:'IBM Plex Mono',monospace;font-size:clamp(15px,1.1vw,20px);letter-spacing:.28em;text-transform:uppercase;color:#3D1B85;margin-bottom:18px;">What's Next</div>
+      <h2 data-r="1" style="opacity:0;transform:translateY(20px);font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(38px,5vw,80px);line-height:1.02;letter-spacing:-.032em;margin:0 0 clamp(40px,6vh,80px);color:#240453;">Align on Next Steps</h2>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(18px,2.4vw,40px);max-width:76%;">
+        <div data-r="1" style="opacity:0;transform:translateY(20px);">
+         <div data-anim="race" style="position:relative;">
+          <div style="position:absolute;left:0;right:38%;top:clamp(20px,1.6vw,27px);height:2px;background:linear-gradient(90deg,#6D28D9,transparent);transform-origin:left center;animation:nsStreak 1.1s ease-out .1s both;pointer-events:none;"></div>
+          <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px;">
+            <span style="display:flex;align-items:center;justify-content:center;width:clamp(44px,3.4vw,58px);height:clamp(44px,3.4vw,58px);border-radius:50%;background:#6D28D9;color:#fff;font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(17px,1.4vw,23px);flex:none;">1</span>
+            <span data-anim="grow" style="flex:1;height:2px;background:linear-gradient(90deg,#6D28D9,rgba(109,40,217,.15));"></span>
+          </div>
+          <div style="font-family:Poppins,sans-serif;font-weight:600;font-size:clamp(20px,1.9vw,32px);line-height:1.2;color:#240453;letter-spacing:-.015em;">Understand Amex Landscape</div>
+         </div>
+        </div>
+        <div data-r="1" style="opacity:0;transform:translateY(20px);">
+         <div data-anim="race" style="position:relative;">
+          <div style="position:absolute;left:0;right:38%;top:clamp(20px,1.6vw,27px);height:2px;background:linear-gradient(90deg,#C026D3,transparent);transform-origin:left center;animation:nsStreak 1.1s ease-out .1s both;pointer-events:none;"></div>
+          <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px;">
+            <span style="display:flex;align-items:center;justify-content:center;width:clamp(44px,3.4vw,58px);height:clamp(44px,3.4vw,58px);border-radius:50%;background:#C026D3;color:#fff;font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(17px,1.4vw,23px);flex:none;">2</span>
+            <span data-anim="grow" style="flex:1;height:2px;background:linear-gradient(90deg,#C026D3,rgba(192,38,211,.15));"></span>
+          </div>
+          <div style="font-family:Poppins,sans-serif;font-weight:600;font-size:clamp(20px,1.9vw,32px);line-height:1.2;color:#240453;letter-spacing:-.015em;">Potential Areas for NeoSapients Involvement</div>
+         </div>
+        </div>
+      </div>
+    </section>
+
+    <section data-screen-label="22 Thank You" data-theme="dark" style="min-height:100vh;box-sizing:border-box;scroll-snap-align:start;position:relative;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding:clamp(34px,4.8vh,78px) clamp(40px,6vw,120px);background:radial-gradient(1100px 780px at 20% 85%, rgba(109,40,217,.5), transparent 62%), radial-gradient(900px 640px at 88% 12%, rgba(192,38,211,.3), transparent 62%), #0A0520;color:#EDEAF7;">
+      <img loading="eager" decoding="async" src="assets/img6.png" alt="" style="position:absolute;right:clamp(20px,4vw,90px);bottom:clamp(20px,5vh,80px);width:clamp(160px,20vw,320px);opacity:.9;animation:nsFloat 8s ease-in-out infinite;filter:drop-shadow(0 30px 70px rgba(124,58,237,.5));">
+      <div style="position:relative;">
+        <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;align-items:center;gap:14px;margin-bottom:24px;">
+          <span style="display:block;width:46px;height:3px;background:#C026D3;"></span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:clamp(15px,1.1vw,20px);letter-spacing:.28em;text-transform:uppercase;color:#C4B5FD;">The Enterprise AI's Missing Layer.</span>
+        </div>
+        <h2 data-r="1" style="opacity:0;transform:translateY(20px);font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(56px,9vw,150px);line-height:.92;letter-spacing:-.04em;margin:0;background:linear-gradient(100deg,#fff,#C4B5FD,#F0ABFC,#fff);background-size:220% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:nsFlow 7s linear infinite;">Thank<br>You.</h2>
+        <div data-r="1" style="opacity:0;transform:translateY(20px);display:flex;flex-wrap:wrap;gap:clamp(28px,4vw,72px);margin-top:clamp(40px,6vh,80px);">
+          <div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#B5ADD2;margin-bottom:9px;">Email</div>
+            <div style="font-size:clamp(15px,1.2vw,21px);color:#EDEAF7;">contact@neosapients.ai</div>
+          </div>
+          <div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#B5ADD2;margin-bottom:9px;">Web</div>
+            <div style="font-size:clamp(15px,1.2vw,21px);color:#EDEAF7;">www.neosapients.ai</div>
+          </div>
+          <div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#B5ADD2;margin-bottom:9px;">Offices</div>
+            <div style="font-size:clamp(15px,1.2vw,21px);color:#EDEAF7;">Palatine, IL &nbsp;|&nbsp; Raleigh, NC &nbsp;|&nbsp; Bengaluru, IN</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- FIXED CHROME -->
+  <div style="position:fixed;top:clamp(18px,2.4vh,30px);left:clamp(24px,3vw,52px);display:flex;align-items:center;gap:14px;z-index:40;pointer-events:none;">
+    <img ref="{{ markRef }}" src="assets/logo-light-text.png" alt="NeoSapients" style="height:clamp(17px,1.5vw,24px);width:auto;">
+  </div>
+  <img loading="eager" decoding="async" src="assets/img6.png" alt="" style="position:fixed;top:clamp(14px,1.8vh,24px);right:clamp(22px,2.8vw,48px);width:clamp(38px,3.2vw,52px);z-index:40;pointer-events:none;filter:drop-shadow(0 6px 16px rgba(124,58,237,.4));">
+
+  <div ref="{{ railRef }}" style="position:fixed;right:clamp(16px,1.8vw,30px);top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:9px;z-index:40;"></div>
+
+  <div ref="{{ hudRef }}" style="position:fixed;left:clamp(24px,3vw,52px);bottom:clamp(22px,3vh,38px);display:flex;align-items:center;gap:14px;z-index:40;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;opacity:0;transition:opacity .3s;">
+    <span ref="{{ countRef }}" style="color:#C4B5FD;">01 / 18</span>
+    <span ref="{{ stepRef }}" style="color:#F0ABFC;"></span>
+  </div>
+
+  <div style="position:fixed;right:clamp(20px,2.6vw,44px);bottom:clamp(22px,3vh,40px);z-index:60;display:flex;align-items:center;gap:10px;">
+  <button ref="{{ micRef }}" sc-camel-on-click="{{ toggleMic }}" title="Voice agent mode" style="position:relative;display:flex;align-items:center;justify-content:center;width:46px;height:46px;appearance:none;cursor:pointer;border:1px solid rgba(196,181,253,.34);border-radius:50%;background:rgba(12,6,40,.85);backdrop-filter:blur(10px);box-shadow:0 16px 40px -18px rgba(10,5,32,.9);">
+    <span ref="{{ ringRef }}" style="position:absolute;inset:-6px;border-radius:50%;border:2px solid rgba(240,171,252,.55);opacity:0;pointer-events:none;"></span>
+    <svg ref="{{ micIconRef }}" sc-camel-view-box="0 0 24 24" width="20" height="20" fill="none" stroke="#C4B5FD" stroke-width="2" stroke-linecap="round">
+      <path d="M4 10v4"></path>
+      <path d="M8.5 6.5v11"></path>
+      <path d="M13 3.5v17"></path>
+      <path d="M17.5 7.5v9"></path>
+      <path d="M21.5 11v2"></path>
+    </svg>
+  </button>
+  <button sc-camel-on-click="{{ toggleChat }}" style="display:flex;align-items:center;gap:11px;appearance:none;cursor:pointer;border:1px solid rgba(240,171,252,.45);border-radius:999px;padding:13px 22px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#fff;background:linear-gradient(100deg,#7C3AED,#C026D3,#7C3AED);background-size:200% auto;animation:nsFlow 6s linear infinite;box-shadow:0 18px 44px -18px rgba(192,38,211,.9);" style-hover="filter:brightness(1.12)">
+    <span style="width:8px;height:8px;border-radius:50%;background:#F0ABFC;animation:nsPulse 2.2s ease-in-out infinite;"></span>
+    <span>{{ chatBtnLabel }}</span>
+  </button>
+  </div>
+
+  <div ref="{{ chatRef }}" style="position:fixed;right:clamp(16px,2vw,34px);bottom:clamp(84px,11vh,108px);z-index:61;width:min(420px,calc(100vw - 32px));max-height:min(72vh,660px);display:none;flex-direction:column;overflow:hidden;border:1px solid rgba(167,139,250,.4);border-radius:20px;background:rgba(12,6,40,.92);backdrop-filter:blur(18px);box-shadow:0 50px 110px -40px rgba(10,5,32,.95);color:#EDEAF7;">
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;border-bottom:1px solid rgba(167,139,250,.22);background:linear-gradient(100deg,rgba(124,58,237,.34),rgba(192,38,211,.22));">
+      <div style="display:flex;flex-direction:column;gap:4px;">
+        <span style="font-family:Poppins,sans-serif;font-weight:700;font-size:15px;letter-spacing:.02em;color:#fff;">Live Q&amp;A Assistant</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#C4B5FD;">Answers grounded in this deck</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <button sc-camel-on-click="{{ toggleSettings }}" title="Configure keys" style="appearance:none;cursor:pointer;border:1px solid rgba(196,181,253,.3);background:rgba(255,255,255,.06);color:#C4B5FD;border-radius:9px;width:30px;height:30px;font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1;">⚙</button>
+        <button sc-camel-on-click="{{ toggleChat }}" style="appearance:none;cursor:pointer;border:1px solid rgba(196,181,253,.3);background:rgba(255,255,255,.06);color:#C4B5FD;border-radius:9px;width:30px;height:30px;font-size:15px;line-height:1;">✕</button>
+      </div>
+    </div>
+
+    <div ref="{{ setRef }}" style="display:none;flex-direction:column;gap:14px;padding:18px;border-bottom:1px solid rgba(167,139,250,.22);background:rgba(255,255,255,.03);max-height:52vh;overflow-y:auto;">
+      <div style="display:flex;flex-direction:column;gap:7px;">
+        <label style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#C4B5FD;">Answer engine</label>
+        <sc-raw-select ref="{{ provRef }}" sc-camel-on-change="{{ saveCfg }}" style="font-family:inherit;font-size:13px;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(196,181,253,.24);border-radius:10px;padding:9px 11px;outline:none;">
+          <option value="builtin">Built-in (works only inside this workspace)</option>
+          <option value="openai">OpenAI (works in a downloaded file)</option>
+        </sc-raw-select>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:7px;">
+        <label style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#C4B5FD;">OpenAI model</label>
+        <input ref="{{ oaModelRef }}" sc-camel-on-change="{{ saveCfg }}" placeholder="gpt-4o-mini" style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(196,181,253,.24);border-radius:10px;padding:9px 11px;outline:none;">
+        <div style="font-size:10.5px;line-height:1.4;color:#8F86B8;">The key is read from OPENAI_API_KEY on the server (.env) — nothing to paste here.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:7px;">
+        <label style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#C4B5FD;">Deepgram API key — voice</label>
+        <input ref="{{ dgKeyRef }}" sc-camel-on-change="{{ saveCfg }}" type="password" placeholder="Deepgram key" style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(196,181,253,.24);border-radius:10px;padding:9px 11px;outline:none;">
+        <div style="display:flex;gap:8px;">
+          <input ref="{{ dgSttRef }}" sc-camel-on-change="{{ saveCfg }}" placeholder="flux-general-multi" title="Listen model" style="flex:1;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(196,181,253,.24);border-radius:10px;padding:9px 11px;outline:none;">
+          <input ref="{{ dgTtsRef }}" sc-camel-on-change="{{ saveCfg }}" placeholder="ElevenLabs voice id" title="Speak voice" style="flex:1;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(196,181,253,.24);border-radius:10px;padding:9px 11px;outline:none;">
+        </div>
+        <div style="display:flex;gap:8px;">
+          <sc-raw-select ref="{{ thinkProvRef }}" sc-camel-on-change="{{ saveCfg }}" title="Reasoning provider" style="flex:1;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(196,181,253,.24);border-radius:10px;padding:9px 11px;outline:none;">
+            <option value="google">google</option>
+            <option value="open_ai">open_ai</option>
+            <option value="anthropic">anthropic</option>
+          </sc-raw-select>
+          <input ref="{{ thinkModelRef }}" sc-camel-on-change="{{ saveCfg }}" placeholder="gemini-3.1-flash-lite" title="Reasoning model" style="flex:1;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(196,181,253,.24);border-radius:10px;padding:9px 11px;outline:none;">
+        </div>
+        <label style="display:flex;align-items:center;gap:9px;font-size:12.5px;color:#DDD5F2;cursor:pointer;">
+          <input ref="{{ speakRef }}" sc-camel-on-change="{{ saveCfg }}" type="checkbox" style="width:15px;height:15px;accent-color:#C026D3;">
+          Agent opens with a spoken greeting
+        </label>
+      </div>
+      <div style="font-size:11.5px;line-height:1.5;color:#BAB2D8;text-wrap:pretty;">The mic runs Deepgram's Voice Agent — it listens, reasons over this deck and speaks back on one connection. Keys stay in this browser. Needs mic permission on an https page.</div>
+    </div>
+
+    <div ref="{{ logRef }}" style="flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:14px;font-size:14px;line-height:1.55;"></div>
+
+    <div style="display:flex;flex-wrap:wrap;gap:8px;padding:0 18px 12px;">
+      <button sc-camel-on-click="{{ askSuggested }}" data-q="What exactly is the Cognition Layer, in one minute?" style="appearance:none;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:#DDD5F2;background:rgba(255,255,255,.06);border:1px solid rgba(196,181,253,.22);border-radius:999px;padding:7px 12px;">What is the Cognition Layer?</button>
+      <button sc-camel-on-click="{{ askSuggested }}" data-q="How does NeoSapients complement our existing agent platforms and vendors rather than replace them?" style="appearance:none;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:#DDD5F2;background:rgba(255,255,255,.06);border:1px solid rgba(196,181,253,.22);border-radius:999px;padding:7px 12px;">Why not our existing stack?</button>
+      <button sc-camel-on-click="{{ askSuggested }}" data-q="How is data security, IP and compliance handled when this runs in our environment?" style="appearance:none;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:#DDD5F2;background:rgba(255,255,255,.06);border:1px solid rgba(196,181,253,.22);border-radius:999px;padding:7px 12px;">Security &amp; IP?</button>
+      <button sc-camel-on-click="{{ askSuggested }}" data-q="What are the next steps and what would the first engagement look like?" style="appearance:none;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:#DDD5F2;background:rgba(255,255,255,.06);border:1px solid rgba(196,181,253,.22);border-radius:999px;padding:7px 12px;">Next steps?</button>
+    </div>
+
+    <div style="display:flex;align-items:flex-end;gap:10px;padding:14px 18px 18px;border-top:1px solid rgba(167,139,250,.22);">
+      <textarea ref="{{ inputRef }}" sc-camel-on-key-down="{{ onChatKey }}" rows="1" placeholder="Ask anything raised on the call…" style="flex:1;resize:none;max-height:96px;font-family:inherit;font-size:14px;line-height:1.5;color:#fff;background:rgba(255,255,255,.06);border:1px solid rgba(196,181,253,.24);border-radius:12px;padding:11px 13px;outline:none;"></textarea>
+      <button sc-camel-on-click="{{ sendChat }}" style="appearance:none;cursor:pointer;border:0;border-radius:12px;padding:12px 16px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:linear-gradient(100deg,#7C3AED,#C026D3);">Ask</button>
+    </div>
+  </div>
+
+  <div style="position:fixed;left:0;right:0;bottom:0;height:3px;background:rgba(196,181,253,.13);z-index:41;">
+    <div ref="{{ barRef }}" style="height:100%;width:0%;background:linear-gradient(90deg,#7C3AED,#C026D3);transition:width .18s linear;"></div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;buildMode&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;manual&quot;,&quot;auto&quot;],&quot;default&quot;:&quot;manual&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Presenting&quot;,&quot;label&quot;:&quot;Build reveals&quot;}}">
+class Component extends DCLogic {
+  constructor(p) {
+    super(p);
+    this.rootRef = React.createRef();
+    this.scrollRef = React.createRef();
+    this.markRef = React.createRef();
+    this.railRef = React.createRef();
+    this.hudRef = React.createRef();
+    this.countRef = React.createRef();
+    this.stepRef = React.createRef();
+    this.barRef = React.createRef();
+    this.active = 0;
+    this.steps = new Map();
+    this.chatRef = React.createRef();
+    this.logRef = React.createRef();
+    this.inputRef = React.createRef();
+    this.chatOpen = false;
+    this.history = [];
+    this.busy = false;
+    this.setRef = React.createRef();
+    this.provRef = React.createRef();
+    this.oaModelRef = React.createRef();
+    this.dgKeyRef = React.createRef();
+    this.dgSttRef = React.createRef();
+    this.dgTtsRef = React.createRef();
+    this.speakRef = React.createRef();
+    this.micRef = React.createRef();
+    this.ringRef = React.createRef();
+    this.micIconRef = React.createRef();
+    this.thinkProvRef = React.createRef();
+    this.thinkModelRef = React.createRef();
+    this.cfg = { provider: 'builtin', oaModel: 'gpt-4o-mini', dgKey: '',
+      dgStt: 'flux-general-multi', dgTts: 'UgBBYS2sOqTuMpoF3BR0',
+      thinkProv: 'google', thinkModel: 'gemini-3.1-flash-lite', speak: true };
+    this.listening = false;
+  }
+
+  loadCfg() {
+    try {
+      const raw = localStorage.getItem('ns_qna_cfg_v2') || localStorage.getItem('ns_qna_cfg');
+      if (raw) Object.assign(this.cfg, JSON.parse(raw));
+    } catch (e) {}
+    // legacy STT/TTS values are meaningless to the Voice Agent — drop them
+    if (!/flux/.test(this.cfg.dgStt || '')) this.cfg.dgStt = 'flux-general-multi';
+    if (!this.cfg.dgTts || /^aura/i.test(this.cfg.dgTts)) this.cfg.dgTts = 'UgBBYS2sOqTuMpoF3BR0';
+    if (!this.cfg.thinkProv) this.cfg.thinkProv = 'google';
+    if (!this.cfg.thinkModel) this.cfg.thinkModel = 'gemini-3.1-flash-lite';
+    const c = this.cfg;
+    if (this.provRef.current) this.provRef.current.value = c.provider;
+    if (this.oaModelRef.current) this.oaModelRef.current.value = c.oaModel;
+    if (this.dgKeyRef.current) this.dgKeyRef.current.value = c.dgKey;
+    if (this.dgSttRef.current) this.dgSttRef.current.value = c.dgStt;
+    if (this.dgTtsRef.current) this.dgTtsRef.current.value = c.dgTts;
+    if (this.thinkProvRef.current) this.thinkProvRef.current.value = c.thinkProv;
+    if (this.thinkModelRef.current) this.thinkModelRef.current.value = c.thinkModel;
+    if (this.speakRef.current) this.speakRef.current.checked = !!c.speak;
+    this.saveCfg();
+    if (!(window.claude && window.claude.complete)) {
+      const sel = this.provRef.current;
+      if (sel) {
+        const opt = sel.querySelector('option[value="builtin"]');
+        if (opt) opt.textContent = 'Built-in (unavailable in this standalone file)';
+        if (c.provider === 'builtin') { sel.value = 'openai'; this.saveCfg(); }
+      }
+    }
+  }
+
+  saveCfg() {
+    const v = (r, d) => (r.current && r.current.value.trim()) || d;
+    this.cfg = {
+      provider: v(this.provRef, 'builtin'),
+      oaModel: v(this.oaModelRef, 'gpt-4o-mini'),
+      dgKey: v(this.dgKeyRef, ''),
+      dgStt: v(this.dgSttRef, 'flux-general-multi'),
+      dgTts: v(this.dgTtsRef, 'UgBBYS2sOqTuMpoF3BR0'),
+      thinkProv: v(this.thinkProvRef, 'google'),
+      thinkModel: v(this.thinkModelRef, 'gemini-3.1-flash-lite'),
+      speak: !!(this.speakRef.current && this.speakRef.current.checked)
+    };
+    try { localStorage.setItem('ns_qna_cfg_v2', JSON.stringify(this.cfg)); } catch (e) {}
+  }
+
+  async ask(system, messages) {
+    if (this.cfg.provider === 'openai') {
+      const r = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          model: this.cfg.oaModel || 'gpt-4o-mini',
+          system,
+          messages
+        })
+      });
+      const j = await r.json();
+      if (!r.ok) throw new Error((j && j.error && (j.error.message || j.error)) || 'OpenAI error ' + r.status);
+      return (j.choices && j.choices[0] && j.choices[0].message.content) || '';
+    }
+    if (!(window.claude && window.claude.complete)) {
+      throw new Error('The built-in engine only works inside the Omelette workspace. Open ⚙ settings, switch the answer engine to OpenAI and paste your key.');
+    }
+    const res = await window.claude.complete({ model: 'claude-sonnet-4-5', max_tokens: 700, system, messages });
+    return typeof res === 'string' ? res : (res && res.text) || '';
+  }
+
+  note(msg) {
+    const log = this.logRef.current;
+    if (!log) return;
+    const d = document.createElement('div');
+    d.style.cssText = "font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;color:#8F86B8;text-transform:uppercase;";
+    d.textContent = msg;
+    log.appendChild(d);
+    log.scrollTop = log.scrollHeight;
+  }
+
+  micState(on) {
+    this.listening = on;
+    const b = this.micRef.current;
+    const ring = this.ringRef.current;
+    const icon = this.micIconRef.current;
+    if (b) {
+      b.style.background = on
+        ? 'linear-gradient(100deg,#7C3AED,#C026D3,#7C3AED)' : 'rgba(12,6,40,.85)';
+      b.style.backgroundSize = '200% auto';
+      b.style.borderColor = on ? 'rgba(240,171,252,.75)' : 'rgba(196,181,253,.34)';
+      b.style.animation = on ? 'nsFlow 5s linear infinite, nsVoiceGlow 2.4s ease-in-out infinite' : 'none';
+      b.title = on ? 'Voice agent live — click to stop' : 'Voice agent mode';
+    }
+    if (ring) {
+      ring.style.opacity = on ? '1' : '0';
+      ring.style.animation = on ? 'nsVoiceRing 1.9s ease-out infinite' : 'none';
+    }
+    if (icon) icon.style.stroke = on ? '#fff' : '#C4B5FD';
+  }
+
+  agentSettings() {
+    const label = this.sections && this.sections[this.active]
+      ? this.sections[this.active].getAttribute('data-screen-label') : '';
+    const prompt =
+      'You are a NeoSapients solutions lead on a live video call with American Express, answering questions about the ' +
+      'presentation being shown.\n\n#Style\n- Speak conversationally; your words are spoken aloud.\n' +
+      '- 1-3 sentences, under 300 characters, unless asked for depth.\n- No markdown, no lists unless asked.\n' +
+      '- Answer only from the deck below plus obvious inference. If it is not covered, say so briefly and offer a follow-up.\n' +
+      '- Name the relevant slide when it helps. The presenter is currently on: ' + label + '.\n' +
+      '- Ask a short clarifying question if the request is ambiguous. Never interrupt.\n\n#Scope\n' +
+      '- ONLY answer the question asked. Never present, narrate, summarise or walk through the deck.\n' +
+      '- Do not describe what is on screen or offer a tour; the human presenter does that.\n' +
+      '- No unsolicited pitching or follow-on topics — answer, then stop.\n\n=== DECK (reference only) ===\n' + this.deckContext();
+    return {
+      type: 'Settings',
+      audio: {
+        input: { encoding: 'linear16', sample_rate: 16000 },
+        output: { encoding: 'linear16', sample_rate: 24000, container: 'none' }
+      },
+      agent: {
+        listen: { provider: { type: 'deepgram', version: 'v2', model: this.cfg.dgStt || 'flux-general-multi', eager_eot_threshold: 0.6, eot_threshold: 0.7, eot_timeout_ms: 3000 } },
+        think: { provider: { type: this.cfg.thinkProv || 'google', model: this.cfg.thinkModel || 'gemini-3.1-flash-lite' }, prompt: prompt },
+        speak: { provider: { type: 'eleven_labs', model_id: 'eleven_flash_v2_5', voice_id: this.cfg.dgTts || 'UgBBYS2sOqTuMpoF3BR0' } },
+        greeting: this.cfg.speak ? 'Neo here — ask me anything about what you are seeing.' : ''
+      }
+    };
+  }
+
+  playPcm(buf) {
+    const ctx = this.outCtx;
+    if (!ctx) return;
+    const pcm = new Int16Array(buf);
+    if (!pcm.length) return;
+    const ab = ctx.createBuffer(1, pcm.length, 24000);
+    const ch = ab.getChannelData(0);
+    for (let i = 0; i < pcm.length; i++) ch[i] = pcm[i] / 32768;
+    const src = ctx.createBufferSource();
+    src.buffer = ab;
+    src.connect(ctx.destination);
+    const now = ctx.currentTime;
+    this.playHead = Math.max(this.playHead || 0, now + 0.02);
+    src.start(this.playHead);
+    this.playHead += ab.duration;
+    (this.playing = this.playing || []).push(src);
+    src.onended = () => { this.playing = (this.playing || []).filter(s => s !== src); };
+  }
+
+  flushAudio() {
+    (this.playing || []).forEach(s => { try { s.stop(); } catch (e) {} });
+    this.playing = [];
+    this.playHead = 0;
+  }
+
+  async toggleMic() {
+    if (this.listening) { this.stopMic(false); return; }
+    if (!this.cfg.dgKey) {
+      this.addMsg('bot', 'Add your Deepgram key in ⚙ settings to use the voice agent.');
+      return;
+    }
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({
+        audio: { channelCount: 1, echoCancellation: true, noiseSuppression: true }
+      });
+      const ws = new WebSocket('wss://agent.deepgram.com/v1/agent/converse', ['token', this.cfg.dgKey]);
+      ws.binaryType = 'arraybuffer';
+      this.ws = ws; this.stream = stream;
+      this.outCtx = new (window.AudioContext || window.webkitAudioContext)({ sampleRate: 24000 });
+      this.playHead = 0;
+
+      ws.onopen = () => {
+        try {
+          ws.send(JSON.stringify(this.agentSettings()));
+          const ctx = new (window.AudioContext || window.webkitAudioContext)({ sampleRate: 16000 });
+          this.inCtx = ctx;
+          const src = ctx.createMediaStreamSource(stream);
+          const node = ctx.createScriptProcessor(2048, 1, 1);
+          node.onaudioprocess = (e) => {
+            if (ws.readyState !== 1) return;
+            const f = e.inputBuffer.getChannelData(0);
+            const pcm = new Int16Array(f.length);
+            for (let i = 0; i < f.length; i++) {
+              const s = Math.max(-1, Math.min(1, f[i]));
+              pcm[i] = s < 0 ? s * 0x8000 : s * 0x7FFF;
+            }
+            ws.send(pcm.buffer);
+          };
+          src.connect(node);
+          node.connect(ctx.destination);
+          this.inNode = node;
+          this.micState(true);
+          this.note('Voice agent live — speak naturally, click ■ to stop');
+        } catch (err) {
+          this.addMsg('bot', 'This browser cannot stream audio (' + (err.message || err.name) + '). Try Chrome or Edge.');
+          this.stopMic(false);
+        }
+      };
+
+      ws.onmessage = (ev) => {
+        if (typeof ev.data !== 'string') { this.playPcm(ev.data); return; }
+        let d; try { d = JSON.parse(ev.data); } catch (e) { return; }
+        if (d.type === 'ConversationText') {
+          if (d.role === 'user') this.addMsg('user', d.content);
+          else if (d.content) this.addMsg('bot', d.content);
+        } else if (d.type === 'UserStartedSpeaking') {
+          this.flushAudio();
+        } else if (d.type === 'Error' || d.type === 'Warning') {
+          this.note('Deepgram: ' + (d.description || d.message || d.type));
+        }
+      };
+      ws.onerror = () => { this.addMsg('bot', 'Voice agent connection failed — check the Deepgram key and that your account has Voice Agent access.'); this.stopMic(false); };
+      ws.onclose = () => this.micState(false);
+    } catch (e) {
+      const framed = window.self !== window.top;
+      if (framed) {
+        this.addMsg('bot', 'Voice needs the deck running as its own page — browsers block the mic inside this preview frame. Use the standalone copy of this deck (the downloadable HTML file) and open it from a local web server or your laptop browser; the mic will prompt there. Typing works everywhere, including here.');
+      } else if (e.name === 'NotAllowedError') {
+        this.addMsg('bot', 'Mic permission was denied. Allow microphone for this page in your browser\'s address-bar icon, then click the mic again.');
+      } else {
+        this.addMsg('bot', 'Microphone unavailable: ' + (e.message || e.name) + '.');
+      }
+      this.micState(false);
+    }
+  }
+
+  stopMic() {
+    this.flushAudio();
+    try { if (this.inNode) { this.inNode.disconnect(); this.inNode.onaudioprocess = null; } } catch (e) {}
+    try { if (this.inCtx) this.inCtx.close(); } catch (e) {}
+    try { if (this.outCtx) this.outCtx.close(); } catch (e) {}
+    this.inNode = this.inCtx = this.outCtx = null;
+    try { if (this.stream) this.stream.getTracks().forEach(t => t.stop()); } catch (e) {}
+    try { if (this.ws && this.ws.readyState <= 1) this.ws.close(); } catch (e) {}
+    this.micState(false);
+  }
+
+  renderVals() {
+    return {
+      s7Key: (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); e.stopPropagation(); this.s7Do(e.currentTarget); }
+      },
+      s7Flip: (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        this.s7Do(e.currentTarget);
+      },
+      rootRef: this.rootRef, scrollRef: this.scrollRef, markRef: this.markRef,
+      railRef: this.railRef, hudRef: this.hudRef, countRef: this.countRef,
+      stepRef: this.stepRef, barRef: this.barRef,
+      chatRef: this.chatRef, logRef: this.logRef, inputRef: this.inputRef,
+      thinkProvRef: this.thinkProvRef, thinkModelRef: this.thinkModelRef,
+      setRef: this.setRef, provRef: this.provRef, oaModelRef: this.oaModelRef,
+      dgKeyRef: this.dgKeyRef, dgSttRef: this.dgSttRef, dgTtsRef: this.dgTtsRef,
+      speakRef: this.speakRef, micRef: this.micRef,
+      ringRef: this.ringRef, micIconRef: this.micIconRef,
+      chatBtnLabel: 'Ask Neo',
+      toggleSettings: () => {
+        const el = this.setRef.current;
+        if (el) el.style.display = el.style.display === 'flex' ? 'none' : 'flex';
+      },
+      saveCfg: () => this.saveCfg(),
+      toggleMic: () => this.toggleMic(),
+      toggleChat: () => this.toggleChat(),
+      sendChat: () => this.sendChat(),
+      askSuggested: (e) => {
+        const q = e.currentTarget.getAttribute('data-q');
+        if (!this.chatOpen) this.toggleChat();
+        this.sendChat(q);
+      },
+      onChatKey: (e) => {
+        e.stopPropagation();
+        if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); this.sendChat(); }
+      }
+    };
+  }
+
+  toggleChat() {
+    const el = this.chatRef.current;
+    if (!el) return;
+    this.chatOpen = !this.chatOpen;
+    el.style.display = this.chatOpen ? 'flex' : 'none';
+    if (this.chatOpen) {
+      if (!this.history.length) {
+        this.addMsg('bot', 'Ask me anything that comes up on the call — I answer from this deck: the cognition gap, the knowledge / memory / governance layers, how we fit alongside your existing agent stack, security posture, and next steps.');
+      }
+      const t = this.inputRef.current;
+      if (t) setTimeout(() => t.focus(), 60);
+    }
+  }
+
+  deckContext() {
+    if (this._ctx) return this._ctx;
+    const secs = Array.from((this.sc || document).querySelectorAll('section[data-screen-label]'));
+    this._ctx = (secs.map(s =>
+      '## ' + (s.getAttribute('data-screen-label') || '') + '\n' +
+      (s.innerText || '').replace(/\n{2,}/g, '\n').trim()
+    ).join('\n\n').slice(0, 22000) + '\n\n' + this.appendix()).slice(0, 42000);
+    return this._ctx;
+  }
+
+  voiceContext() {
+    if (this._vctx) return this._vctx;
+    const secs = Array.from((this.sc || document).querySelectorAll('section[data-screen-label]'));
+    const deck = secs.map(s =>
+      '## ' + (s.getAttribute('data-screen-label') || '') + '\n' +
+      (s.innerText || '').replace(/\n{2,}/g, '\n').trim()
+    ).join('\n\n').slice(0, 12000);
+    this._vctx = (deck + '\n\n' + this.appendix().slice(0, 6000)).slice(0, 18000);
+    return this._vctx;
+  }
+
+  appendix() {
+    return [
+      '=== APPENDIX (not shown on screen — use only when asked; say it is appendix/backup material) ===',
+      '## Governance Deep Dive — Governance Layer',
+      'Guardrails: policy-enforced limits on what an agent can access, change and act on — checked before execution.',
+      'Observability: access and change logs, end-to-end traces and operating metrics for every run.',
+      'Outcome Ledger: a decision-centric system of record — what was decided, by which agent, on what evidence.',
+      'Evaluation: release and runtime behaviour gated against measurable quality thresholds.',
+      '## Evaluation Deep Dive — NeoSapients Evaluation Framework',
+      'Pragmatic approach focused on production outcomes; evals for structured data. Used because LLM-as-Judge and adversarial-agent approaches fail.',
+      'Offline evaluation: evaluation against an evaluation dataset; automated evaluation-dataset generation with SME validation; scorers learn from prior queries extracted from production DB logs, existing BI reports and production runs; ablation testing with versioning and experimentation; pragmatic metrics (e.g. faithfulness checks for mathematical accuracy computed by calculator, not the LLM); calibration compares offline evals against production runs to identify issues from observability and update the evaluation dataset.',
+      'Online evaluation: gated launch of agents to production targeting 100% accuracy; real-time gated evals with alerts to a human — warns or stops the process when the outcome is not accurate; gated thresholds set per agent; drift detection against anchored ground truth; provenance footer on every response (databases used, tables selected, data last-update info); evaluation telemetry storage and harvest of corrections; scores evolve on human positive/negative feedback.',
+      '## Evaluation Deep Dive — Probabilistic scoring vs LLM-as-judge',
+      'Chart from an evaluation run on both methods for a Data Analyst Agent: LLM-as-judge, though widely accepted, fails to discriminate bad queries from good; probabilistic query scoring discriminates the predicted query significantly. Thresholds are set based on the impact of the outcome.',
+      '## Use Cases Researched — relevant to credit card companies',
+      'UC1 Transaction dispute + provisional credit: agent processes dispute claims, validates against Amex policy, issues provisional credit within compliance parameters, regulatory-grade evidence logging at every decision step. Features: DB read/write, guardrails, query log eval, regulatory adherence, HITL.',
+      'UC2 Customer service: agent handles cardholder inquiries end-to-end with policy guardrails, HITL escalation thresholds and full audit trail. Features: guardrails, HITL, workflow, policy adherence, audit log.',
+      'UC3 Credit limit increase + affordability check: agent executes affordability assessment, checks eligibility rules, surfaces to a human reviewer only when needed, full decision trace for regulatory audit and appeals. Features: Knowledge Mesh, HITL, governance, eval metrics dashboard.',
+      'UC4 Default recovery / collections: agent manages outreach and negotiation under strict regulatory scripts, with escalation logic and compliance-grade documentation of every interaction step. Features: policy adherence, workflow, read/write logs, governance dashboard.',
+      '## Case Study I — Healthcare: AI platform for Pre-Operative Medical Evaluation (PME)',
+      'Complete agentic workflow management for pre-surgical evaluations across a hospital + telehealth network; manual data aggregation and documentation slowed clearances and burdened nurses. Solution: 5 digital workers automating the full PME pipeline from referral intake to FHIR-ready report. Metrics: 5 digital workers, 1K+ patients/month, HIPAA compliant, under USD 13 cost per patient, 80% reduction in effort and cost.',
+      'Outcomes: AI-scored forms pre-filled before every nurse call; voice agents handle patient validation and verification; patient notes auto-generated and HIE updated via FHIR; AI flags data inconsistencies and alerts on high-risk cases in real time.',
+      'Platform: Knowledge Mesh (HIE + intake unified into one FHIR-ready record, 200+ business rules embedded); Memory Layer (clinical algorithms across 5 workers, full evaluation lifecycle); Digital Worker (intake → aggregation → engagement → evaluation → report); Outcome Ledger (every action logged, HIPAA audit trail with full lineage).',
+      '## Case Study II — Wealth Management: AI Insights Platform',
+      'Wealth AI unifies client, market and portfolio data into one governed layer — agentic customer onboarding, reporting and compliance, giving RMs and clients source-grounded auditable answers instantly. RMs and Ops previously lost hours to manual tasks across disconnected systems. Solution: a natural-language layer over the warehouse with 100% accuracy, sub-10s latency and banker-level access controls, supporting bankers, operations and other stakeholders via agentic workflows.',
+      'Metrics: 4 data domains, 150 users, India data residency, 100% accuracy with assumptions clarified, ≤5 sec simple query latency, complex queries (maturity profiles, 1-yr performance) under 10 seconds.',
+      'Outcomes: instant natural-language answers across client data; banker-level RBAC on every query with full audit trail; India data residency, SSO, zero data retention on NeoWealth cloud.',
+      'Platform: Knowledge Mesh (CKYC, holdings, transactions, tax in one governed graph); Memory Layer (reads banker intent, routes hot queries to views and complex ones to SQL); Digital Worker (AI Advisor: quick facts, client insights, deep analysis); Outcome Ledger (every query and response logged with citations, guardrails enforced).',
+      '## About NeoSapients',
+      'Purpose: help enterprises close the AI Cognition Gap and build digital workers they can trust. Vision: a future where enterprise AI is both trustworthy and accountable. Ambition: deploy AI without dread, deliver results without doubt. Positioning: the cognitive layer that turns capable agents into accountable digital coworkers — with the knowledge, memory and governance to own every outcome.',
+      '## Differentiation — platform core features, why it matters, impact',
+      'Context Fabric: digital workers learn your organisation processes and knowledge; prepares org data for AI without significant effort. Intent Engine: enriches and interprets user queries beyond generic AI bots. Recursive Reasoning & Planning: a harness for complex workflows, integrating reasoning models for the necessary autonomy. Decision Ledger: governance, guardrails, security, data privacy and controls. Learning & Long-Term Memory: gets smarter with each interaction and updates policy, not just personal preferences.',
+      'Impact themes: trustworthy decisions (AI that reasons with your rules, not its own), contextual precision (right data, right task, every time), continuous compliance (enforced at execution), scalable expertise (institutional knowledge working 24/7). Research-driven and enterprise-ready: R&D in collaboration with IIT-K and Carnegie Mellon.',
+      '## Why it holds in an enterprise — designed as a trust boundary',
+      '1 Data residency & security: your data, models and workflows never leave your security boundary; NeoSapients runs entirely within your walls. 2 Model agnostic / no vendor lock-in: works with OpenAI, Anthropic, Google Gemini, xAI Grok and custom models. 3 Speed to production: the Digital Worker Foundry compresses deployment from quarters to days. 4 Institutional knowledge retention: Knowledge Mesh maps every relationship between data, decisions and outcomes. 5 Compounding intelligence: every outcome feeds back via the Intelligence Loop. 6 Outcome explainability: human-readable chain of thought for any auditor, regulator or board member. 7 Continuous evals & platform health: cognition scoring builds trust metrics into every response. 8 Domain-specific intelligence from day one: task patterns, failure modes and context heuristics pre-loaded. 9 Build on existing tech and data investments: plugs into Snowflake, Databricks, BigQuery, CRM, ERP — no rip-and-replace. 10 Governance on day 0: policy-as-code guardrails check every action at execution.',
+      '## Illustration — RM meeting prep, from days to minutes',
+      'Current approach (manual and fragmented): RM and team assemble everything by hand; ~1 week gathering research across Alpha Vantage, DB queries, raw tables and static dashboards; reports come back flawed and data inconsistencies force manual re-checks; portfolio comparison and recommendations are slow and vary by analyst; prep cannot keep pace as the book grows. Net: ~1 week per client, manual re-checks, variable quality.',
+      'With NeoSapients: RM and an AI-assisted team start prep together; research and deep-dive insights in minutes with every data source unified into one Knowledge Mesh the AI queries; clean, explainable, auditable and traceable output with no manual re-checks; faster and more accurate recommendations tailored to RM preferences; scale with governance on access-controlled data as the agent learns from every interaction. Net: minutes per client, higher accuracy, fully governed. Payoff: serve more HNI clients without adding headcount or sacrificing quality; RMs focus on the relationship, not data wrangling.',
+      '## AI agents expose the enterprise governance and cognition gap',
+      'Industry data (source: nhimg.org/ai-agents-the-new-attack-surface): 39% accessing unauthorised systems; 33% accessing irrelevant or sensitive data; 64% more identity needs than human users; 48% of organisations operating with an AI governance blind spot. Unmanaged AI is a potential vector for catastrophic data breaches. As agents gain broader access with less oversight, the real risk is the enterprise\'s inability to govern and control. Tools help AI act but do not enforce what AI should do; real governance must operate at runtime, not just in policy documents; AI agents need an independent control layer for approvals, least privilege and traceability. The real challenge is the absence of a unified cognition layer that turns disconnected tools into governed, traceable behaviour.',
+      '## The compound effect — why this is hard to assemble',
+      'Customers build tools, not a system: LLMs, tools, memory, workflows, RAG and agents can be assembled but still leave disconnected components, not the enterprise cognition layer that makes them trustworthy at scale. Institutional memory is hard to operationalise: the hard part is capturing how the organisation decides, escalates and acts over time — judgment that lives in people\'s heads. Governance has to be workflow-native: trust depends on approvals, policy controls, traceability and explainability embedded into execution; bolted-on governance stays disconnected from live workflow cognition. Decision lineage and evidence are non-trivial: a real cognition layer explains what data was used, why a decision was made and what action was taken, requiring lineage, evidence trails and auditability across workflows. It is a product and operating-model problem: cognition requires ongoing design around policy logic, workflows, data, controls and adoption, which makes the platform harder to replicate over time.'
+    ].join('\n');
+  }
+
+  addMsg(who, text) {
+    const log = this.logRef.current;
+    if (!log) return null;
+    const wrap = document.createElement('div');
+    const mine = who === 'user';
+    wrap.style.cssText = 'display:flex;flex-direction:column;gap:5px;align-items:' + (mine ? 'flex-end' : 'flex-start') + ';';
+    const tag = document.createElement('span');
+    tag.style.cssText = "font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:" + (mine ? '#8F86B8' : '#C4B5FD') + ';';
+    tag.textContent = mine ? 'You' : 'NeoSapients';
+    const body = document.createElement('div');
+    body.style.cssText = 'max-width:88%;white-space:pre-wrap;text-wrap:pretty;border-radius:14px;padding:11px 14px;' + (mine
+      ? 'background:rgba(255,255,255,.07);border:1px solid rgba(196,181,253,.18);color:#EDEAF7;'
+      : 'background:linear-gradient(160deg,rgba(124,58,237,.32),rgba(124,58,237,.12));border:1px solid rgba(167,139,250,.4);color:#fff;');
+    body.textContent = text;
+    wrap.appendChild(tag);
+    wrap.appendChild(body);
+    log.appendChild(wrap);
+    log.scrollTop = log.scrollHeight;
+    return body;
+  }
+
+  clean(s) {
+    return (s || '')
+      .replace(/```[a-z]*\n?/gi, '')
+      .replace(/^\s*#{1,6}\s*/gm, '')
+      .replace(/\*\*(.+?)\*\*/g, '$1')
+      .replace(/__(.+?)__/g, '$1')
+      .replace(/(^|[\s(])\*(\S[^*]*?)\*(?=[\s.,;:)!?]|$)/g, '$1$2')
+      .replace(/`([^`]+)`/g, '$1')
+      .replace(/^\s*[-*•]\s+/gm, '·  ')
+      .replace(/^\s*\d+[.)]\s+/gm, '·  ')
+      .replace(/\n{3,}/g, '\n\n')
+      .trim();
+  }
+
+  async sendChat(preset) {
+    const input = this.inputRef.current;
+    const q = (preset || (input ? input.value : '')).trim();
+    if (!q || this.busy) return;
+    if (!preset && input) { input.value = ''; input.style.height = 'auto'; }
+    this.addMsg('user', q);
+    const slot = this.addMsg('bot', 'Thinking…');
+    this.busy = true;
+    const label = this.sections && this.sections[this.active]
+      ? this.sections[this.active].getAttribute('data-screen-label') : '';
+    this.history.push({ role: 'user', content: q });
+    try {
+      const res = await this.ask(
+        'You are a NeoSapients solutions lead answering live Q&A during a client presentation to American Express. ' +
+          'Answer ONLY from the deck content below, plus obvious inference. Be direct and conversational — 2-5 sentences, ' +
+          'or up to 4 short bullets for lists. No preamble, no restating the question. Write PLAIN TEXT only — ' +
+          'never use markdown: no asterisks, underscores, backticks, headers or numbered "1." lists. ' +
+          'For a list, put each item on its own line starting with "· ". ' +
+          'Reference the relevant slide by name when useful. If the deck does not cover it, say so in one line and offer ' +
+          'what the team would follow up with. The presenter is currently on slide: ' + label + '.\n\n=== DECK ===\n' + this.deckContext(),
+        this.history.slice(-8)
+      );
+      const text = this.clean((res || '').trim()) || 'No answer came back — try rephrasing.';
+      this.history.push({ role: 'assistant', content: text });
+      if (slot) slot.textContent = text;
+    } catch (err) {
+      if (slot) slot.textContent = (err && err.message) ? err.message : 'Could not reach the assistant just now. Try again in a moment.';
+    }
+    this.busy = false;
+    if (this.logRef.current) this.logRef.current.scrollTop = this.logRef.current.scrollHeight;
+  }
+
+  toggleTheatre(box, btn) {
+    if (this.__theatre) return this.exitTheatre();
+    const frame = box.querySelector('[data-vid]') || box;
+    const req = frame.requestFullscreen || frame.webkitRequestFullscreen || frame.msRequestFullscreen;
+    const overlay = () => {
+      const ov = document.createElement('div');
+      ov.setAttribute('data-theatre', '1');
+      ov.style.cssText = 'position:fixed;inset:0;z-index:2147483000;background:#000;display:flex;align-items:center;justify-content:center;';
+      const close = document.createElement('button');
+      close.type = 'button';
+      close.textContent = '✕  Close';
+      close.style.cssText = "position:absolute;top:18px;right:18px;z-index:2;appearance:none;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:15px;letter-spacing:.16em;text-transform:uppercase;color:#EDEAF7;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.35);border-radius:12px;padding:10px 16px;";
+      close.addEventListener('click', (ev) => { ev.stopPropagation(); this.exitTheatre(); });
+      const shell = document.createElement('div');
+      shell.style.cssText = 'width:100vw;height:100vh;max-width:100vw;max-height:100vh;aspect-ratio:16/9;';
+      ov.appendChild(close);
+      ov.appendChild(shell);
+      document.body.appendChild(ov);
+      this.__home = { parent: frame.parentNode, next: frame.nextSibling, css: frame.getAttribute('style') || '' };
+      frame.setAttribute('style', 'position:absolute;inset:0;width:100%;height:100%;border:0;display:block;');
+      shell.appendChild(frame);
+      shell.style.position = 'relative';
+      document.documentElement.style.overflow = 'hidden';
+      this.__theatre = ov;
+      if (btn) btn.setAttribute('data-open', '1');
+      if (!this.__esc) {
+        this.__esc = (ev) => { if (ev.key === 'Escape' && this.__theatre) { ev.stopPropagation(); this.exitTheatre(); } };
+        window.addEventListener('keydown', this.__esc, true);
+      }
+    };
+    if (req) {
+      let r = null;
+      try { r = req.call(frame); } catch (err) { r = null; }
+      if (r && r.then) {
+        r.then(() => {
+          this.__native = frame;
+          if (btn) btn.setAttribute('data-open', '1');
+        }).catch(overlay);
+        if (!this.__fsExit) {
+          this.__fsExit = () => {
+            if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+              this.__native = null;
+              const bb = document.querySelector('[data-fs][data-open]');
+              if (bb) bb.removeAttribute('data-open');
+            }
+          };
+          document.addEventListener('fullscreenchange', this.__fsExit);
+          document.addEventListener('webkitfullscreenchange', this.__fsExit);
+        }
+        return;
+      }
+      if (document.fullscreenElement === frame) { this.__native = frame; return; }
+    }
+    overlay();
+  }
+
+  exitTheatre() {
+    if (this.__native) {
+      const ex = document.exitFullscreen || document.webkitExitFullscreen;
+      if (ex) { try { ex.call(document); } catch (err) {} }
+      this.__native = null;
+    }
+    const ov = this.__theatre;
+    if (ov) {
+      const frame = ov.querySelector('[data-vid]');
+      const home = this.__home;
+      if (frame && home && home.parent) {
+        frame.setAttribute('style', home.css);
+        home.parent.insertBefore(frame, home.next || null);
+      }
+      ov.remove();
+      document.documentElement.style.overflow = '';
+      this.__theatre = null;
+      this.__home = null;
+    }
+    const bb = document.querySelector('[data-fs][data-open]');
+    if (bb) bb.removeAttribute('data-open');
+  }
+
+  componentDidMount() {
+    this.timer = setTimeout(() => { this.setup(); this.loadCfg(); this.setupVideos(); }, 60);
+    this.__s7Guard = (e) => {
+      if (!e.target || !e.target.closest) return;
+      const fs = e.target.closest('[data-fs]');
+      if (fs) {
+        e.stopPropagation();
+        if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+        if (e.type === 'click') {
+          e.preventDefault();
+          const sec = fs.closest('section');
+          const frame = sec && sec.querySelector('[data-vid]');
+          const box = frame && (frame.closest('[style*="aspect-ratio"]') || frame.parentElement);
+          if (box) this.toggleTheatre(box, fs);
+        }
+        return;
+      }
+      const jump = e.target.closest('[data-goto]');
+      if (jump) {
+        e.stopPropagation();
+        if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+        if (e.type === 'click') { e.preventDefault(); this.goToLabel(jump.getAttribute('data-goto')); }
+        return;
+      }
+      const face = e.target.closest('[data-flip] [data-face]');
+      if (!face) return;
+      e.stopPropagation();
+      if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+      if (e.type === 'click') { e.preventDefault(); this.s7Do(face); }
+    };
+    ['pointerdown', 'mousedown', 'mouseup', 'click'].forEach(t =>
+      document.addEventListener(t, this.__s7Guard, true));
+  }
+
+  componentWillUnmount() {
+    if (this.__s7Guard) ['pointerdown', 'mousedown', 'mouseup', 'click'].forEach(t =>
+      document.removeEventListener(t, this.__s7Guard, true));
+  }
+
+  goToLabel(prefix) {
+    const list = this.sections || Array.from(document.querySelectorAll('section[data-screen-label]'));
+    const i = list.findIndex(s => (s.getAttribute('data-screen-label') || '').startsWith(prefix + ' '));
+    if (i >= 0) this.goTo(i);
+  }
+
+  s7Do(el) {
+    const clicked = el.closest('[data-flip]');
+    if (!clicked) return;
+    const sec = clicked.closest('section') || document;
+    const wraps = Array.from(sec.querySelectorAll('[data-flip]'));
+    const toBack = clicked.querySelector('[data-face="front"]').style.display !== 'none';
+    wraps.forEach((w, i) => this.s7Face(w, toBack, i * 90));
+  }
+
+  s7Face(wrap, toBack, delay) {
+    if (!wrap || wrap.dataset.busy) return;
+    const front = wrap.querySelector('[data-face="front"]');
+    const back = wrap.querySelector('[data-face="back"]');
+    if (!front || !back) return;
+    if (!front.dataset.display) front.dataset.display = getComputedStyle(front).display;
+    if (!back.dataset.display) back.dataset.display = 'block';
+    const isBack = front.style.display === 'none';
+    if (isBack === !!toBack) return;
+    const out = toBack ? front : back;
+    const inc = toBack ? back : front;
+    wrap.dataset.busy = '1';
+    out.style.animation = 'none';
+    void out.offsetWidth;
+    out.style.animation = 'nsFaceOut .26s ' + (delay || 0) + 'ms cubic-bezier(.55,0,.85,.3) both';
+    setTimeout(() => {
+      out.style.display = 'none';
+      out.style.animation = 'none';
+      inc.style.display = inc.dataset.display;
+      inc.style.animation = 'none';
+      void inc.offsetWidth;
+      inc.style.animation = 'nsFaceIn .38s cubic-bezier(.15,.85,.25,1) both';
+      setTimeout(() => { delete wrap.dataset.busy; }, 380);
+    }, 250 + (delay || 0));
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.timer);
+    clearInterval(this.fallback);
+    window.removeEventListener('keydown', this.onKey);
+    window.removeEventListener('resize', this.onResize);
+    if (this.sc) this.sc.removeEventListener('scroll', this.onScroll);
+    this.stopMic(false);
+    if (this.audio) this.audio.pause();
+  }
+
+  setup() {
+    const root = this.rootRef.current;
+    const sc = this.scrollRef.current;
+    if (!root || !sc) return;
+    this.sc = sc;
+    this.sections = Array.from(sc.querySelectorAll('section[data-screen-label]'));
+    this.manual = this.props.buildMode !== 'auto';
+
+    this.sections.forEach(s => {
+      Array.from(s.querySelectorAll('[data-r]')).forEach(el => {
+        el.style.transition = 'opacity .66s cubic-bezier(.16,.84,.24,1), transform .82s cubic-bezier(.16,.84,.24,1), filter .6s ease';
+        el.style.transform = el.hasAttribute('data-idx')
+          ? 'translateX(-60px) translateY(10px) scale(.985)'
+          : 'translateY(30px) scale(.975)';
+        el.style.filter = 'blur(6px)';
+        el.style.willChange = 'opacity, transform, filter';
+      });
+      this.steps.set(s, 0);
+    });
+
+    this.ambient([0, 1, 2]);
+    this.buildRail();
+    this.fit();
+    this.onResize = () => { clearTimeout(this._rz); this._rz = setTimeout(() => this.fit(), 180); };
+    window.addEventListener('resize', this.onResize);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => this.fit());
+
+    this.onKey = this.handleKey.bind(this);
+    window.addEventListener('keydown', this.onKey);
+    this.onScroll = () => {
+      const max = sc.scrollHeight - sc.clientHeight;
+      if (this.barRef.current) this.barRef.current.style.width = (max > 0 ? (sc.scrollTop / max) * 100 : 0) + '%';
+      this.syncActive();
+    };
+    sc.addEventListener('scroll', this.onScroll, { passive: true });
+
+    this.onEnter(0);
+    if (this.hudRef.current) this.hudRef.current.style.opacity = '1';
+
+    // failsafe: never leave copy invisible, but never pre-fire a build either
+    this.fallback = setInterval(() => {
+      // only sections the presenter has already passed — never pre-fire anything ahead
+      this.sections.forEach((s, i) => {
+        if (i >= this.active) return;
+        this.revealAll(s);
+      });
+    }, 4000);
+  }
+
+  ambient(only) {
+    const idx = (only == null) ? this.sections.map((_, k) => k) : only;
+    idx.forEach((i) => {
+      const s = this.sections[i];
+      if (!s || s.__amb) return;
+      const dark = s.getAttribute('data-theme') === 'dark';
+      const c1 = dark ? 'rgba(124,58,237,.38)' : 'rgba(124,58,237,.16)';
+      const c2 = dark ? 'rgba(192,38,211,.26)' : 'rgba(192,38,211,.11)';
+      s.__orbs = [];
+      const orb = (css) => {
+        const d = document.createElement('div');
+        d.style.cssText = 'position:absolute;border-radius:50%;pointer-events:none;z-index:0;animation-play-state:paused;' + css;
+        s.insertBefore(d, s.firstChild);
+        s.__orbs.push(d);
+      };
+      orb('width:50vw;height:50vw;left:' + (i % 2 ? '52%' : '-16%') + ';top:' + (i % 3 ? '-20%' : '38%') +
+        ';background:radial-gradient(circle,' + c1 + ',transparent 68%);filter:blur(70px);animation:nsDrift ' + (24 + (i % 5) * 4) + 's ease-in-out infinite;');
+      orb('width:34vw;height:34vw;left:' + (i % 2 ? '-12%' : '64%') + ';top:' + (i % 3 ? '52%' : '-14%') +
+        ';background:radial-gradient(circle,' + c2 + ',transparent 68%);filter:blur(80px);animation:nsDrift2 ' + (31 + (i % 4) * 5) + 's ease-in-out infinite;');
+
+      Array.from(s.querySelectorAll('[data-anim]')).forEach((el, k) => {
+        const kind = el.getAttribute('data-anim');
+        const d = (k * 0.4).toFixed(2) + 's';
+        if (kind === 'bigdrift') el.style.animation = 'nsBigDrift 26s ease-in-out infinite';
+        else if (kind === 'spark') el.style.animation = 'nsSpark 4.6s ease-in-out ' + d + ' infinite';
+        else if (kind === 'ring') el.style.animation = 'nsRing 3.4s ease-in-out ' + d + ' infinite';
+        else if (kind === 'race') el.style.animation = 'nsRace .8s cubic-bezier(.16,.9,.18,1) ' + (0.12 + k * 0.3).toFixed(2) + 's both';
+        else if (kind === 'grow') {
+          el.style.transformOrigin = 'left center';
+          el.style.animation = 'nsGrow 1.1s cubic-bezier(.2,.8,.2,1) ' + (0.35 + k * 0.22).toFixed(2) + 's both';
+        }
+      });
+      s.__amb = true;
+    });
+  }
+
+  syncActive() {
+    const sc = this.sc;
+    if (!sc || !this.sections) return;
+    const mid = sc.scrollTop + sc.clientHeight / 2;
+    const tops = this.tops;
+    let best = 0, bestD = Infinity;
+    this.sections.forEach((s, i) => {
+      const c = (tops ? tops[i] : s.offsetTop) + s.offsetHeight / 2;
+      const d = Math.abs(c - mid);
+      if (d < bestD) { bestD = d; best = i; }
+    });
+    if (best !== this.active) { this.active = best; this.onEnter(best); }
+  }
+
+  fit() {
+    const sc = this.sc;
+    if (!sc || !this.sections) return;
+    const avail = sc.clientHeight;
+    if (!avail) return;
+    this.sections.forEach(s => {
+      let w = s.__wrap;
+      if (!w) {
+        w = document.createElement('div');
+        w.style.cssText = 'display:flex;flex-direction:column;align-items:inherit;width:100%;transform-origin:center center;';
+        Array.from(s.childNodes)
+          .filter(n => !(n.nodeType === 1 && getComputedStyle(n).position === 'absolute'))
+          .forEach(n => w.appendChild(n));
+        s.appendChild(w);
+        s.__wrap = w;
+      }
+      s.style.height = '';
+      w.style.transform = 'none';
+      if (s.__ptBase == null) s.__ptBase = parseFloat(getComputedStyle(s).paddingTop) || 0;
+      s.style.paddingTop = Math.max(s.__ptBase, 78) + 'px';
+      const cs = getComputedStyle(s);
+      const safe = 44; // reserved strip for the fixed presenter HUD / progress bar
+      const inner = avail - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom) - safe;
+      const h = w.offsetHeight;
+      const k = (h > inner && inner > 0) ? Math.max(0.52, inner / h) : 1;
+      w.style.transform = 'translateY(' + (-safe / 2) + 'px)' + (k < 1 ? ' scale(' + k + ')' : '');
+      s.style.height = avail + 'px';
+    });
+    this.tops = this.sections.map(s => s.offsetTop);
+  }
+
+  buildRail() {
+    const rail = this.railRef.current;
+    if (!rail) return;
+    rail.innerHTML = '';
+    this.dots = this.sections.map((s, i) => {
+      const d = document.createElement('button');
+      d.title = s.getAttribute('data-screen-label') || '';
+      d.style.cssText = 'appearance:none;border:0;padding:0;cursor:pointer;width:7px;height:7px;border-radius:50%;background:rgba(196,181,253,.3);transition:all .3s;';
+      d.addEventListener('click', () => this.goTo(i));
+      rail.appendChild(d);
+      return d;
+    });
+  }
+
+  revealEls(els, base) {
+    let t = base || 0;
+    els.forEach((el, k) => {
+      if (k > 0) t += parseInt(el.getAttribute('data-gap'), 10) || 100;
+      setTimeout(() => {
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0) scale(1)';
+        el.style.filter = 'blur(0px)';
+      }, t);
+    });
+  }
+
+  revealAll(section) {
+    this.revealEls(Array.from(section.querySelectorAll('[data-r]')), 0);
+    this.steps.set(section, 99);
+  }
+
+  setupVideos() {
+    const root = this.rootRef.current;
+    if (!root) return;
+    this.videos = Array.from(root.querySelectorAll('iframe[data-vid]'));
+    if (!document.fullscreenEnabled) {
+      root.querySelectorAll('[data-fs]').forEach(function (el) { el.style.display = 'inline-flex'; });
+    }
+  }
+
+  pauseOffscreenVideos(i) {
+    if (!this.videos || !this.videos.length) return;
+    const active = this.sections[i];
+    this.videos.forEach(v => {
+      if (!active || !active.contains(v)) {
+        try { v.contentWindow.postMessage(JSON.stringify({ method: 'pause' }), '*'); } catch (e) {}
+      }
+    });
+  }
+
+  onEnter(i) {
+    const s = this.sections[i];
+    this.pauseOffscreenVideos(i);
+    const isManual = this.manual && s.hasAttribute('data-manual');
+    const all = Array.from(s.querySelectorAll('[data-r]'));
+    if (isManual) {
+      this.revealEls(all.filter(e => !e.hasAttribute('data-step')), 0);
+      if (this.steps.get(s) > 0) this.showSteps(s, this.steps.get(s));
+    } else {
+      this.revealEls(all, 120);
+      this.steps.set(s, 99);
+    }
+    this.ambient([i - 1, i, i + 1].filter(k => k >= 0 && k < this.sections.length));
+    this.sections.forEach((sec, k) => {
+      if (!sec.__orbs) return;
+      const near = Math.abs(k - i) <= 1;
+      sec.__orbs.forEach(o => {
+        o.style.animationPlayState = near ? 'running' : 'paused';
+        o.style.display = near ? 'block' : 'none';
+      });
+    });
+    this.paintChrome(i, s);
+  }
+
+  maxStep(s) {
+    return Array.from(s.querySelectorAll('[data-step]'))
+      .reduce((m, e) => Math.max(m, parseInt(e.getAttribute('data-step'), 10) || 0), 0);
+  }
+
+  showSteps(s, n) {
+    const els = Array.from(s.querySelectorAll('[data-step]'))
+      .filter(e => (parseInt(e.getAttribute('data-step'), 10) || 0) <= n && e.style.opacity !== '1');
+    this.revealEls(els, 0);
+  }
+
+  paintChrome(i, s) {
+    const light = s.getAttribute('data-theme') === 'light';
+    const R = window.__resources || {};
+    if (this.markRef.current) this.markRef.current.src = light
+      ? (R.logoDark || 'assets/logo-dark-text.png')
+      : (R.logoLight || 'assets/logo-light-text.png');
+    if (this.dots) this.dots.forEach((d, k) => {
+      const on = k === i;
+      d.style.background = on ? (light ? '#6D28D9' : '#C4B5FD') : (light ? 'rgba(36,4,83,.22)' : 'rgba(196,181,253,.3)');
+      d.style.transform = on ? 'scale(1.9)' : 'scale(1)';
+    });
+    if (this.countRef.current) {
+      this.countRef.current.textContent = String(i + 1).padStart(2, '0') + ' / ' + String(this.sections.length).padStart(2, '0');
+      this.countRef.current.style.color = light ? '#3D1B85' : '#C4B5FD';
+    }
+    this.paintStepHud(s);
+  }
+
+  paintStepHud(s) {
+    const el = this.stepRef.current;
+    if (!el) return;
+    const light = s.getAttribute('data-theme') === 'light';
+    const max = this.maxStep(s);
+    const isManual = this.manual && s.hasAttribute('data-manual') && max > 0;
+    if (!isManual) { el.textContent = ''; return; }
+    const cur = Math.min(this.steps.get(s) || 0, max);
+    el.textContent = '· build ' + cur + '/' + max;
+    el.style.color = light ? '#C026D3' : '#F0ABFC';
+  }
+
+  goTo(i) {
+    const n = Math.max(0, Math.min(this.sections.length - 1, i));
+    const top = this.tops ? this.tops[n] : this.sections[n].offsetTop;
+    const sc = this.sc;
+    const from = sc.scrollTop;
+    try { sc.scrollTo({ top: top, behavior: 'smooth' }); } catch (e) { sc.scrollTop = top; }
+    clearTimeout(this._navChk);
+    this._navChk = setTimeout(() => {
+      if (Math.abs(sc.scrollTop - top) > 4 && Math.abs(sc.scrollTop - from) < 4) {
+        sc.style.scrollBehavior = 'auto';
+        sc.scrollTop = top;
+        this.syncActive();
+      }
+    }, 260);
+  }
+
+  handleKey(e) {
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    const t = e.target;
+    if (t && (t.tagName === 'TEXTAREA' || t.tagName === 'INPUT' || t.tagName === 'IFRAME' || t.isContentEditable)) return;
+    const s = this.sections[this.active];
+    const fwd = e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ' || e.key === 'PageDown';
+    const back = e.key === 'ArrowLeft' || e.key === 'ArrowUp' || e.key === 'PageUp';
+    if (!fwd && !back) {
+      if (e.key === 'Home') { e.preventDefault(); this.goTo(0); }
+      if (e.key === 'End') { e.preventDefault(); this.goTo(this.sections.length - 1); }
+      return;
+    }
+    e.preventDefault();
+    if (fwd) {
+      const max = this.maxStep(s);
+      const cur = this.steps.get(s) || 0;
+      if (this.manual && s.hasAttribute('data-manual') && cur < max) {
+        this.steps.set(s, cur + 1);
+        this.showSteps(s, cur + 1);
+        this.paintStepHud(s);
+        return;
+      }
+      this.goTo(this.active + 1);
+    } else {
+      this.goTo(this.active - 1);
+    }
+  }
+}
+
+</script>
+
+</body></html>
