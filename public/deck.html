@@ -716,7 +716,7 @@
       </div>
       <div style="display:flex;flex-direction:column;gap:7px;">
         <label style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#C4B5FD;">Deepgram API key — voice</label>
-        <input ref="{{ dgKeyRef }}" sc-camel-on-change="{{ saveCfg }}" type="password" autocomplete="off" placeholder="Deepgram key" style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(196,181,253,.24);border-radius:10px;padding:9px 11px;outline:none;">
+        <input ref="{{ dgKeyRef }}" sc-camel-on-change="{{ saveCfg }}" type="text" autocomplete="off" name="dg-value-1" placeholder="Deepgram key" style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(196,181,253,.24);border-radius:10px;padding:9px 11px;outline:none;-webkit-text-security:disc;">
         <div style="display:flex;gap:8px;">
           <input ref="{{ dgSttRef }}" sc-camel-on-change="{{ saveCfg }}" placeholder="flux-general-multi" title="Listen model" style="flex:1;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(196,181,253,.24);border-radius:10px;padding:9px 11px;outline:none;">
           <input ref="{{ dgTtsRef }}" sc-camel-on-change="{{ saveCfg }}" placeholder="ElevenLabs voice id" title="Speak voice" style="flex:1;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(196,181,253,.24);border-radius:10px;padding:9px 11px;outline:none;">
