@@ -696,44 +696,7 @@
         <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#C4B5FD;">Answers grounded in this deck</span>
       </div>
       <div style="display:flex;align-items:center;gap:8px;">
-        <button sc-camel-on-click="{{ toggleSettings }}" title="Configure keys" style="appearance:none;cursor:pointer;border:1px solid rgba(196,181,253,.3);background:rgba(255,255,255,.06);color:#C4B5FD;border-radius:9px;width:30px;height:30px;font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1;">⚙</button>
         <button sc-camel-on-click="{{ toggleChat }}" style="appearance:none;cursor:pointer;border:1px solid rgba(196,181,253,.3);background:rgba(255,255,255,.06);color:#C4B5FD;border-radius:9px;width:30px;height:30px;font-size:15px;line-height:1;">✕</button>
-      </div>
-    </div>
-
-    <div ref="{{ setRef }}" style="display:none;flex-direction:column;gap:14px;padding:18px;border-bottom:1px solid rgba(167,139,250,.22);background:rgba(255,255,255,.03);max-height:52vh;overflow-y:auto;">
-      <div style="display:flex;flex-direction:column;gap:7px;">
-        <label style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#C4B5FD;">Answer engine</label>
-        <sc-raw-select ref="{{ provRef }}" sc-camel-on-change="{{ saveCfg }}" style="font-family:inherit;font-size:13px;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(196,181,253,.24);border-radius:10px;padding:9px 11px;outline:none;">
-          <option value="builtin">Built-in (works only inside this workspace)</option>
-          <option value="openai">OpenAI (works in a downloaded file)</option>
-        </sc-raw-select>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:7px;">
-        <label style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#C4B5FD;">OpenAI model</label>
-        <input ref="{{ oaModelRef }}" sc-camel-on-change="{{ saveCfg }}" autocomplete="off" placeholder="gpt-4o-mini" style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(196,181,253,.24);border-radius:10px;padding:9px 11px;outline:none;">
-        <div style="font-size:10.5px;line-height:1.4;color:#8F86B8;">The key is read from OPENAI_API_KEY on the server — nothing to paste here.</div>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:7px;">
-        <label style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#C4B5FD;">Deepgram API key — voice</label>
-        <input ref="{{ dgKeyRef }}" sc-camel-on-change="{{ saveCfg }}" type="text" autocomplete="off" name="dg-value-1" placeholder="Deepgram key" style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(196,181,253,.24);border-radius:10px;padding:9px 11px;outline:none;-webkit-text-security:disc;">
-        <div style="display:flex;gap:8px;">
-          <input ref="{{ dgSttRef }}" sc-camel-on-change="{{ saveCfg }}" placeholder="flux-general-multi" title="Listen model" style="flex:1;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(196,181,253,.24);border-radius:10px;padding:9px 11px;outline:none;">
-          <input ref="{{ dgTtsRef }}" sc-camel-on-change="{{ saveCfg }}" placeholder="ElevenLabs voice id" title="Speak voice" style="flex:1;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(196,181,253,.24);border-radius:10px;padding:9px 11px;outline:none;">
-        </div>
-        <div style="display:flex;gap:8px;">
-          <sc-raw-select ref="{{ thinkProvRef }}" sc-camel-on-change="{{ saveCfg }}" title="Reasoning provider" style="flex:1;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(196,181,253,.24);border-radius:10px;padding:9px 11px;outline:none;">
-            <option value="google">google</option>
-            <option value="open_ai">open_ai</option>
-            <option value="anthropic">anthropic</option>
-          </sc-raw-select>
-          <input ref="{{ thinkModelRef }}" sc-camel-on-change="{{ saveCfg }}" placeholder="gemini-3.1-flash-lite" title="Reasoning model" style="flex:1;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(196,181,253,.24);border-radius:10px;padding:9px 11px;outline:none;">
-        </div>
-        <label style="display:flex;align-items:center;gap:9px;font-size:12.5px;color:#DDD5F2;cursor:pointer;">
-          <input ref="{{ speakRef }}" sc-camel-on-change="{{ saveCfg }}" type="checkbox" style="width:15px;height:15px;accent-color:#C026D3;">
-          Agent opens with a spoken greeting
-        </label>
-        <div style="font-size:10.5px;line-height:1.4;color:#8F86B8;">The mic runs Deepgram's Voice Agent — it listens, reasons over this deck and speaks back on one connection. Auto-filled from DEEPGRAM_API_KEY on the server if set; override here if needed. Needs mic permission on an https page.</div>
       </div>
     </div>
 
@@ -859,7 +822,7 @@ class Component extends DCLogic {
       return (j.choices && j.choices[0] && j.choices[0].message.content) || '';
     }
     if (!(window.claude && window.claude.complete)) {
-      throw new Error('The built-in engine only works inside the Omelette workspace. Open ⚙ settings, switch the answer engine to OpenAI and paste your key.');
+      throw new Error('The built-in engine only works inside the Omelette workspace.');
     }
     const res = await window.claude.complete({ model: 'claude-sonnet-4-5', max_tokens: 700, system, messages });
     return typeof res === 'string' ? res : (res && res.text) || '';
@@ -951,7 +914,7 @@ class Component extends DCLogic {
   async toggleMic() {
     if (this.listening) { this.stopMic(false); return; }
     if (!this.cfg.dgKey) {
-      this.addMsg('bot', 'Add your Deepgram key in ⚙ settings to use the voice agent.');
+      this.addMsg('bot', 'Voice agent is not configured on the server.');
       return;
     }
     try {
@@ -1056,10 +1019,6 @@ class Component extends DCLogic {
       speakRef: this.speakRef, micRef: this.micRef,
       ringRef: this.ringRef, micIconRef: this.micIconRef,
       chatBtnLabel: 'Ask Neo',
-      toggleSettings: () => {
-        const el = this.setRef.current;
-        if (el) el.style.display = el.style.display === 'flex' ? 'none' : 'flex';
-      },
       saveCfg: () => this.saveCfg(),
       toggleChat: () => this.toggleChat(),
       toggleMic: () => this.toggleMic(),
