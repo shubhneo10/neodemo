@@ -698,9 +698,9 @@
         </sc-raw-select>
       </div>
       <div style="display:flex;flex-direction:column;gap:7px;">
-        <label style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#C4B5FD;">OpenAI API key</label>
-        <input ref="{{ oaKeyRef }}" sc-camel-on-change="{{ saveCfg }}" type="password" placeholder="sk-…" style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(196,181,253,.24);border-radius:10px;padding:9px 11px;outline:none;">
+        <label style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#C4B5FD;">OpenAI model</label>
         <input ref="{{ oaModelRef }}" sc-camel-on-change="{{ saveCfg }}" placeholder="gpt-4o-mini" style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(196,181,253,.24);border-radius:10px;padding:9px 11px;outline:none;">
+        <div style="font-size:10.5px;line-height:1.4;color:#8F86B8;">The key is read from OPENAI_API_KEY on the server — nothing to paste here.</div>
       </div>
     </div>
 
@@ -746,9 +746,8 @@ class Component extends DCLogic {
     this.busy = false;
     this.setRef = React.createRef();
     this.provRef = React.createRef();
-    this.oaKeyRef = React.createRef();
     this.oaModelRef = React.createRef();
-    this.cfg = { provider: 'builtin', oaKey: '', oaModel: 'gpt-4o-mini' };
+    this.cfg = { provider: 'builtin', oaModel: 'gpt-4o-mini' };
   }
 
   loadCfg() {
@@ -758,7 +757,6 @@ class Component extends DCLogic {
     } catch (e) {}
     const c = this.cfg;
     if (this.provRef.current) this.provRef.current.value = c.provider;
-    if (this.oaKeyRef.current) this.oaKeyRef.current.value = c.oaKey;
     if (this.oaModelRef.current) this.oaModelRef.current.value = c.oaModel;
     this.saveCfg();
     if (!(window.claude && window.claude.complete)) {
@@ -775,7 +773,6 @@ class Component extends DCLogic {
     const v = (r, d) => (r.current && r.current.value.trim()) || d;
     this.cfg = {
       provider: v(this.provRef, 'builtin'),
-      oaKey: v(this.oaKeyRef, ''),
       oaModel: v(this.oaModelRef, 'gpt-4o-mini')
     };
     try { localStorage.setItem('ns_qna_cfg_v2', JSON.stringify(this.cfg)); } catch (e) {}
@@ -783,18 +780,17 @@ class Component extends DCLogic {
 
   async ask(system, messages) {
     if (this.cfg.provider === 'openai') {
-      if (!this.cfg.oaKey) throw new Error('Add your OpenAI key in ⚙ settings.');
-      const r = await fetch('https://api.openai.com/v1/chat/completions', {
+      const r = await fetch('/api/chat', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + this.cfg.oaKey },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           model: this.cfg.oaModel || 'gpt-4o-mini',
-          max_tokens: 700,
-          messages: [{ role: 'system', content: system }].concat(messages)
+          system,
+          messages
         })
       });
-      if (!r.ok) throw new Error('OpenAI error ' + r.status);
       const j = await r.json();
+      if (!r.ok) throw new Error((j && j.error && (j.error.message || j.error)) || 'OpenAI error ' + r.status);
       return (j.choices && j.choices[0] && j.choices[0].message.content) || '';
     }
     if (!(window.claude && window.claude.complete)) {
@@ -828,7 +824,7 @@ class Component extends DCLogic {
       railRef: this.railRef, hudRef: this.hudRef, countRef: this.countRef,
       stepRef: this.stepRef, barRef: this.barRef,
       chatRef: this.chatRef, logRef: this.logRef, inputRef: this.inputRef,
-      setRef: this.setRef, provRef: this.provRef, oaKeyRef: this.oaKeyRef, oaModelRef: this.oaModelRef,
+      setRef: this.setRef, provRef: this.provRef, oaModelRef: this.oaModelRef,
       chatBtnLabel: 'Ask Neo',
       toggleSettings: () => {
         const el = this.setRef.current;
