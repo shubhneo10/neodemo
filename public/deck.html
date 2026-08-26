@@ -19,6 +19,8 @@
   @keyframes nsFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
   @keyframes nsPulse { 0%,100%{opacity:.35;transform:scale(1)} 50%{opacity:.7;transform:scale(1.06)} }
   @keyframes nsFlow { 0%{background-position:0% 50%} 100%{background-position:200% 50%} }
+  @keyframes nsVoiceRing { 0%{transform:scale(.9);opacity:.85} 100%{transform:scale(1.5);opacity:0} }
+  @keyframes nsVoiceGlow { 0%,100%{box-shadow:0 0 0 0 rgba(240,171,252,.45)} 50%{box-shadow:0 0 26px 6px rgba(192,38,211,.55)} }
   @keyframes nsDash { to { stroke-dashoffset:-24; } }
   @keyframes nsNudge { 0%,100%{transform:translateX(0);opacity:.75} 50%{transform:translateX(7px);opacity:1} }
   @keyframes nsGlow { 0%,100%{box-shadow:0 30px 70px -30px rgba(124,58,237,.55)} 50%{box-shadow:0 30px 90px -25px rgba(192,38,211,.85)} }
@@ -665,6 +667,16 @@
   </div>
 
   <div style="position:fixed;right:clamp(20px,2.6vw,44px);bottom:clamp(22px,3vh,40px);z-index:60;display:flex;align-items:center;gap:10px;">
+  <button ref="{{ micRef }}" sc-camel-on-click="{{ toggleMic }}" title="Voice agent mode" style="position:relative;display:flex;align-items:center;justify-content:center;width:46px;height:46px;appearance:none;cursor:pointer;border:1px solid rgba(196,181,253,.34);border-radius:50%;background:rgba(12,6,40,.85);backdrop-filter:blur(10px);box-shadow:0 16px 40px -18px rgba(10,5,32,.9);">
+    <span ref="{{ ringRef }}" style="position:absolute;inset:-6px;border-radius:50%;border:2px solid rgba(240,171,252,.55);opacity:0;pointer-events:none;"></span>
+    <svg ref="{{ micIconRef }}" sc-camel-view-box="0 0 24 24" width="20" height="20" fill="none" stroke="#C4B5FD" stroke-width="2" stroke-linecap="round">
+      <path d="M4 10v4"></path>
+      <path d="M8.5 6.5v11"></path>
+      <path d="M13 3.5v17"></path>
+      <path d="M17.5 7.5v9"></path>
+      <path d="M21.5 11v2"></path>
+    </svg>
+  </button>
   <button sc-camel-on-click="{{ toggleChat }}" title="Ask Neo — live Q&amp;A on this deck" style="position:relative;display:flex;align-items:center;gap:14px;appearance:none;cursor:pointer;border:1px solid rgba(240,171,252,.55);border-radius:999px;padding:15px 28px 15px 22px;color:#fff;background:linear-gradient(100deg,#7C3AED,#C026D3,#7C3AED);background-size:200% auto;animation:nsFlow 6s linear infinite, nsRing 3.4s ease-in-out infinite;box-shadow:0 22px 54px -18px rgba(192,38,211,.95);transition:transform .25s;" style-hover="transform:translateY(-2px);filter:brightness(1.12)">
     <span style="position:relative;display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.4);flex:none;">
       <span style="position:absolute;inset:-5px;border-radius:50%;border:1px solid rgba(240,171,252,.5);animation:nsPulse 2.2s ease-in-out infinite;pointer-events:none;"></span>
@@ -699,8 +711,29 @@
       </div>
       <div style="display:flex;flex-direction:column;gap:7px;">
         <label style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#C4B5FD;">OpenAI model</label>
-        <input ref="{{ oaModelRef }}" sc-camel-on-change="{{ saveCfg }}" placeholder="gpt-4o-mini" style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(196,181,253,.24);border-radius:10px;padding:9px 11px;outline:none;">
+        <input ref="{{ oaModelRef }}" sc-camel-on-change="{{ saveCfg }}" autocomplete="off" placeholder="gpt-4o-mini" style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(196,181,253,.24);border-radius:10px;padding:9px 11px;outline:none;">
         <div style="font-size:10.5px;line-height:1.4;color:#8F86B8;">The key is read from OPENAI_API_KEY on the server — nothing to paste here.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:7px;">
+        <label style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#C4B5FD;">Deepgram API key — voice</label>
+        <input ref="{{ dgKeyRef }}" sc-camel-on-change="{{ saveCfg }}" type="password" autocomplete="off" placeholder="Deepgram key" style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(196,181,253,.24);border-radius:10px;padding:9px 11px;outline:none;">
+        <div style="display:flex;gap:8px;">
+          <input ref="{{ dgSttRef }}" sc-camel-on-change="{{ saveCfg }}" placeholder="flux-general-multi" title="Listen model" style="flex:1;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(196,181,253,.24);border-radius:10px;padding:9px 11px;outline:none;">
+          <input ref="{{ dgTtsRef }}" sc-camel-on-change="{{ saveCfg }}" placeholder="ElevenLabs voice id" title="Speak voice" style="flex:1;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(196,181,253,.24);border-radius:10px;padding:9px 11px;outline:none;">
+        </div>
+        <div style="display:flex;gap:8px;">
+          <sc-raw-select ref="{{ thinkProvRef }}" sc-camel-on-change="{{ saveCfg }}" title="Reasoning provider" style="flex:1;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(196,181,253,.24);border-radius:10px;padding:9px 11px;outline:none;">
+            <option value="google">google</option>
+            <option value="open_ai">open_ai</option>
+            <option value="anthropic">anthropic</option>
+          </sc-raw-select>
+          <input ref="{{ thinkModelRef }}" sc-camel-on-change="{{ saveCfg }}" placeholder="gemini-3.1-flash-lite" title="Reasoning model" style="flex:1;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(196,181,253,.24);border-radius:10px;padding:9px 11px;outline:none;">
+        </div>
+        <label style="display:flex;align-items:center;gap:9px;font-size:12.5px;color:#DDD5F2;cursor:pointer;">
+          <input ref="{{ speakRef }}" sc-camel-on-change="{{ saveCfg }}" type="checkbox" style="width:15px;height:15px;accent-color:#C026D3;">
+          Agent opens with a spoken greeting
+        </label>
+        <div style="font-size:10.5px;line-height:1.4;color:#8F86B8;">The mic runs Deepgram's Voice Agent — it listens, reasons over this deck and speaks back on one connection. Auto-filled from DEEPGRAM_API_KEY on the server if set; override here if needed. Needs mic permission on an https page.</div>
       </div>
     </div>
 
@@ -747,7 +780,19 @@ class Component extends DCLogic {
     this.setRef = React.createRef();
     this.provRef = React.createRef();
     this.oaModelRef = React.createRef();
-    this.cfg = { provider: 'builtin', oaModel: 'gpt-4o-mini' };
+    this.dgKeyRef = React.createRef();
+    this.dgSttRef = React.createRef();
+    this.dgTtsRef = React.createRef();
+    this.thinkProvRef = React.createRef();
+    this.thinkModelRef = React.createRef();
+    this.speakRef = React.createRef();
+    this.micRef = React.createRef();
+    this.ringRef = React.createRef();
+    this.micIconRef = React.createRef();
+    this.cfg = { provider: 'builtin', oaModel: 'gpt-4o-mini', dgKey: '',
+      dgStt: 'flux-general-multi', dgTts: 'UgBBYS2sOqTuMpoF3BR0',
+      thinkProv: 'google', thinkModel: 'gemini-3.1-flash-lite', speak: true };
+    this.listening = false;
   }
 
   loadCfg() {
@@ -758,7 +803,21 @@ class Component extends DCLogic {
     const c = this.cfg;
     if (this.provRef.current) this.provRef.current.value = c.provider;
     if (this.oaModelRef.current) this.oaModelRef.current.value = c.oaModel;
+    if (this.dgKeyRef.current) this.dgKeyRef.current.value = c.dgKey;
+    if (this.dgSttRef.current) this.dgSttRef.current.value = c.dgStt;
+    if (this.dgTtsRef.current) this.dgTtsRef.current.value = c.dgTts;
+    if (this.thinkProvRef.current) this.thinkProvRef.current.value = c.thinkProv;
+    if (this.thinkModelRef.current) this.thinkModelRef.current.value = c.thinkModel;
+    if (this.speakRef.current) this.speakRef.current.checked = !!c.speak;
     this.saveCfg();
+    if (!c.dgKey) {
+      fetch('/api/deepgram-key').then(r => r.json()).then(j => {
+        if (j.key && !this.cfg.dgKey) {
+          this.cfg.dgKey = j.key;
+          if (this.dgKeyRef.current) this.dgKeyRef.current.value = j.key;
+        }
+      }).catch(() => {});
+    }
     if (!(window.claude && window.claude.complete)) {
       const sel = this.provRef.current;
       if (sel) {
@@ -773,7 +832,13 @@ class Component extends DCLogic {
     const v = (r, d) => (r.current && r.current.value.trim()) || d;
     this.cfg = {
       provider: v(this.provRef, 'builtin'),
-      oaModel: v(this.oaModelRef, 'gpt-4o-mini')
+      oaModel: v(this.oaModelRef, 'gpt-4o-mini'),
+      dgKey: v(this.dgKeyRef, ''),
+      dgStt: v(this.dgSttRef, 'flux-general-multi'),
+      dgTts: v(this.dgTtsRef, 'UgBBYS2sOqTuMpoF3BR0'),
+      thinkProv: v(this.thinkProvRef, 'google'),
+      thinkModel: v(this.thinkModelRef, 'gemini-3.1-flash-lite'),
+      speak: !!(this.speakRef.current && this.speakRef.current.checked)
     };
     try { localStorage.setItem('ns_qna_cfg_v2', JSON.stringify(this.cfg)); } catch (e) {}
   }
@@ -810,6 +875,167 @@ class Component extends DCLogic {
     log.scrollTop = log.scrollHeight;
   }
 
+  micState(on) {
+    this.listening = on;
+    const b = this.micRef.current;
+    const ring = this.ringRef.current;
+    const icon = this.micIconRef.current;
+    if (b) {
+      b.style.background = on
+        ? 'linear-gradient(100deg,#7C3AED,#C026D3,#7C3AED)' : 'rgba(12,6,40,.85)';
+      b.style.backgroundSize = '200% auto';
+      b.style.borderColor = on ? 'rgba(240,171,252,.75)' : 'rgba(196,181,253,.34)';
+      b.style.animation = on ? 'nsFlow 5s linear infinite, nsVoiceGlow 2.4s ease-in-out infinite' : 'none';
+      b.title = on ? 'Voice agent live — click to stop' : 'Voice agent mode';
+    }
+    if (ring) {
+      ring.style.opacity = on ? '1' : '0';
+      ring.style.animation = on ? 'nsVoiceRing 1.9s ease-out infinite' : 'none';
+    }
+    if (icon) icon.style.stroke = on ? '#fff' : '#C4B5FD';
+  }
+
+  agentSettings() {
+    const label = this.sections && this.sections[this.active]
+      ? this.sections[this.active].getAttribute('data-screen-label') : '';
+    const prompt =
+      'You are a NeoSapients solutions lead on a live video call with American Express, answering questions about the ' +
+      'presentation being shown.\n\n#Style\n- Speak conversationally; your words are spoken aloud.\n' +
+      '- 1-3 sentences, under 300 characters, unless asked for depth.\n- No markdown, no lists unless asked.\n' +
+      '- Answer only from the deck below plus obvious inference. If it is not covered, say so briefly and offer a follow-up.\n' +
+      '- Name the relevant slide when it helps. The presenter is currently on: ' + label + '.\n' +
+      '- Ask a short clarifying question if the request is ambiguous. Never interrupt.\n\n#Scope\n' +
+      '- ONLY answer the question asked. Never present, narrate, summarise or walk through the deck.\n' +
+      '- Do not describe what is on screen or offer a tour; the human presenter does that.\n' +
+      '- No unsolicited pitching or follow-on topics — answer, then stop.\n\n=== DECK (reference only) ===\n' + this.deckContext();
+    return {
+      type: 'Settings',
+      audio: {
+        input: { encoding: 'linear16', sample_rate: 16000 },
+        output: { encoding: 'linear16', sample_rate: 24000, container: 'none' }
+      },
+      agent: {
+        listen: { provider: { type: 'deepgram', version: 'v2', model: this.cfg.dgStt || 'flux-general-multi', eager_eot_threshold: 0.6, eot_threshold: 0.7, eot_timeout_ms: 3000 } },
+        think: { provider: { type: this.cfg.thinkProv || 'google', model: this.cfg.thinkModel || 'gemini-3.1-flash-lite' }, prompt: prompt },
+        speak: { provider: { type: 'eleven_labs', model_id: 'eleven_flash_v2_5', voice_id: this.cfg.dgTts || 'UgBBYS2sOqTuMpoF3BR0' } },
+        greeting: this.cfg.speak ? 'Neo here — ask me anything about what you are seeing.' : ''
+      }
+    };
+  }
+
+  playPcm(buf) {
+    const ctx = this.outCtx;
+    if (!ctx) return;
+    const pcm = new Int16Array(buf);
+    if (!pcm.length) return;
+    const ab = ctx.createBuffer(1, pcm.length, 24000);
+    const ch = ab.getChannelData(0);
+    for (let i = 0; i < pcm.length; i++) ch[i] = pcm[i] / 32768;
+    const src = ctx.createBufferSource();
+    src.buffer = ab;
+    src.connect(ctx.destination);
+    const now = ctx.currentTime;
+    this.playHead = Math.max(this.playHead || 0, now + 0.02);
+    src.start(this.playHead);
+    this.playHead += ab.duration;
+    (this.playing = this.playing || []).push(src);
+    src.onended = () => { this.playing = (this.playing || []).filter(s => s !== src); };
+  }
+
+  flushAudio() {
+    (this.playing || []).forEach(s => { try { s.stop(); } catch (e) {} });
+    this.playing = [];
+    this.playHead = 0;
+  }
+
+  async toggleMic() {
+    if (this.listening) { this.stopMic(false); return; }
+    if (!this.cfg.dgKey) {
+      this.addMsg('bot', 'Add your Deepgram key in ⚙ settings to use the voice agent.');
+      return;
+    }
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({
+        audio: { channelCount: 1, echoCancellation: true, noiseSuppression: true }
+      });
+      const ws = new WebSocket('wss://agent.deepgram.com/v1/agent/converse', ['token', this.cfg.dgKey]);
+      ws.binaryType = 'arraybuffer';
+      this.ws = ws; this.stream = stream;
+      this.outCtx = new (window.AudioContext || window.webkitAudioContext)({ sampleRate: 24000 });
+      this.playHead = 0;
+
+      ws.onopen = () => {
+        try {
+          ws.send(JSON.stringify(this.agentSettings()));
+          const ctx = new (window.AudioContext || window.webkitAudioContext)({ sampleRate: 16000 });
+          this.inCtx = ctx;
+          const src = ctx.createMediaStreamSource(stream);
+          const node = ctx.createScriptProcessor(2048, 1, 1);
+          node.onaudioprocess = (e) => {
+            if (ws.readyState !== 1) return;
+            const f = e.inputBuffer.getChannelData(0);
+            const pcm = new Int16Array(f.length);
+            for (let i = 0; i < f.length; i++) {
+              const s = Math.max(-1, Math.min(1, f[i]));
+              pcm[i] = s < 0 ? s * 0x8000 : s * 0x7FFF;
+            }
+            ws.send(pcm.buffer);
+          };
+          src.connect(node);
+          node.connect(ctx.destination);
+          this.inNode = node;
+          this.micState(true);
+          this.note('Voice agent live — speak naturally, click ■ to stop');
+        } catch (err) {
+          this.addMsg('bot', 'This browser cannot stream audio (' + (err.message || err.name) + '). Try Chrome or Edge.');
+          this.stopMic(false);
+        }
+      };
+
+      ws.onmessage = (ev) => {
+        if (typeof ev.data !== 'string') { this.playPcm(ev.data); return; }
+        let d; try { d = JSON.parse(ev.data); } catch (e) { return; }
+        if (d.type === 'ConversationText') {
+          if (d.role === 'user') this.addMsg('user', d.content);
+          else if (d.content) this.addMsg('bot', d.content);
+        } else if (d.type === 'UserStartedSpeaking') {
+          this.flushAudio();
+        } else if (d.type === 'Error' || d.type === 'Warning') {
+          this.note('Deepgram: ' + (d.description || d.message || d.type));
+        }
+      };
+      ws.onerror = (ev) => { console.error('Deepgram agent WS error', ev); };
+      ws.onclose = (ev) => {
+        console.warn('Deepgram agent WS closed', ev.code, ev.reason);
+        if (ev.code !== 1000) {
+          this.addMsg('bot', 'Voice agent connection closed (code ' + ev.code + (ev.reason ? ': ' + ev.reason : '') + '). Check the Deepgram key and that your account has Voice Agent access.');
+        }
+        this.stopMic(false);
+      };
+    } catch (e) {
+      const framed = window.self !== window.top;
+      if (framed) {
+        this.addMsg('bot', 'Voice needs the deck running as its own page — browsers block the mic inside this preview frame. Open the deployed URL directly in your browser; the mic will prompt there. Typing works everywhere, including here.');
+      } else if (e.name === 'NotAllowedError') {
+        this.addMsg('bot', 'Mic permission was denied. Allow microphone for this page in your browser\'s address-bar icon, then click the mic again.');
+      } else {
+        this.addMsg('bot', 'Microphone unavailable: ' + (e.message || e.name) + '.');
+      }
+      this.micState(false);
+    }
+  }
+
+  stopMic() {
+    this.flushAudio();
+    try { if (this.inNode) { this.inNode.disconnect(); this.inNode.onaudioprocess = null; } } catch (e) {}
+    try { if (this.inCtx) this.inCtx.close(); } catch (e) {}
+    try { if (this.outCtx) this.outCtx.close(); } catch (e) {}
+    this.inNode = this.inCtx = this.outCtx = null;
+    try { if (this.stream) this.stream.getTracks().forEach(t => t.stop()); } catch (e) {}
+    try { if (this.ws && this.ws.readyState <= 1) this.ws.close(); } catch (e) {}
+    this.micState(false);
+  }
+
   renderVals() {
     return {
       s7Key: (e) => {
@@ -824,7 +1050,11 @@ class Component extends DCLogic {
       railRef: this.railRef, hudRef: this.hudRef, countRef: this.countRef,
       stepRef: this.stepRef, barRef: this.barRef,
       chatRef: this.chatRef, logRef: this.logRef, inputRef: this.inputRef,
+      thinkProvRef: this.thinkProvRef, thinkModelRef: this.thinkModelRef,
       setRef: this.setRef, provRef: this.provRef, oaModelRef: this.oaModelRef,
+      dgKeyRef: this.dgKeyRef, dgSttRef: this.dgSttRef, dgTtsRef: this.dgTtsRef,
+      speakRef: this.speakRef, micRef: this.micRef,
+      ringRef: this.ringRef, micIconRef: this.micIconRef,
       chatBtnLabel: 'Ask Neo',
       toggleSettings: () => {
         const el = this.setRef.current;
@@ -832,6 +1062,7 @@ class Component extends DCLogic {
       },
       saveCfg: () => this.saveCfg(),
       toggleChat: () => this.toggleChat(),
+      toggleMic: () => this.toggleMic(),
       sendChat: () => this.sendChat(),
       askSuggested: (e) => {
         const q = e.currentTarget.getAttribute('data-q');
