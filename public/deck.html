@@ -696,7 +696,35 @@
         <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#C4B5FD;">Answers grounded in this deck</span>
       </div>
       <div style="display:flex;align-items:center;gap:8px;">
+        <button sc-camel-on-click="{{ toggleSettings }}" title="Voice agent settings" style="appearance:none;cursor:pointer;border:1px solid rgba(196,181,253,.3);background:rgba(255,255,255,.06);color:#C4B5FD;border-radius:9px;width:30px;height:30px;font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1;">⚙</button>
         <button sc-camel-on-click="{{ toggleChat }}" style="appearance:none;cursor:pointer;border:1px solid rgba(196,181,253,.3);background:rgba(255,255,255,.06);color:#C4B5FD;border-radius:9px;width:30px;height:30px;font-size:15px;line-height:1;">✕</button>
+      </div>
+    </div>
+
+    <div ref="{{ setRef }}" style="display:none;flex-direction:column;gap:14px;padding:18px;border-bottom:1px solid rgba(167,139,250,.22);background:rgba(255,255,255,.03);max-height:52vh;overflow-y:auto;">
+      <div style="display:flex;flex-direction:column;gap:7px;">
+        <label style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#C4B5FD;">OpenAI model</label>
+        <input ref="{{ oaModelRef }}" sc-camel-on-change="{{ saveCfg }}" autocomplete="off" placeholder="gpt-4o-mini" style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(196,181,253,.24);border-radius:10px;padding:9px 11px;outline:none;">
+      </div>
+      <div style="display:none;flex-direction:column;gap:7px;">
+        <label style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#C4B5FD;">Voice agent</label>
+        <div style="display:flex;gap:8px;">
+          <input ref="{{ dgSttRef }}" sc-camel-on-change="{{ saveCfg }}" placeholder="flux-general-multi" title="Listen model" style="flex:1;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(196,181,253,.24);border-radius:10px;padding:9px 11px;outline:none;">
+          <input ref="{{ dgTtsRef }}" sc-camel-on-change="{{ saveCfg }}" placeholder="ElevenLabs voice id" title="Speak voice" style="flex:1;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(196,181,253,.24);border-radius:10px;padding:9px 11px;outline:none;">
+        </div>
+        <div style="display:flex;gap:8px;">
+          <sc-raw-select ref="{{ thinkProvRef }}" sc-camel-on-change="{{ saveCfg }}" title="Reasoning provider" style="flex:1;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(196,181,253,.24);border-radius:10px;padding:9px 11px;outline:none;">
+            <option value="google">google</option>
+            <option value="open_ai">open_ai</option>
+            <option value="anthropic">anthropic</option>
+          </sc-raw-select>
+          <input ref="{{ thinkModelRef }}" sc-camel-on-change="{{ saveCfg }}" placeholder="gemini-3.1-flash-lite" title="Reasoning model" style="flex:1;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(196,181,253,.24);border-radius:10px;padding:9px 11px;outline:none;">
+        </div>
+        <label style="display:flex;align-items:center;gap:9px;font-size:12.5px;color:#DDD5F2;cursor:pointer;">
+          <input ref="{{ speakRef }}" sc-camel-on-change="{{ saveCfg }}" type="checkbox" style="width:15px;height:15px;accent-color:#C026D3;">
+          Agent opens with a spoken greeting
+        </label>
+        <div style="font-size:10.5px;line-height:1.4;color:#8F86B8;">Keys are configured on the server — nothing sensitive is shown or stored here.</div>
       </div>
     </div>
 
@@ -763,45 +791,33 @@ class Component extends DCLogic {
       const raw = localStorage.getItem('ns_qna_cfg_v2') || localStorage.getItem('ns_qna_cfg');
       if (raw) Object.assign(this.cfg, JSON.parse(raw));
     } catch (e) {}
+    if (!(window.claude && window.claude.complete)) this.cfg.provider = 'openai';
     const c = this.cfg;
-    if (this.provRef.current) this.provRef.current.value = c.provider;
     if (this.oaModelRef.current) this.oaModelRef.current.value = c.oaModel;
-    if (this.dgKeyRef.current) this.dgKeyRef.current.value = c.dgKey;
     if (this.dgSttRef.current) this.dgSttRef.current.value = c.dgStt;
     if (this.dgTtsRef.current) this.dgTtsRef.current.value = c.dgTts;
     if (this.thinkProvRef.current) this.thinkProvRef.current.value = c.thinkProv;
     if (this.thinkModelRef.current) this.thinkModelRef.current.value = c.thinkModel;
     if (this.speakRef.current) this.speakRef.current.checked = !!c.speak;
     this.saveCfg();
-    if (!c.dgKey) {
+    if (!this.cfg.dgKey) {
       fetch('/api/deepgram-key').then(r => r.json()).then(j => {
-        if (j.key && !this.cfg.dgKey) {
-          this.cfg.dgKey = j.key;
-          if (this.dgKeyRef.current) this.dgKeyRef.current.value = j.key;
-        }
+        if (j.key && !this.cfg.dgKey) this.cfg.dgKey = j.key;
       }).catch(() => {});
-    }
-    if (!(window.claude && window.claude.complete)) {
-      const sel = this.provRef.current;
-      if (sel) {
-        const opt = sel.querySelector('option[value="builtin"]');
-        if (opt) opt.textContent = 'Built-in (unavailable in this standalone file)';
-        if (c.provider === 'builtin') { sel.value = 'openai'; this.saveCfg(); }
-      }
     }
   }
 
   saveCfg() {
     const v = (r, d) => (r.current && r.current.value.trim()) || d;
     this.cfg = {
-      provider: v(this.provRef, 'builtin'),
-      oaModel: v(this.oaModelRef, 'gpt-4o-mini'),
-      dgKey: v(this.dgKeyRef, ''),
-      dgStt: v(this.dgSttRef, 'flux-general-multi'),
-      dgTts: v(this.dgTtsRef, 'UgBBYS2sOqTuMpoF3BR0'),
-      thinkProv: v(this.thinkProvRef, 'google'),
-      thinkModel: v(this.thinkModelRef, 'gemini-3.1-flash-lite'),
-      speak: !!(this.speakRef.current && this.speakRef.current.checked)
+      provider: this.cfg.provider || 'builtin',
+      oaModel: v(this.oaModelRef, this.cfg.oaModel || 'gpt-4o-mini'),
+      dgKey: this.cfg.dgKey || '',
+      dgStt: v(this.dgSttRef, this.cfg.dgStt || 'flux-general-multi'),
+      dgTts: v(this.dgTtsRef, this.cfg.dgTts || 'UgBBYS2sOqTuMpoF3BR0'),
+      thinkProv: v(this.thinkProvRef, this.cfg.thinkProv || 'google'),
+      thinkModel: v(this.thinkModelRef, this.cfg.thinkModel || 'gemini-3.1-flash-lite'),
+      speak: this.speakRef.current ? !!this.speakRef.current.checked : (this.cfg.speak !== false)
     };
     try { localStorage.setItem('ns_qna_cfg_v2', JSON.stringify(this.cfg)); } catch (e) {}
   }
@@ -1019,6 +1035,10 @@ class Component extends DCLogic {
       speakRef: this.speakRef, micRef: this.micRef,
       ringRef: this.ringRef, micIconRef: this.micIconRef,
       chatBtnLabel: 'Ask Neo',
+      toggleSettings: () => {
+        const el = this.setRef.current;
+        if (el) el.style.display = el.style.display === 'flex' ? 'none' : 'flex';
+      },
       saveCfg: () => this.saveCfg(),
       toggleChat: () => this.toggleChat(),
       toggleMic: () => this.toggleMic(),
